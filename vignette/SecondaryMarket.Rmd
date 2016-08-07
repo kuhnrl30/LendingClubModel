@@ -1,0 +1,34 @@
+---
+title: "Loans on the Secondary Market"
+author: "Ryan Kuhn"
+output: rmarkdown::html_vignette
+layout: post
+htmlwidgets: false
+comments: true
+tags: [R]
+vignette: >
+    %\VignetteIndexEntry{LabCorp Location Data Workflow}
+    %\VignetteEngine{knitr::rmarkdown}
+    \usepackage[utf8]{inputenc}
+---
+
+### Create a Session and Download the Loans 
+We have to start this process by logging into the Lending Club website before we can download the data. I've saved my credentials into a .Renviron file for repeated use but you can plug your data into the OpenSession() function however you like.
+
+```{r}
+library(P2PLending)
+library(dplyr)
+email<- Sys.getenv("email")
+password<- Sys.getenv("password")
+
+OpenSession(email,password)
+dat<- GetSecondaryMarket()
+```
+
+### Filtering the Loans
+There are usually a lot of loans listed on the secondary market and we won't be interested in most of them. We'll filter the list down based on a few parameters.
+
+```{r}
+dat %>$
+    filter()
+```

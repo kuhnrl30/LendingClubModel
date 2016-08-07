@@ -1,0 +1,57 @@
+---
+title: "Downloading the Data"
+author: "Ryan Kuhn"
+output: rmarkdown::html_vignette
+layout: post
+htmlwidgets: false
+comments: true
+tags: [R]
+vignette: >
+    %\VignetteIndexEntry{LabCorp Location Data Workflow}
+    %\VignetteEngine{knitr::rmarkdown}
+    \usepackage[utf8]{inputenc}
+---
+
+```{r, echo=F}
+knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80)
+```
+
+## Objective 
+The purpose of this vignette is to document the process for downloading the historical loan data from Lending Club and preparing it for further analysis.
+
+### Getting the Data
+#### Links for download 
+```{r}
+Links<- character()
+  Links[1]<- "https://resources.lendingclub.com/LoanStats3a.csv.zip"
+  Links[2]<- "https://resources.lendingclub.com/LoanStats3b.csv.zip"
+  Links[3]<- "https://resources.lendingclub.com/LoanStats3c.csv.zip"
+  Links[4]<- "https://resources.lendingclub.com/LoanStats3d.csv.zip"
+```
+
+
+```{r}
+path<-tempdir()
+lapply(Links, GetLoanData, directory=path)
+df_list<- lapply(paste0(path,"\\",dir(path)), Prep_Loan_Data)
+unlink()
+LoanData<- plyr::rbind.fill(df_list)
+```
+
+### Basic Data Cleaning  
+
+#### Factors
+```{r}
+# Establish factors
+LoadData$purpose <- factor(dat$purpose)
+LoadData$term    <- factor(dat$term)
+LoadData$home_ownership<- factor(dat$home_ownership)
+```
+
+```{r}
+LoadData$collections_12_mths_ex_med <- FillNA(LoadData$collections_12_mths_ex_med, 
+                                         mean(LoadData$collections_12_mths_ex_med, na.rm = T))
+LoadData$open_acc                   <- FillNA(LoadData$open_acc, mean(dat$open_acc, na.rm=T))
+LoadData$inq_last_6mths             <- FillNA(dat$inq_last_6mths, mean(LoadData$inq_last_6mths,na.rm=T)) 
+LoadData$annual_inc                 <- FillNA(dat$annual_inc, mean(dat$annual_inc,na.rm = T))
+```

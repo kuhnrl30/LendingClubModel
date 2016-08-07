@@ -1,0 +1,267 @@
+---
+title: "Exploratory Analysis"
+author: "Ryan Kuhn"
+output: rmarkdown::html_vignette
+layout: post
+htmlwidgets: false
+comments: true
+tags: [R]
+vignette: >
+    %\VignetteIndexEntry{LabCorp Location Data Workflow}
+    %\VignetteEngine{knitr::rmarkdown}
+    \usepackage[utf8]{inputenc}
+---
+
+
+```{r, echo=F}
+knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80)
+```
+
+```{r, echo=FALSE}
+library(P2PLending)
+library(dplyr)
+data(LoanData)
+```
+
+### Summarize loans by status
+```{r}
+LoanData%>%
+  group_by(loan_status) %>%
+  summarise(N= n(),
+            Ttl = sum(as.numeric(loan_amnt))) %>%
+  mutate(PCT.Cnt= PCT(N/sum(N)),
+         Pct.Ttl= PCT(Ttl/sum(Ttl, na.rm=T)))
+```
+
+# Convert the Loan Status to a Factor and Summarize
+```{r StatusTbl}
+# StatusTbl<- data.frame(matrix(data=c(
+#   "Current",            "A",
+#   "Fully Paid",         "A",
+#   "In Grace Period",    "A",
+#   "Late (16-30 days)",  "B",
+#   "Late (31-120 days)", "B",
+#   "Default",            "B",
+#   "Charged Off",        "B",
+#   "",                   "B",
+#   "Does not meet the credit policy. Status:Charged Off", "B",
+#   "Does not meet the credit policy. Status:Current",     "B",
+#   "Does not meet the credit policy. Status:Fully Paid",  "B"),
+#   byrow=T, ncol=2), stringsAsFactors = F)
+# names(StatusTbl)<- c("Status","Class")
+
+# dat$Class.x<- NULL
+# dat$Class.y<- NULL
+# dat<- left_join(dat,StatusTbl, by=c("loan_status"="Status"))
+# save(dat, file=paste(ddir,"/data/historicalloandata.RData",sep=""))
+```
+
+### Default rates by credit grade
+```{r grade}
+dat %>%
+  group_by(grade, Class) %>%
+  summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt)),
+            Avg.Int= round(mean(int_rate)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B")
+```
+
+### Default rate by loan term
+```{r term}
+dat %>%
+  group_by(term, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B")
+```
+### Default rates by loan purpose
+Look at default rate for education!
+```{r purpose}
+dat %>%
+  group_by(purpose, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+
+```
+### Inquiries in last 6 months
+```{r inq_last_6mths}
+dat %>%
+  group_by(inq_last_6mths, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```
+
+### Default rates by initial list status  
+f is for fractional loans and w is for whole loans. Fractional loans are the common form when investors buy a share in the loan. For whole loans, the investor buys the entire loan. A sample of loans are available for 12 hours as whole loans until reverting to fractional loans.  
+```{r inital_status}
+dat %>%
+  group_by(initial_list_status, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```
+### Default rates by employment length  
+```{r}
+dat %>%
+  group_by(emp_length, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```
+
+### Default rates by home ownership
+```{r}
+dat %>%
+  group_by(home_ownership, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B")
+```
+
+### Default rates by delinquencies in the past 2 years
+```{r}
+dat %>%
+  group_by(delinq_2yrs, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```
+
+```{r}
+library(ggplot2)
+
+g<- ggplot(dat)
+g<- g + aes(loan_amnt, group=Class, colour=Class)
+g<- g + geom_density()
+g<- g + labs(title= "Distribution of loan amount by default class")
+g
+```
+
+```{r}
+dat[which(dat$dti>100),"dti"]<- 100
+
+a<- ggplot(dat)
+a<- a + aes(dti, group=Class, colour=Class)
+a<- a + geom_density()
+a<- a + labs(title="Distribution of DTI by default class")
+a
+```
+
+```{r}
+b<- ggplot(dat)
+b<- b + aes(annual_inc, group=Class, colour=Class)
+b<- b + geom_density()
+b<- b + labs(title="Distribution of Annual Income by default class")
+b
+```
+
+
+```{r}
+dat %>%
+  group_by(sub_grade, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```
+
+### Summary by day of the Week  
+
+```{r}
+dat %>%
+  mutate(wday= weekdays(issue_d)) %>%
+  group_by(wday, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B")
+
+dat$wday<- weekdays(dat$issue_d)
+```
+
+### Y/N Public Record  
+```{r}
+dat %>%
+  group_by(d_pub_rec, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```
+
+### Y/N Description Provided   
+```{r}
+dat %>%
+  group_by(d_desc, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```
+
+### Y/N Prior Delinquency  
+```{r}
+dat %>%
+  group_by(d_delinq, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```
+
+### Y/N Employment Title Provided  
+```{r}
+dat %>%
+  group_by(d_emp_title, Class) %>%
+    summarise(N= n(),
+            Ttl= sum(as.numeric(loan_amnt), na.rm=T),
+            Avg.Int= round(mean(int_rate, na.rm=T)*100,2)) %>%
+  mutate(PCT.Cnt= round(N/sum(N, na.rm=T)*100,digits=2),
+         Pct.Ttl= round(Ttl/sum(Ttl, na.rm=T)*100, digits=2)) %>%
+  filter(Class=="B") %>%
+  as.data.frame()
+```

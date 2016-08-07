@@ -1,0 +1,20 @@
+Package: P2PLending
+Type: Package
+Title: Working with Lending Club loan Data
+Version: 0.1.0
+Author: Ryan Kuhn, CPA
+Maintainer: Ryan Kuhn, CPA <kuhnrl30@gmail.com>
+Description: Provides the tools for working with Lending Club data and documents
+    the process to develop a model which minimizes the risk of default
+BugReports: https://github.com/kuhnrl30/P2PLending/issues
+URL: https://www.github.com/kuhnrl30/P2PLending
+License: MIT
+LazyData: TRUE
+RoxygenNote: 5.0.1
+Suggests: knitr
+VignetteBuilder: knitr
+Imports:
+    dplyr,
+    httr,
+    rvest,
+    RCurl
