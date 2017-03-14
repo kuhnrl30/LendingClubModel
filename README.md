@@ -1,8 +1,7 @@
-#P2PLending
-This package is still in development but has two intended purposes: 
+# LendingClubModel 
 
-- The first objective is to create the tools to work with Lending Club's api. It will include functions to 
-query the website and obtain available loans and to view a user's account. The package is likely to also include 
-functions for working with the secondary market.
-- The second objective is to document the process to build a model which seeks to minimize the risk of default and 
-therefore increases the potential portfolio returns.
+This package is still in development will be the workspace used to develop models to reduce the risk of purchasing notes that will default and thereby improve earnings.
+
+This package has a few companion packages:
+- **Lending Club** contains the tools to work with Lending Club's api. It includes functions to query the website and obtain available loans and to view a user's account. The package also contains functions for working with the secondary market.
+- **LendingClubData** documents the process to obtain the historical loan data from the Lending Club website. The data is also contained in the package so it doesn't need to be downloaded repeatedly. 

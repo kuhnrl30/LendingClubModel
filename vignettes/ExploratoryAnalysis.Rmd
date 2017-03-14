@@ -2,12 +2,8 @@
 title: "Exploratory Analysis"
 author: "Ryan Kuhn"
 output: rmarkdown::html_vignette
-layout: post
-htmlwidgets: false
-comments: true
-tags: [R]
 vignette: >
-    %\VignetteIndexEntry{LabCorp Location Data Workflow}
+    %\VignetteIndexEntry{Lending Club Historical Loands Exploratory Analysis}
     %\VignetteEngine{knitr::rmarkdown}
     \usepackage[utf8]{inputenc}
 ---
@@ -20,7 +16,8 @@ knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, ev
 ```{r, echo=FALSE}
 library(P2PLending)
 library(dplyr)
-data(LoanData)
+library(LendingClubData)
+LoanData<- LendingClubData::IssuedLoans()
 ```
 
 ### Summarize loans by status
