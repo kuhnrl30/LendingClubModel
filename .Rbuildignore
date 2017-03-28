@@ -1,2 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^Extraneous/*
+^\docs$
+^_pkgdown.yml
+^.Renviron
+^.Rhistory

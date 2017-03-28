@@ -1,4 +1,4 @@
-#' Round to percent
+#' Round to 2 decimal places
 #'
 #' Simple wrapper for the round function which converts a decimal percentage
 #' to a integer value

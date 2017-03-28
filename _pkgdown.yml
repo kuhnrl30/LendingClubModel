@@ -1,0 +1,35 @@
+template:
+  params:
+    bootswatch: journal
+
+reference:
+- title: All functions
+  desc: ~
+  contents:
+  - FillNA
+  - PCT
+  - SetClass
+  - theme_LC
+
+articles:
+- title: Analysis
+  desc: Each file is an seperate component of the exploratory analysis
+  contents: NumericalVariables
+  
+navbar:
+  title: ~
+  type: default
+  left:
+  - text: Analysis
+    href: articles/index.html
+  - text: Functions
+    href: reference/index.html
+  right:
+    - text: Related Packages
+      menu:
+        - text: LendingClub
+          href: www.ryankuhn.net/LendingClub
+        - text: LendingClubData
+          href: www.ryankuhn.net/LendingClubData
+    - icon: fa-github
+      href: https://github.com/kuhnrl30/LendingClubModel

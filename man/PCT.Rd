@@ -2,7 +2,7 @@
 % Please edit documentation in R/PCT.R
 \name{PCT}
 \alias{PCT}
-\title{Round to percent}
+\title{Round to 2 decimal places}
 \usage{
 PCT(x)
 }
@@ -13,4 +13,3 @@ PCT(x)
 Simple wrapper for the round function which converts a decimal percentage
 to a integer value
 }
-

@@ -1,20 +1,15 @@
-Package: P2PLending
+Package: LendingClubModel
 Type: Package
-Title: Working with Lending Club loan Data
+Title: Developing Models to Reduce Default Risk in Lending Club Loans
 Version: 0.1.0
-Author: Ryan Kuhn, CPA
-Maintainer: Ryan Kuhn, CPA <kuhnrl30@gmail.com>
-Description: Provides the tools for working with Lending Club data and documents
-    the process to develop a model which minimizes the risk of default
-BugReports: https://github.com/kuhnrl30/P2PLending/issues
-URL: https://www.github.com/kuhnrl30/P2PLending
-License: MIT
+Authors@R: person("Ryan", "Kuhn", email= "kuhnrl30@gmail.com", role= c("aut", "cre"))
+Description: Documents the exploratory analyis performed to understand the
+BugReports: https://github.com/kuhnrl30/LendingClubModel/issues
+URL: https://www.github.com/kuhnrl30/LendingClubModel
+License: MIT + file LICENSE
 LazyData: TRUE
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests: knitr
 VignetteBuilder: knitr
 Imports:
-    dplyr,
-    httr,
-    rvest,
-    RCurl
+    dplyr

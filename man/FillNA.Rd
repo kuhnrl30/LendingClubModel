@@ -2,7 +2,7 @@
 % Please edit documentation in R/FillNA.R
 \name{FillNA}
 \alias{FillNA}
-\title{Fill NA value}
+\title{Fill NA values}
 \usage{
 FillNA(x, y)
 }
@@ -14,4 +14,3 @@ FillNA(x, y)
 \description{
 Fills NA values with the given plug value
 }
-

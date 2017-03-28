@@ -1,0 +1,145 @@
+---
+title: "Exploratory Analysis Part I: Numerical Variables"
+author: "Ryan Kuhn"
+output: 
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+vignette: >
+    %\VignetteIndexEntry{Exploratory Analysis Part I - Numerical Variables}
+    %\VignetteEngine{knitr::rmarkdown}
+    \usepackage[utf8]{inputenc}
+---
+
+```{r, echo=F}
+options(scipen = 6)
+knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80, message= FALSE, echo= FALSE, warning = FALSE)
+```
+
+```{r environment, echo=FALSE}
+library(dplyr)
+library(LendingClubData)
+library(LendingClubModel)
+library(ggplot2)
+library(scales)
+LoanData<- LendingClubData::IssuedLoans()
+```
+
+### Start with a Basic Assumption  
+To start off, this analysis makes an assumption about how to classify loans. I've made the assumption that current and loans in the grace period are current (A) and all other loans have defaulted (B).  This is an assumption because some of those late loans will be made current but it's not a likely action. 
+```{r StatusTbl}
+LoanData$Class<- SetClass(LoanData$loan_status)
+LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
+``` 
+
+### Analyzing the distribution by grade
+
+**Quantity by status and grade ** 
+```{r}
+knitr::kable(format(table(LoanData$Class, LoanData$grade),big.mark=",", trim=TRUE), align='r')
+```
+
+**Proportion by status and grade**
+
+```{r}
+knitr::kable(round(prop.table(table(LoanData$Class, LoanData$grade),2),2))
+```
+
+### Analyzing the Loan Amount
+```{r}
+g<- ggplot(LoanData)
+g<- g + aes(loan_amnt, group=grade, colour=grade)
+g<- g + geom_density(size= 1)
+g<- g + labs(title= "Distribution of loan amount by grades",
+             x= "Loan Amount")
+g<- g + theme_LC()
+g
+```
+
+**QUESTION: Why is there a peak at 24,000 and not at 25,000? IS there a cutoff in the scoring model or is 25K a break point for something else?**
+
+```{r, fig.height=6}
+g<- ggplot(LoanData)
+g<- g + aes(loan_amnt, group=Class, colour=Class)
+g<- g + geom_density(size=.75)
+g<- g + labs(x= "Loan Amount")
+g<- g + facet_grid(grade~.)
+g<- g + theme_LC()
+g<- g + labs(title= "Distribution of loan amount by default status")
+g
+```
+
+Looking at grades D through G, the distribution of the defaulted and is fairly consitent with the distribution of current loans. On it's own, this suggests that loan amount won't have a predictive value over default rates.  The exception is there seems to be a slight bump at the $35,000 level which is the maximum Lending Club offers. Loans at the maximum amount default at a disproportionately low rate.  There may be an advantage in investing in loans in these grades at the max loan amount.
+
+There isn't the same hump at the $35,000 level when looking at grade A & B loans.  Those loans are more highly concentrated at the lower loan amount. Perhaps LC's credit rating status punishes the borrower for a higher loan amount. 
+
+
+**QUESTION: Why does the 35,000 loan amount have lower proportionate defaults in grades C though E? Take a look at 35K loans and the relationship with other variables**
+
+
+```{r, fig.height=6}
+g<- ggplot(LoanData)
+g<- g + aes(loan_amnt, group=Class, colour=Class)
+g<- g + geom_density(size=.75)
+g<- g + labs(x= "Loan Amount")
+g<- g + facet_grid(format(LoanData[,"issue_d"],'%Y')~.)
+g<- g + theme_LC()
+g<- g + labs(title= "Distribution of loan amount by vintage")
+g
+```
+
+### Debt-to-Income Ratio  
+
+```{r}
+LoanData[which(LoanData$dti>100),"dti"]<- 100
+
+a<- ggplot(LoanData)
+a<- a + aes(dti, group=Class, colour=Class)
+a<- a + geom_density()
+a<- a + labs(title="Distribution of DTI by default status")
+a<- a + theme_LC()
+a
+```
+
+```{r, fig.height=6}
+a<- ggplot(LoanData)
+a<- a + aes(dti, group=Class, colour=Class)
+a<- a + facet_grid(grade~.)
+a<- a + geom_density()
+a<- a + labs(title="Distribution of DTI by default status")
+a<- a + theme_LC()
+a
+```
+
+### Annual Income 
+```{r}
+b<- ggplot(LoanData)
+b<- b + aes(annual_inc, group=Class, colour=Class)
+b<- b + geom_density()
+b<- b + labs(title="Distribution of Annual Income by default status")
+b<- b + theme_LC()
+b
+```
+
+Clearly we get a better picture if we narrow the range of values.  I'll set a maximum income level of 250,000 so that we see less of the outlines and more of the more dense areas.  There are only 12K loans with incomes greater than $250K which is approximately 1% of the total number of loans. 
+
+```{r}
+table(LoanData$annual_inc>250000)
+LoanData$annual_inc<- ifelse(LoanData$annual_inc>250000,250000,LoanData$annual_inc)
+```
+```{r, fig.height=6}
+b<- ggplot(LoanData)
+b<- b + aes(annual_inc, group=Class, colour=Class)
+b<- b + geom_density()
+b<- b + facet_grid(grade~.)
+b<- b + labs(title="Distribution of Annual Income by default status")
+b<- b + theme_LC()
+b
+```
+
+#### Package Version
+The analysis was based on the flowing version of the LendingClubData.
+
+```{r}
+packageVersion("LendingClubData")
+```

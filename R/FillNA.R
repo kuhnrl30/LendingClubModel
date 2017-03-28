@@ -1,4 +1,4 @@
-#' Fill NA value
+#' Fill NA values
 #'
 #' Fills NA values with the given plug value
 #'
