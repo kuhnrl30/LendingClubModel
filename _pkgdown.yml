@@ -28,8 +28,8 @@ navbar:
     - text: Related Packages
       menu:
         - text: LendingClub
-          href: ../LendingClub
+          href: http://ryankuhn.net/LendingClub
         - text: LendingClubData
-          href: ../LendingClubData
+          href: http://ryankuhn.net/LendingClubData
     - icon: fa-github
       href: https://github.com/kuhnrl30/LendingClubModel
