@@ -1,0 +1,17 @@
+---
+output: html_document
+---
+
+[![Build Status](https://travis-ci.org/kuhnrl30/LendingClubModel.svg?branch=master)](https://travis-ci.org/kuhnrl30/LendingClubModel)
+
+# Lending Club Model 
+
+This package is the workspace to develop a model which reduces the note default risk and thereby improve returns.
+
+This package has a few companion packages:  
+
+**Lending Club** 
+This package contains the tools to work with Lending Club's api. It includes functions to query the website and obtain available loans and to view a user's account. The package also contains functions for working with the secondary market. 
+
+**LendingClubData** 
+This package contains the historical loan data it doesn't need to be downloaded repeatedly from the Lending Club website. It also documents the process to obtain the  data.  

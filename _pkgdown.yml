@@ -1,4 +1,5 @@
 template:
+  ganalytics: 'UA-66230069-1'
   params:
     bootswatch: journal
 
@@ -8,13 +9,16 @@ reference:
   contents:
   - FillNA
   - PCT
-  - SetClass
   - theme_LC
 
 articles:
-- title: Analysis
-  desc: Each file is an seperate component of the exploratory analysis
-  contents: NumericalVariables
+- title: Loan Data
+  contents: 
+  - LoanAmount
+- title: Borrower Data
+  contents:
+  - DebtToIncome
+  - Income
   
 navbar:
   title: LendingClubModel

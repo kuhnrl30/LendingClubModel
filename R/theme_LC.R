@@ -1,8 +1,8 @@
 #' Theme for charts in Lending Club ecosystem 
 #' 
 # Create a standard theme for the Lending Club project
-#' @param base_size
-#' @param base_family
+#' @param base_size base font size
+#' @param base_family base text family
 #' @export
 
 theme_LC<- function (base_size = 11, base_family = ""){

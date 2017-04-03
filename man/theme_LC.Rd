@@ -6,6 +6,11 @@
 \usage{
 theme_LC(base_size = 11, base_family = "")
 }
+\arguments{
+\item{base_size}{base font size}
+
+\item{base_family}{base text family}
+}
 \description{
 Theme for charts in Lending Club ecosystem
 }

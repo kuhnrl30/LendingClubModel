@@ -2,7 +2,6 @@
 
 export(FillNA)
 export(PCT)
-export(SetClass)
 export(theme_LC)
 import(RCurl)
 import(dplyr)

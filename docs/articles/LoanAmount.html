@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exploratory Analysis Part I: Numerical Variables • LendingClubModel</title>
+<title>Loan Amount • LendingClubModel</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -69,8 +69,7 @@
       </header><div class="row">
   <div class="col-md-9">
     <div class="page-header toc-ignore">
-      <h1>Exploratory Analysis Part I: Numerical Variables</h1>
-                        <h4 class="author">Ryan Kuhn</h4>
+      <h1>Loan Amount</h1>
             
           </div>
 
@@ -121,67 +120,21 @@
 </tbody>
 </table>
 <p><strong>Proportion by status and grade</strong></p>
-<table class="table">
-<thead><tr class="header">
-<th></th>
-<th align="right">A</th>
-<th align="right">B</th>
-<th align="right">C</th>
-<th align="right">D</th>
-<th align="right">E</th>
-<th align="right">F</th>
-<th align="right">G</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td align="right">0.97</td>
-<td align="right">0.93</td>
-<td align="right">0.89</td>
-<td align="right">0.83</td>
-<td align="right">0.78</td>
-<td align="right">0.72</td>
-<td align="right">0.67</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td align="right">0.03</td>
-<td align="right">0.07</td>
-<td align="right">0.11</td>
-<td align="right">0.17</td>
-<td align="right">0.22</td>
-<td align="right">0.28</td>
-<td align="right">0.33</td>
-</tr>
-</tbody>
-</table>
+<pre><code>     A      B      C      D      E      F      G</code></pre>
+<hr>
+A 0.97 0.93 0.89 0.83 0.78 0.72 0.67 B 0.03 0.07 0.11 0.17 0.22 0.28 0.33
+<hr>
 </div>
 <div id="analyzing-the-loan-amount" class="section level3">
 <h3 class="hasAnchor">
 <a href="#analyzing-the-loan-amount" class="anchor"></a>Analyzing the Loan Amount</h3>
-<p><img src="NumericalVariables_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
+<p><img src="LoanAmount_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
 <p><strong>QUESTION: Why is there a peak at 24,000 and not at 25,000? IS there a cutoff in the scoring model or is 25K a break point for something else?</strong></p>
-<p><img src="NumericalVariables_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+<p><img src="LoanAmount_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
 <p>Looking at grades D through G, the distribution of the defaulted and is fairly consitent with the distribution of current loans. On it’s own, this suggests that loan amount won’t have a predictive value over default rates. The exception is there seems to be a slight bump at the $35,000 level which is the maximum Lending Club offers. Loans at the maximum amount default at a disproportionately low rate. There may be an advantage in investing in loans in these grades at the max loan amount.</p>
 <p>There isn’t the same hump at the $35,000 level when looking at grade A &amp; B loans. Those loans are more highly concentrated at the lower loan amount. Perhaps LC’s credit rating status punishes the borrower for a higher loan amount.</p>
 <p><strong>QUESTION: Why does the 35,000 loan amount have lower proportionate defaults in grades C though E? Take a look at 35K loans and the relationship with other variables</strong></p>
-<p><img src="NumericalVariables_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
-</div>
-<div id="debt-to-income-ratio" class="section level3">
-<h3 class="hasAnchor">
-<a href="#debt-to-income-ratio" class="anchor"></a>Debt-to-Income Ratio</h3>
-<p><img src="NumericalVariables_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
-<p><img src="NumericalVariables_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
-</div>
-<div id="annual-income" class="section level3">
-<h3 class="hasAnchor">
-<a href="#annual-income" class="anchor"></a>Annual Income</h3>
-<p><img src="NumericalVariables_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
-<p>Clearly we get a better picture if we narrow the range of values. I’ll set a maximum income level of 250,000 so that we see less of the outlines and more of the more dense areas. There are only 12K loans with incomes greater than $250K which is approximately 1% of the total number of loans.</p>
-<pre><code>
-  FALSE    TRUE 
-1206375   11922 </code></pre>
-<p><img src="NumericalVariables_files/figure-html/unnamed-chunk-11-1.png" width="672"></p>
+<p><img src="LoanAmount_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
 <div id="package-version" class="section level4">
 <h4 class="hasAnchor">
 <a href="#package-version" class="anchor"></a>Package Version</h4>

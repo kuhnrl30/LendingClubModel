@@ -1,0 +1,47 @@
+---
+title: "Debt to Income Ratio"
+output: html_document
+vignette: >
+    %\VignetteIndexEntry{Exploratory Analysis- Debt-to-Income}
+    %\VignetteEngine{knitr::rmarkdown}
+    \usepackage[utf8]{inputenc}
+---
+
+```{r, echo=F}
+options(scipen = 6)
+knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80, message= FALSE, echo= FALSE, warning = FALSE)
+```
+
+```{r, child="snippet/_preamble.Rmd"}
+```
+
+### Debt-to-Income Ratio  
+
+Lending Club sets a upper limit of 0.5 debt to income ratio.  There are a few points in the dataset above that limit but they are very clearly outliers.  For this analysis, I've set those values at the limit of 50.
+
+
+```{r}
+LoanData[which(LoanData$dti>50),"dti"]<- 50
+
+a<- ggplot(LoanData)
+a<- a + aes(dti, group=Class, colour=Class)
+a<- a + geom_density()
+a<- a + labs(title="Distribution of DTI by default status")
+a<- a + theme_LC()
+a
+```
+
+```{r, fig.height=6}
+b<- LoanData %>%
+    group_by(grade, Class) %>%
+    summarize(write_mean= mean(dti))
+
+a<- ggplot(LoanData)
+a<- a + aes(dti, group=Class, colour=Class)
+a<- a + facet_grid(grade~.)
+a<- a + geom_density()
+a<- a + geom_vline(aes(xintercept=write_mean),data=b)
+a<- a + labs(title="Distribution of DTI by default status")
+a<- a + theme_LC()
+a
+```

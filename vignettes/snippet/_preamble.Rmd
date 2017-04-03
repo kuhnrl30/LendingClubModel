@@ -1,0 +1,12 @@
+### Start with a Basic Assumption  
+To start off, this analysis makes an assumption about how to classify loans. I've made the assumption that current and loans in the grace period are current (A) and all other loans have defaulted (B).  This is an assumption because some of those late loans will be made current but it's not a likely action. 
+```{r preamble, echo=FALSE}
+library(dplyr)
+library(LendingClubData)
+library(LendingClubModel)
+library(ggplot2)
+library(scales)
+LoanData<- LendingClubData::IssuedLoans()
+LoanData$Class<- SetClass(LoanData$loan_status)
+LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
+``` 
