@@ -1,6 +1,6 @@
 Package: LendingClubModel
 Type: Package
-Title: Developing Models to Reduce Default Risk in Lending Club Loans
+Title: Develop Models to Reduce Default Risk in Lending Club Loans
 Version: 0.1.0
 Authors@R: person("Ryan", "Kuhn", email= "kuhnrl30@gmail.com", role= c("aut", "cre"))
 Description: Documents the exploratory analyis performed to understand the
