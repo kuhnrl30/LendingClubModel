@@ -1,0 +1,1 @@
+1. No filters have been applied to the dataset.  All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.  

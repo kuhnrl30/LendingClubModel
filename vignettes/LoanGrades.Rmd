@@ -1,0 +1,47 @@
+---
+title: "Analysis of Loan Grades"
+output: html_document
+bibliography: bibliographies.bib
+vignette: >
+    %\VignetteIndexEntry{Exploratory Analysis- Loan Amount} 
+    %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc} 
+---
+
+```{r, echo=F}
+options(scipen = 6)
+knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80, message= FALSE, echo= FALSE, warning = FALSE)
+```
+
+```{r, child="snippet/_preamble.Rmd"}
+```
+
+
+```{r, child="snippet/_nofilter.Rmd"}
+```
+
+## Loan Distribution by Grade
+
+**Quantity by grade ** 
+```{r}
+LoanData %>%
+    mutate(Grade= grade) %>%
+    group_by(Grade) %>%
+    summarize(Total= n()) %>%
+    format(big.mark=",") %>%
+    knitr::kable(align=c('l','r'))
+```
+
+**Proportion by status and grade**
+```{r}
+LoanData %>%
+    mutate(Grade=grade) %>%
+    select(Grade, Class) %>%
+    table() %>%
+    format(big.mark=",") %>%
+    knitr::kable(align=c('r','r'))
+```
+
+### Package Version
+The analysis was based on LendingClubData version `r packageVersion("LendingClubData")`.
+
+### References

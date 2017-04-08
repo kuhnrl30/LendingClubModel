@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Annual Income • LendingClubModel</title>
+<title>Analysis of Loan Grades • LendingClubModel</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -69,7 +69,7 @@
       </header><div class="row">
   <div class="col-md-9">
     <div class="page-header toc-ignore">
-      <h1>Annual Income</h1>
+      <h1>Analysis of Loan Grades</h1>
             
           </div>
 
@@ -78,19 +78,114 @@
 <div class="contents">
 <p>To start off, this analysis makes a few assumptions about how to classify loans.</p>
 <ol style="list-style-type: decimal">
-<li>Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B). Some of those late loans will be made current it’s not a likely action. Contrarily, some of the loans in the grace period will go into default.</li>
+<li><p>Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B). Some of those late loans will be made current it’s not a likely action. Contrarily, some of the loans in the grace period will go into default.</p></li>
+<li><p>No filters have been applied to the dataset. All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.</p></li>
 </ol>
-<div id="annual-income" class="section level3">
+<div id="loan-distribution-by-grade" class="section level2">
+<h2 class="hasAnchor">
+<a href="#loan-distribution-by-grade" class="anchor"></a>Loan Distribution by Grade</h2>
+<p><strong>Quantity by grade </strong></p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Grade</th>
+<th align="right">Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">206,143</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">356,726</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">342,915</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">182,890</td>
+</tr>
+<tr class="odd">
+<td align="left">E</td>
+<td align="right">91,218</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">30,840</td>
+</tr>
+<tr class="odd">
+<td align="left">G</td>
+<td align="right">7,569</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Proportion by status and grade</strong></p>
+<table class="table">
+<thead><tr class="header">
+<th></th>
+<th align="right">A</th>
+<th align="right">B</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td align="right">199,443</td>
+<td align="right">6,700</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td align="right">332,471</td>
+<td align="right">24,255</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td align="right">304,443</td>
+<td align="right">38,472</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td align="right">152,287</td>
+<td align="right">30,603</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td align="right">71,227</td>
+<td align="right">19,991</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td align="right">22,351</td>
+<td align="right">8,489</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td align="right">5,057</td>
+<td align="right">2,512</td>
+</tr>
+</tbody>
+</table>
+<div id="package-version" class="section level3">
 <h3 class="hasAnchor">
-<a href="#annual-income" class="anchor"></a>Annual Income</h3>
-<p><img src="Income_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
-<p>Clearly we get a better picture if we narrow the range of values. I’ll set a maximum income level of 250,000 so that we see less of the outlines and more of the more dense areas. There are only 12K loans with incomes greater than $250K which is approximately 1% of the total number of loans.</p>
-<p><img src="Income_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+<a href="#package-version" class="anchor"></a>Package Version</h3>
+<p>The analysis was based on LendingClubData version 0.1.1.</p>
+</div>
+<div id="references" class="section level3">
+<h3 class="hasAnchor">
+<a href="#references" class="anchor"></a>References</h3>
+</div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li><a href="#loan-distribution-by-grade">Loan Distribution by Grade</a></li>
+      </ul>
+</div>
       </div>
 
 </div>

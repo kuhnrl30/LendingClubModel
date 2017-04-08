@@ -15,6 +15,7 @@ articles:
 - title: Loan Data
   contents: 
   - LoanAmount
+  - LoanGrades
 - title: Borrower Data
   contents:
   - DebtToIncome
