@@ -20,6 +20,8 @@ articles:
   contents:
   - DebtToIncome
   - Income
+- Literature Reviews
+  - Model Reviews
   
 navbar:
   title: LendingClubModel
@@ -32,9 +34,11 @@ navbar:
   right:
     - text: Related Packages
       menu:
-        - text: LendingClub
-          href: http://ryankuhn.net/LendingClub
-        - text: LendingClubData
-          href: http://ryankuhn.net/LendingClubData
+      - text: LendingClub
+        href: http://ryankuhn.net/LendingClub
+      - text: LendingClubData
+        href: http://ryankuhn.net/LendingClubData
+    - text: ryankuhn.net
+      href: http://ryankuhn.net
     - icon: fa-github
       href: https://github.com/kuhnrl30/LendingClubModel

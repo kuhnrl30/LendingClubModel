@@ -1,0 +1,16 @@
+```{r preamble, echo=FALSE}
+library(dplyr)
+library(LendingClubData)
+library(LendingClubModel)
+library(ggplot2)
+library(scales)
+library(tidyr)
+LoanData<- LendingClubData::IssuedLoans()
+LoanData$Class<- SetClass(LoanData$loan_status)
+LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
+``` 
+
+To start off, this analysis makes a few assumptions about how to classify loans. 
+
+1. Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B).  Some of those late loans will be made current it's not a likely action. Contrarily, some of the loans in the grace period will go into default. 
+

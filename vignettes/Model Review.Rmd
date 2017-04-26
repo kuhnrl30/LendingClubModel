@@ -1,0 +1,22 @@
+---
+title: "Model Review"
+output: html_document
+bibliography: bibliographies.bib
+---
+
+[@mdlOrourke]
+[@socialLender]
+[@mdlDarren]
+[@mdlDavenport]
+[@mdlWu1]
+[@mdlWu2]
+[@mdlCashorali]
+[@mdlToth]
+[@mdlMistry]
+[@mdlPolena]
+[@mdlKaggle]
+[@mdlDavis]
+[@mdlPatierno]
+
+
+# References
