@@ -4,15 +4,16 @@
 #' @param base_size base font size
 #' @param base_family base text family
 #' @export
+#' @import "RColorBrewer"
 
 theme_LC<- function (base_size = 11, base_family = ""){
 
     half_line <- base_size/2
     library("RColorBrewer")
 
-    list(scale_colour_brewer(palette="Set1"),
+    list(RColorBrewer::scale_colour_brewer(palette="Set1"),
 
-         scale_fill_brewer(palette="Set1"),
+         RColorBrewer::scale_fill_brewer(palette="Set1"),
 
     theme( line = element_line(	colour = "black",
                                 size = 0.75,

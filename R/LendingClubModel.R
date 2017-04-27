@@ -7,7 +7,4 @@
 #' @name LendingClubModel
 #' @author Ryan Kuhn, CPA
 #' @import dplyr
-#' @import RCurl
-#' @import httr
-#' @import rvest
 NULL

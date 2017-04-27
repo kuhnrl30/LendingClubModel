@@ -3,7 +3,4 @@
 export(FillNA)
 export(PCT)
 export(theme_LC)
-import(RCurl)
 import(dplyr)
-import(httr)
-import(rvest)

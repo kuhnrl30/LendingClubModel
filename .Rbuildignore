@@ -6,3 +6,4 @@
 ^.Renviron
 ^.Rhistory
 ^appveyor\.yml$
+\.gitattributes

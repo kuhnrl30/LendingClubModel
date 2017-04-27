@@ -1,27 +1,19 @@
----
-title: "Analysis of Loan Grades"
-output: html_document
-bibliography: bibliographies.bib
-vignette: >
-    %\VignetteIndexEntry{Exploratory Analysis- Loan Amount} 
-    %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc} 
----
-
-```{r, echo=F}
+## ---- echo=F-------------------------------------------------------------
 options(scipen = 6)
 knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80, message= FALSE, echo= FALSE, warning = FALSE)
-```
 
-```{r, child="snippet/_preamble.Rmd"}
-```
+## ----preamble, echo=FALSE------------------------------------------------
+library(dplyr)
+library(LendingClubData)
+library(LendingClubModel)
+library(ggplot2)
+library(scales)
+library(tidyr)
+LoanData<- LendingClubData::IssuedLoans()
+LoanData$Class<- SetClass(LoanData$loan_status)
+LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
 
-
-```{r, child="snippet/_nofilter.Rmd"}
-```
-
-## Loan Distribution by Grade
-
-```{r}
+## ------------------------------------------------------------------------
 LoanData %>%
     group_by(grade) %>%
     summarize(Total= n()) %>%
@@ -31,10 +23,4 @@ LoanData %>%
                  caption= "Distribution by Loan Grade",
                  format.args = list(big.mark=','),
                  col.names = c("Grade","Total","Proportion"))
-```
 
-
-### Package Version
-The analysis was based on LendingClubData version `r packageVersion("LendingClubData")`.
-
-### References
