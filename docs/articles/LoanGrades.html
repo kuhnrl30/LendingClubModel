@@ -132,6 +132,46 @@
 </tr>
 </tbody>
 </table>
+<p>There are 1,321,847 loans in the dataset. The median loan grade level is C with the distribution skewed towards the lower loan grades.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Year</th>
+<th align="right">Count</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">2011</td>
+<td align="right">42,535</td>
+</tr>
+<tr class="even">
+<td align="left">2013</td>
+<td align="right">188,181</td>
+</tr>
+<tr class="odd">
+<td align="left">2014</td>
+<td align="right">235,629</td>
+</tr>
+<tr class="even">
+<td align="left">2015</td>
+<td align="right">421,095</td>
+</tr>
+<tr class="odd">
+<td align="left">2016</td>
+<td align="right">434,407</td>
+</tr>
+</tbody>
+</table>
+<p>The number of loans per year has grown significantly since 2011 but has leveled off since 2015. The CAGR from 2011 to 2016 is 0.59.</p>
+<pre><code># A tibble: 7 × 6
+  grade `2011` `2013` `2014` `2015` `2016`
+* &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1     A   0.24   0.15   0.15   0.17   0.16
+2     B   0.29   0.33   0.26   0.28   0.31
+3     C   0.21   0.27   0.28   0.29   0.30
+4     D   0.14   0.15   0.18   0.15   0.14
+5     E   0.08   0.07   0.09   0.08   0.06
+6     F   0.03   0.03   0.03   0.02   0.02
+7     G   0.01   0.01   0.01   0.01   0.01</code></pre>
 <div id="package-version" class="section level3">
 <h3 class="hasAnchor">
 <a href="#package-version" class="anchor"></a>Package Version</h3>

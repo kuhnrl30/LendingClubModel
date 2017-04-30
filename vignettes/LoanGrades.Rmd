@@ -33,7 +33,29 @@ LoanData %>%
                  col.names = c("Grade","Total","Proportion"))
 ```
 
+There are `r format(nrow(LoanData),big.mark=",")` loans in the dataset. The median loan grade level is `r LETTERS[median(as.numeric(factor(LoanData$grade)))]` with the distribution skewed towards the lower loan grades. 
 
+```{r}
+LoanData %>%
+    mutate(Year= format(issue_d,"%Y")) %>%
+    group_by(Year) %>%
+    summarise(N=n()) %>%
+    knitr::kable(format.args = list(big.mark=","),
+                 align=c("l","r"),
+                 col.names=c("Year","Count"))
+```
+
+The number of loans per year has grown significantly since 2011 but has leveled off since 2015.  The CAGR from 2011 to 2016 is `r round((434401/42535)^(1/5)-1,2)`. 
+
+```{r}
+LoanData %>%
+    mutate(Year= format(issue_d,"%Y")) %>%
+    group_by(Year, grade) %>%
+    summarize(N=n()) %>%
+    mutate(share= round(N/sum(N),2)) %>%
+    select(-N) %>%
+    spread(key=Year, value=share)
+```
 ### Package Version
 The analysis was based on LendingClubData version `r packageVersion("LendingClubData")`.
 

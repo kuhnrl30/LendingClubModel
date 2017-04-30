@@ -2,6 +2,10 @@
 title: "Model Review"
 output: html_document
 bibliography: bibliographies.bib
+csl: journal-of-finance.csl
+vignette: >
+    %\VignetteIndexEntry{Exploratory Analysis- Loan Amount} 
+    %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc}
 ---
 
 [@mdlOrourke]
@@ -18,5 +22,6 @@ bibliography: bibliographies.bib
 [@mdlDavis]
 [@mdlPatierno]
 
+https://scaubrey.github.io/
 
 # References

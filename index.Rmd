@@ -6,9 +6,7 @@ output: html_document
 
 # Lending Club Model 
 
-This package is the workspace used to develop a model which reduces the note default risk and thereby improve returns.
-
-This package has a few companion packages:  
+This package is the workspace used to develop a model which reduces the note default risk and thereby improve returns. There are a few companion packages that enable this analysis:  
 
 **Lending Club** 
 Contains the bindings for Lending Club's api. It includes functions to obtain available loans and to view a user's account. The package also contains functions for working with the secondary market. 

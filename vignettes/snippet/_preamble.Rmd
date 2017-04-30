@@ -6,7 +6,7 @@ library(ggplot2)
 library(scales)
 library(tidyr)
 LoanData<- LendingClubData::IssuedLoans()
-LoanData$Class<- SetClass(LoanData$loan_status)
+LoanData$Class<- LendingClubData::SetClass(LoanData$loan_status)
 LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
 ``` 
 

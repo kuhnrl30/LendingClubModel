@@ -7,3 +7,4 @@
 ^.Rhistory
 ^appveyor\.yml$
 \.gitattributes
+\.travis\.yml
