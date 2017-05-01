@@ -10,7 +10,7 @@ library(ggplot2)
 library(scales)
 library(tidyr)
 LoanData<- LendingClubData::IssuedLoans()
-LoanData$Class<- SetClass(LoanData$loan_status)
+LoanData$Class<- LendingClubData::SetClass(LoanData$loan_status)
 LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
 
 ## ------------------------------------------------------------------------
@@ -23,4 +23,24 @@ LoanData %>%
                  caption= "Distribution by Loan Grade",
                  format.args = list(big.mark=','),
                  col.names = c("Grade","Total","Proportion"))
+
+## ------------------------------------------------------------------------
+LoanData %>%
+    mutate(Year= format(issue_d,"%Y")) %>%
+    group_by(Year) %>%
+    summarise(N=n()) %>%
+    knitr::kable(format.args = list(big.mark=","),
+                 align=c("l","r"),
+                 col.names=c("Year","Count"))
+
+## ------------------------------------------------------------------------
+LoanData %>%
+    mutate(Year= format(issue_d,"%Y")) %>%
+    group_by(Year, grade) %>%
+    summarize(N=n()) %>%
+    mutate(share= round(N/sum(N),2)) %>%
+    select(-N) %>%
+    spread(key=Year, value=share) %>%
+    knitr::kable(forate.args= list(big.mark=","),
+                 align= c("l","r","r","r","r","r"))
 

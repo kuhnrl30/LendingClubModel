@@ -21,7 +21,14 @@ knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, ev
 
 ## Loan Distribution by Grade
 
-```{r}
+
+```{r, fig.align='right', fig.show='hold', fig.align='center'}
+ggplot(LoanData) +
+    aes(x= factor(grade)) +
+    geom_histogram(stat="count") +
+    labs(x= "Loan Grade") +
+    theme_LC()
+
 LoanData %>%
     group_by(grade) %>%
     summarize(Total= n()) %>%
@@ -33,7 +40,10 @@ LoanData %>%
                  col.names = c("Grade","Total","Proportion"))
 ```
 
-There are `r format(nrow(LoanData),big.mark=",")` loans in the dataset. The median loan grade level is `r LETTERS[median(as.numeric(factor(LoanData$grade)))]` with the distribution skewed towards the lower loan grades. 
+There are `r format(nrow(LoanData),big.mark=",")` loans in the dataset and the median loan grade level is `r LETTERS[median(as.numeric(factor(LoanData$grade)))]`. We can further describe this distribution using skewness and kurtosis.  From the table we can say intuitively that it is skewed towards the lower loan grades and tat the lower grade tail is fatter than the higher grade tail.  This is inherently true beacause the max grade is A and a tail with values greater than A cannot exist.  
+
+Kurtosis is a description of the shape or peakedness of the curve. The kurtosis score for this distribution is `r e1071::kurtosis(as.numeric(factor(LoanData$grade)))`. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution.  Again, this makes sense intuitively because there are only 7 possible grades.  This poses an upper and lower constraint on the loans effectively eliminating extreme outliers. 
+
 
 ```{r}
 LoanData %>%
@@ -45,7 +55,11 @@ LoanData %>%
                  col.names=c("Year","Count"))
 ```
 
-The number of loans per year has grown significantly since 2011 but has leveled off since 2015.  The CAGR from 2011 to 2016 is `r round((434401/42535)^(1/5)-1,2)`. 
+
+LC was founded in 2007 so clearly they have not pulished data from their entire history.  The first 4 years of data have been excluded from the dataset. Of the published data, the number of loans issued has grown significantly since 2011.  In fact the first year growth rate was `r round(188181/42535,2)*100`%. Growth has leveled off since 2015 to only `r round(434407/421095,2)*100-100`%. The CAGR from 2011 to 2016 is `r round(CAGR(42535,434401,5),2)*100`%.
+
+> QUESTION: Why has growth slowed in the past year?
+
 
 ```{r}
 LoanData %>%
@@ -54,8 +68,13 @@ LoanData %>%
     summarize(N=n()) %>%
     mutate(share= round(N/sum(N),2)) %>%
     select(-N) %>%
-    spread(key=Year, value=share)
+    spread(key=Year, value=share) %>%
+    knitr::kable(forate.args= list(big.mark=","),
+                 caption= "Distribution by Loan Grade and Year",
+                 align= c("l","r","r","r","r","r"))
 ```
+
+
 ### Package Version
 The analysis was based on LendingClubData version `r packageVersion("LendingClubData")`.
 

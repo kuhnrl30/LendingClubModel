@@ -10,6 +10,7 @@ reference:
   - FillNA
   - PCT
   - theme_LC
+  - CAGR
 
 articles:
 - title: Loan Data
@@ -20,8 +21,9 @@ articles:
   contents:
   - DebtToIncome
   - Income
-- Literature Reviews
-  - Model Reviews
+- title: Literature Reviews
+  contents:
+  - ModelReview
   
 navbar:
   title: LendingClubModel
