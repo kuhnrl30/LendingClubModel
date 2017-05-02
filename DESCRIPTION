@@ -11,5 +11,7 @@ LazyData: TRUE
 RoxygenNote: 6.0.1
 Suggests: knitr
 VignetteBuilder: knitr
-Imports:
-    dplyr
+Imports: 
+    dplyr,
+    ggplot2
+Remotes: kuhnrl30/LendingClubData

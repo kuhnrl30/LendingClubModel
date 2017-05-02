@@ -1,10 +1,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^Extraneous/*
-^\docs$
+^docs$
 ^_pkgdown.yml
 ^.Renviron
 ^.Rhistory
 ^appveyor\.yml$
 \.gitattributes
 \.travis\.yml
+index\.Rmd

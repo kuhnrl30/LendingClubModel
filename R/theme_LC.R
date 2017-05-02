@@ -3,6 +3,16 @@
 # Create a standard theme for the Lending Club project
 #' @param base_size base font size
 #' @param base_family base text family
+#' @importFrom ggplot2 element_line
+#' @importFrom ggplot2 element_rect
+#' @importFrom ggplot2 element_text
+#' @importFrom ggplot2 margin
+#' @importFrom ggplot2 element_blank
+#' @importFrom ggplot2 rel
+#' @importFrom ggplot2 unit
+#' @importFrom ggplot2 theme
+#' @importFrom ggplot2 scale_colour_brewer
+#' @importFrom ggplot2 scale_fill_brewer
 #' @export
 
 theme_LC<- function (base_size = 11, base_family = ""){

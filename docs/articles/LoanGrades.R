@@ -13,7 +13,13 @@ LoanData<- LendingClubData::IssuedLoans()
 LoanData$Class<- LendingClubData::SetClass(LoanData$loan_status)
 LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
 
-## ------------------------------------------------------------------------
+## ---- fig.align='right', fig.show='hold', fig.align='center'-------------
+ggplot(LoanData) +
+    aes(x= factor(grade)) +
+    geom_histogram(stat="count") +
+    labs(x= "Loan Grade") +
+    theme_LC()
+
 LoanData %>%
     group_by(grade) %>%
     summarize(Total= n()) %>%
@@ -42,5 +48,6 @@ LoanData %>%
     select(-N) %>%
     spread(key=Year, value=share) %>%
     knitr::kable(forate.args= list(big.mark=","),
+                 caption= "Distribution by Loan Grade and Year",
                  align= c("l","r","r","r","r","r"))
 

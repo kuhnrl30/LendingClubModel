@@ -84,9 +84,9 @@
 <li><p>Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B). Some of those late loans will be made current it’s not a likely action. Contrarily, some of the loans in the grace period will go into default.</p></li>
 <li><p>No filters have been applied to the dataset. All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.</p></li>
 </ol>
-<div id="loan-distribution-by-grade" class="section level2">
-<h2 class="hasAnchor">
-<a href="#loan-distribution-by-grade" class="anchor"></a>Loan Distribution by Grade</h2>
+<div id="loan-distribution-by-grade" class="section level3">
+<h3 class="hasAnchor">
+<a href="#loan-distribution-by-grade" class="anchor"></a>Loan Distribution by Grade</h3>
 <table class="table">
 <caption>Distribution by Loan Grade</caption>
 <thead><tr class="header">
@@ -132,9 +132,13 @@
 </tr>
 </tbody>
 </table>
-<p><img src="LoanGrades_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></p>
-<p>There are 1,321,847 loans in the dataset and the median loan grade level is C. We can further describe this distribution using skewness and kurtosis. From the table we can say intuitively that it is skewed towards the lower loan grades and tat the lower grade tail is fatter than the higher grade tail. This is inherently true beacause the max grade is A and a tail with values greater than A cannot exist.</p>
-<p>Kurtosis is a description of the shape or peakedness of the curve. The kurtosis score for this distribution is 0.071596. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution. Again, this makes sense intuitively because there are only 7 possible grades. This poses an upper and lower constraint on the loans effectively eliminating extreme outliers.</p>
+<p><img src="LoanGrades_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></p>
+<p>There are 1,321,847 loans in the dataset and the median loan grade level is C. We can further describe this distribution using skewness and kurtosis. From the chart we can say that the data is skewed towards the lower loan grades and that the lower grade tail is fatter than the higher grade tail. This is inherently true beacause the max grade is A and you cannot have a tail with values greater than A.</p>
+<p>Kurtosis is a description of the shape or peaked-ness of the curve. The kurtosis score for this distribution is 0.071596. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution. Again, this makes sense intuitively because there are only 7 possible grades. This poses an upper and lower constraint on the loans effectively eliminating extreme outliers.</p>
+</div>
+<div id="distribution-by-year" class="section level3">
+<h3 class="hasAnchor">
+<a href="#distribution-by-year" class="anchor"></a>Distribution by Year</h3>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Year</th>
@@ -163,9 +167,12 @@
 </tr>
 </tbody>
 </table>
-<p>LC was founded in 2007 so clearly they have not pulished data from their entire history. The first 4 years of data have been excluded from the dataset. Of the published data, the number of loans issued has grown significantly since 2011. In fact the first year growth rate was 442%. Growth has leveled off since 2015 to only 3%. The CAGR from 2011 to 2016 is 59%.</p>
+<p>LC was founded in 2007 so clearly they have not pulished data from their entire history. The 2007- 2010 data have been excluded from the dataset. Of the published data, the number of loans issued has grown significantly since 2011. In fact the growth rate in the first 2 years was 110%. Growth has leveled off since 2015 to only 3%. The CAGR from 2011 to 2016 is 59%.</p>
 <blockquote>
-<p>QUESTION: Why has growth slowed in the past year?</p>
+<p>QUESTION: Why has growth slowed in the past year? Does this signal a change in borrower mix and would that affect default rates?</p>
+</blockquote>
+<blockquote>
+<p>QUESTION: Where is 2012 data?</p>
 </blockquote>
 <table class="table">
 <caption>Distribution by Loan Grade and Year</caption>
@@ -236,6 +243,8 @@
 </tr>
 </tbody>
 </table>
+<p>In 2011, the A grade had a much higher share of the loans than in later years. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. &gt; QUESTION: Is this due to a change in the scoring model or the applicant pool?</p>
+</div>
 <div id="package-version" class="section level3">
 <h3 class="hasAnchor">
 <a href="#package-version" class="anchor"></a>Package Version</h3>
@@ -246,16 +255,9 @@
 <a href="#references" class="anchor"></a>References</h3>
 </div>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-        <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#loan-distribution-by-grade">Loan Distribution by Grade</a></li>
-      </ul>
-</div>
       </div>
 
 </div>

@@ -2,7 +2,7 @@
 title: "Model Review"
 output: html_document
 bibliography: bibliographies.bib
-csl: journal-of-finance.csl
+csl: snippet/journal-of-finance.csl
 vignette: >
     %\VignetteIndexEntry{Exploratory Analysis- Loan Amount} 
     %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc}
