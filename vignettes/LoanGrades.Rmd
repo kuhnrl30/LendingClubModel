@@ -58,11 +58,10 @@ LoanData %>%
 ```
 
 
-LC was founded in 2007 so clearly they have not pulished data from their entire history.  The 2007- 2010 data have been excluded from the dataset. Of the published data, the number of loans issued has grown significantly since 2011.  In fact the growth rate in the first 2 years was `r round(CAGR(42535,188181,2),2)*100`%. Growth has leveled off since 2015 to only `r round(434407/421095,2)*100-100`%. The CAGR from 2011 to 2016 is `r round(CAGR(42535,434401,5),2)*100`%.
+The number of loans issued has grown significantly since 2007.  In fact the growth rate in the first 2 years was `r round(CAGR(42535,188181,2),2)*100`%. Growth has leveled off since 2015 to only `r round(434407/421095,2)*100-100`%. The CAGR from 2007 to 2016 is `r round(CAGR(603,434401,10),2)*100`%.
 
-> QUESTION: Why has growth slowed in the past year? Does this signal a change in borrower mix and would that affect default rates?
+> QUESTION: Why has growth slowed in the past year? Does this signal a change in the borrower mix and would that affect default rates?
 
-> QUESTION: Where is 2012 data?
 
 
 ```{r}
@@ -79,6 +78,7 @@ LoanData %>%
 ```
 
 In 2011, the A grade had a much higher share of the loans than in later years. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. 
+
 > QUESTION: Is this due to a change in the scoring model or the applicant pool? 
 
 ### Package Version

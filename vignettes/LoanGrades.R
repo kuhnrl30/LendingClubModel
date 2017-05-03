@@ -13,13 +13,7 @@ LoanData<- LendingClubData::IssuedLoans()
 LoanData$Class<- LendingClubData::SetClass(LoanData$loan_status)
 LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
 
-## ---- fig.align='right', fig.show='hold', fig.align='center'-------------
-ggplot(LoanData) +
-    aes(x= factor(grade)) +
-    geom_histogram(stat="count") +
-    labs(x= "Loan Grade") +
-    theme_LC()
-
+## ------------------------------------------------------------------------
 LoanData %>%
     group_by(grade) %>%
     summarize(Total= n()) %>%
@@ -29,6 +23,13 @@ LoanData %>%
                  caption= "Distribution by Loan Grade",
                  format.args = list(big.mark=','),
                  col.names = c("Grade","Total","Proportion"))
+
+## ---- fig.align='right', fig.show='hold', fig.align='center', class.output='aligns'----
+ggplot(LoanData) +
+    aes(x= factor(grade)) +
+    geom_histogram(stat="count") +
+    labs(x= "Loan Grade") +
+    theme_LC()
 
 ## ------------------------------------------------------------------------
 LoanData %>%
