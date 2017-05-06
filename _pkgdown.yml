@@ -13,17 +13,18 @@ reference:
   - CAGR
 
 articles:
-- title: Loan Data
+- title: Analysis
   contents: 
   - LoanAmount
   - LoanGrades
-- title: Borrower Data
-  contents:
   - DebtToIncome
   - Income
 - title: Literature Reviews
   contents:
   - ModelReview
+- title: Modeling
+  contents:
+  - Model
   
 navbar:
   title: LendingClubModel

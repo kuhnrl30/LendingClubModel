@@ -1,5 +1,5 @@
 ---
-title: "Analysis of Loan Amounts"
+title: "Loan Amounts"
 output: html_document
 bibliography: bibliographies.bib
 vignette: >

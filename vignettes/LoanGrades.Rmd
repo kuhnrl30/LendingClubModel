@@ -1,5 +1,5 @@
 ---
-title: "Analysis of Loan Grades"
+title: "Loan Grades"
 output: html_document
 bibliography: bibliographies.bib
 vignette: >
@@ -58,10 +58,9 @@ LoanData %>%
 ```
 
 
-The number of loans issued has grown significantly since 2007.  In fact the growth rate in the first 2 years was `r round(CAGR(42535,188181,2),2)*100`%. Growth has leveled off since 2015 to only `r round(434407/421095,2)*100-100`%. The CAGR from 2007 to 2016 is `r round(CAGR(603,434401,10),2)*100`%.
+The number of loans issued has grown significantly since 2007.  In fact the growth rate from 2007 to 2016 was `r round(CAGR(42535,434407,10),2)*100`% however growth has leveled off since 2015 to only `r round(434407/421095,2)*100-100`%. 
 
 > QUESTION: Why has growth slowed in the past year? Does this signal a change in the borrower mix and would that affect default rates?
-
 
 
 ```{r}
@@ -74,10 +73,10 @@ LoanData %>%
     spread(key=Year, value=share) %>%
     knitr::kable(forate.args= list(big.mark=","),
                  caption= "Distribution by Loan Grade and Year",
-                 align= c("l","r","r","r","r","r"))
+                 align= c("l","r","r","r","r","r","r","r","r","r","r"))
 ```
 
-In 2011, the A grade had a much higher share of the loans than in later years. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. 
+Grade A loans reached its peak share of the loan distribution. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. 
 
 > QUESTION: Is this due to a change in the scoring model or the applicant pool? 
 
