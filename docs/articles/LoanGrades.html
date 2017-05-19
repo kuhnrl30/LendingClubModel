@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Analysis of Loan Grades • LendingClubModel</title>
+<title>Loan Grades • LendingClubModel</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -72,7 +72,7 @@
       </header><div class="row">
   <div class="col-md-9">
     <div class="page-header toc-ignore">
-      <h1>Analysis of Loan Grades</h1>
+      <h1>Loan Grades</h1>
             
           </div>
 
@@ -97,44 +97,44 @@
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">219,054</td>
-<td align="right">0.17</td>
+<td align="right">234,030</td>
+<td align="right">0.16</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">389,065</td>
+<td align="right">417,841</td>
 <td align="right">0.29</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">378,059</td>
+<td align="right">411,758</td>
 <td align="right">0.29</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">198,732</td>
+<td align="right">210,761</td>
 <td align="right">0.15</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
-<td align="right">96,514</td>
+<td align="right">101,570</td>
 <td align="right">0.07</td>
 </tr>
 <tr class="even">
 <td align="left">F</td>
-<td align="right">32,383</td>
+<td align="right">34,118</td>
 <td align="right">0.02</td>
 </tr>
 <tr class="odd">
 <td align="left">G</td>
-<td align="right">8,040</td>
+<td align="right">8,548</td>
 <td align="right">0.01</td>
 </tr>
 </tbody>
 </table>
 <p><img src="LoanGrades_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></p>
-<p>There are 1,321,847 loans in the dataset and the median loan grade level is C. We can further describe this distribution using skewness and kurtosis. From the chart we can say that the data is skewed towards the lower loan grades and that the lower grade tail is fatter than the higher grade tail. This is inherently true beacause the max grade is A and you cannot have a tail with values greater than A.</p>
-<p>Kurtosis is a description of the shape or peaked-ness of the curve. The kurtosis score for this distribution is 0.071596. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution. Again, this makes sense intuitively because there are only 7 possible grades. This poses an upper and lower constraint on the loans effectively eliminating extreme outliers.</p>
+<p>There are 1,418,626 loans in the dataset and the median loan grade level is C. We can further describe this distribution using skewness and kurtosis. From the chart we can say that the data is skewed towards the lower loan grades and that the lower grade tail is fatter than the higher grade tail. This is inherently true beacause the max grade is A and you cannot have a tail with values greater than A.</p>
+<p>Kurtosis is a description of the shape or peaked-ness of the curve. The kurtosis score for this distribution is 0.104681. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution. Again, this makes sense intuitively because there are only 7 possible grades. This poses an upper and lower constraint on the loans effectively eliminating extreme outliers.</p>
 </div>
 <div id="distribution-by-year" class="section level3">
 <h3 class="hasAnchor">
@@ -185,11 +185,18 @@
 <td align="left">2016</td>
 <td align="right">434,407</td>
 </tr>
+<tr class="odd">
+<td align="left">2017</td>
+<td align="right">96,779</td>
+</tr>
 </tbody>
 </table>
-<p>The number of loans issued has grown significantly since 2007. In fact the growth rate from 2007 to 2016 was 26%. Growth has leveled off since 2015 to only 3%. The CAGR from 2007 to 2016 is 93%.</p>
+<p>The number of loans issued has grown significantly since 2007. In fact the growth rate from 2007 to 2016 was 26% however growth has leveled off since 2015 to only 3%.</p>
 <blockquote>
 <p>QUESTION: Why has growth slowed in the past year? Does this signal a change in the borrower mix and would that affect default rates?</p>
+</blockquote>
+<blockquote>
+<p>QUESTION: 2017 Q1 run rate is less than 2016 full year loan count. Is there a seasonal trend to loan issuance?</p>
 </blockquote>
 <table class="table">
 <caption>Distribution by Loan Grade and Year</caption>
@@ -205,6 +212,7 @@
 <th align="right">2014</th>
 <th align="right">2015</th>
 <th align="right">2016</th>
+<th align="left">2017</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -219,6 +227,7 @@
 <td align="right">0.15</td>
 <td align="right">0.17</td>
 <td align="right">0.16</td>
+<td align="left">0.15</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
@@ -232,6 +241,7 @@
 <td align="right">0.26</td>
 <td align="right">0.28</td>
 <td align="right">0.31</td>
+<td align="left">0.30</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
@@ -245,6 +255,7 @@
 <td align="right">0.28</td>
 <td align="right">0.29</td>
 <td align="right">0.30</td>
+<td align="left">0.35</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
@@ -258,6 +269,7 @@
 <td align="right">0.18</td>
 <td align="right">0.15</td>
 <td align="right">0.14</td>
+<td align="left">0.12</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
@@ -271,6 +283,7 @@
 <td align="right">0.09</td>
 <td align="right">0.08</td>
 <td align="right">0.06</td>
+<td align="left">0.05</td>
 </tr>
 <tr class="even">
 <td align="left">F</td>
@@ -284,6 +297,7 @@
 <td align="right">0.03</td>
 <td align="right">0.02</td>
 <td align="right">0.02</td>
+<td align="left">0.02</td>
 </tr>
 <tr class="odd">
 <td align="left">G</td>
@@ -297,10 +311,11 @@
 <td align="right">0.01</td>
 <td align="right">0.01</td>
 <td align="right">0.01</td>
+<td align="left">0.01</td>
 </tr>
 </tbody>
 </table>
-<p>In 2011, the A grade had a much higher share of the loans than in later years. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades.</p>
+<p>Grade A loans reached its peak share of the loan distribution. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades.</p>
 <blockquote>
 <p>QUESTION: Is this due to a change in the scoring model or the applicant pool?</p>
 </blockquote>

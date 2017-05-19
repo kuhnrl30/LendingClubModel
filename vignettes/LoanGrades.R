@@ -50,5 +50,5 @@ LoanData %>%
     spread(key=Year, value=share) %>%
     knitr::kable(forate.args= list(big.mark=","),
                  caption= "Distribution by Loan Grade and Year",
-                 align= c("l","r","r","r","r","r"))
+                 align= c("l","r","r","r","r","r","r","r","r","r","r"))
 

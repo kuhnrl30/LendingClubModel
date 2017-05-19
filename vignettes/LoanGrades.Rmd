@@ -62,6 +62,7 @@ The number of loans issued has grown significantly since 2007.  In fact the grow
 
 > QUESTION: Why has growth slowed in the past year? Does this signal a change in the borrower mix and would that affect default rates?
 
+> QUESTION: 2017 Q1 run rate is less than 2016 full year loan count. Is there a seasonal trend to loan issuance?
 
 ```{r}
 LoanData %>%

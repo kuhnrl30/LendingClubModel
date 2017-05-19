@@ -79,8 +79,38 @@
     
     
 <div class="contents">
-<p><span class="citation">ORourke (2016)</span> <span class="citation">Anon. (2015)</span> <span class="citation">Darren (2015)</span> <span class="citation">Davenport (2015)</span> <span class="citation">Wu (2015)</span> <span class="citation">Wu (2013)</span> <span class="citation">Cashorali (2011)</span> <span class="citation">Toth (2015)</span> <span class="citation">Mistry (2016)</span> <span class="citation">Polena (2016)</span> <span class="citation">Anon.</span> <span class="citation">Davis (2012)</span> <span class="citation">Patierno (2011)</span></p>
-<p><a href="https://scaubrey.github.io/" class="uri">https://scaubrey.github.io/</a></p>
+<hr>
+<p><span class="citation">ORourke (2016)</span></p>
+<p>Data Period: 2007-2011<br>
+Notes:</p>
+<ul>
+<li>Divided characteristics into two categories: those about the loan and about the borrower. Did not formally define the groups.</li>
+<li>Filtered out late loans leaving just fully paid, defaulted, and charged off. Defaulted and charge-off loans combined into a single group.</li>
+</ul>
+<p>Analysis:</p>
+<ul>
+<li>Filtered characteristics by reading the descriptions in the data dictionary. Criteria seems to be intuition and the level of documentation. There was no analysis for correlation with outcome to support decisions.</li>
+<li>Chargeoffs focused in higher interest rates, fully paid more evenly distributed<br>
+</li>
+<li>distribution of loans by grade<br>
+</li>
+<li>36 vs 60 month loan chargeoff rates<br>
+</li>
+<li>Current.Account.Ratio number of open credit lines divided by total number f accounts</li>
+</ul>
+<p>Modeling:</p>
+<ul>
+<li>Decision tree- The AUC from this model was 0.68 but only 60 charge-off loans were correctly identified. After resampling to increase the proportion of charge-offs, the confusion matrix increased to identifying 700 of the 1100 charge-offs.</li>
+<li>Logistic Regression- AUC: 0.697. Confusion matrix ID’d 730 of the 1100 charge-offs.</li>
+<li>Ensembled- Using bagging</li>
+</ul>
+<p>Analysis review: The exploratory analysis was not particularly insightful. The author did not document the basis for several key decisions such as which variables to include/exclude or why he chose the specific algorithms. The charts were not styled beyond the ggplot defaults.</p>
+<hr>
+<p><span class="citation">Wu (2015)</span></p>
+Data:
+<hr>
+<p><span class="citation">Anon. (2015)</span> <span class="citation">Darren (2015)</span> <span class="citation">Davenport (2015)</span></p>
+<p><span class="citation">Wu (2013)</span> <span class="citation">Cashorali (2011)</span> <span class="citation">Toth (2015)</span> <span class="citation">Mistry (2016)</span> <span class="citation">Polena (2016)</span> <span class="citation">Anon.</span> <span class="citation">Davis (2012)</span> <span class="citation">Patierno (2011)</span> <span class="citation">Tsai, Ramiah, and Singh (2014)</span> <span class="citation">Summers (2016)</span></p>
 <div id="references" class="section level1 unnumbered">
 <h1 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h1>
@@ -92,7 +122,7 @@
 <p>Anon., Give me some credit,. Blog <em>Kaggle</em> (<a href="https://www.kaggle.com/c/GiveMeSomeCredit" class="uri">https://www.kaggle.com/c/GiveMeSomeCredit</a>).</p>
 </div>
 <div id="ref-mdlCashorali">
-<p>Cashorali, Tanya, 2011, Mining lending club’s goldmine of loan data part i of ii – visualizations by state,. Blog <em>R-bloggers</em> (<a href="https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/" class="uri">https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/</a>).</p>
+<p>Cashorali, Tanya, 2011, Mining lending club’s goldmine of loan data part i of ii visualizations by state,. Blog <em>R-bloggers</em> (<a href="https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/" class="uri">https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/</a>).</p>
 </div>
 <div id="ref-mdlDarren">
 <p>Darren, Jean-Francois, 2015, Analysis of lending club’s data,. Blog <em>Data Science Central</em> (<a href="http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data" class="uri">http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data</a>).</p>
@@ -107,7 +137,7 @@
 <p>Mistry, Hitesh, 2016, Application of survival analysis to p2p lending club loans data,. Blog <em>Systems Forecasting</em> (<a href="http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/" class="uri">http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/</a>).</p>
 </div>
 <div id="ref-mdlOrourke">
-<p>ORourke, Red, 2016, Lending club - predicting loan outcomes,. Blog <em>Rpubs</em> (<a href="https://rpubs.com/torourke97/190551" class="uri">https://rpubs.com/torourke97/190551</a>).</p>
+<p>ORourke, Ted, 2016, Lending club - predicting loan outcomes,. Blog <em>Rpubs</em> (<a href="https://rpubs.com/torourke97/190551" class="uri">https://rpubs.com/torourke97/190551</a>).</p>
 </div>
 <div id="ref-mdlPatierno">
 <p>Patierno, David, 2011, Using genetic algorithms to maximize lending club performance,. Blog (<a href="http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm" class="uri">http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm</a>).</p>
@@ -115,14 +145,20 @@
 <div id="ref-mdlPolena">
 <p>Polena, Michal, 2016, Investing at lending club with watson analytics,. Blog <em>IBM</em> (<a href="https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/" class="uri">https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/</a>).</p>
 </div>
+<div id="ref-mdlSummers">
+<p>Summers, Cameron, 2016, Lending club deep learning, (<a href="https://scaubrey.github.io/" class="uri">https://scaubrey.github.io/</a>).</p>
+</div>
 <div id="ref-mdlToth">
 <p>Toth, Michael, 2015, Analyzing historical default rates of lending club notes,. Blog <em>R-bloggers</em> (<a href="https://www.r-bloggers.com/analyzing-historical-default-rates-of-lending-club-notes/" class="uri">https://www.r-bloggers.com/analyzing-historical-default-rates-of-lending-club-notes/</a>).</p>
+</div>
+<div id="ref-mdlTsai">
+<p>Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh, 2014, Peer lending risk predictor, (<a href="http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf">http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf</a>).</p>
 </div>
 <div id="ref-mdlWu2">
 <p>Wu, James, 2013, Gradient boosting: Analysis of lendingclub’s data,. Blog <em>R-bloggers</em> (<a href="https://www.r-bloggers.com/gradient-boosting-analysis-of-lendingclubs-data/" class="uri">https://www.r-bloggers.com/gradient-boosting-analysis-of-lendingclubs-data/</a>).</p>
 </div>
 <div id="ref-mdlWu1">
-<p>Wu, James, 2015, Are you buying the wrong loans? A pricing analysis of lending club loans,. Blog <em>MonJa</em> (<a href="https://www.monjaco.com/blog/are-you-buying-the-wrong-loans-a-pricing-analysis-of-lending-club-loans/" class="uri">https://www.monjaco.com/blog/are-you-buying-the-wrong-loans-a-pricing-analysis-of-lending-club-loans/</a>).</p>
+<p>Wu, James, 2015, Changes in lending club underwriting,. Blog <em>MonJa</em> (<a href="https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//" class="uri">https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//</a>).</p>
 </div>
 </div>
 </div>

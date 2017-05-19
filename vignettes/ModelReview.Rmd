@@ -8,11 +8,42 @@ vignette: >
     %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc}
 ---
 
+<hr>
 [@mdlOrourke]
+
+Data Period: 2007-2011  
+Notes:  
+
+- Divided characteristics into two categories: those about the loan and about the borrower.  Did not formally define the groups.
+- Filtered out late loans leaving just fully paid, defaulted, and charged off.  Defaulted and charge-off loans combined into a single group.  
+
+Analysis:    
+
+- Filtered characteristics by reading the descriptions in the data dictionary. Criteria seems to be intuition and the level of documentation.  There was no analysis for correlation with outcome to support decisions. 
+- Chargeoffs focused in higher interest rates, fully paid more evenly distributed  
+- distribution of loans by grade  
+- 36 vs 60 month loan chargeoff rates  
+- Current.Account.Ratio  number of open credit lines divided by total number f accounts 
+    
+Modeling:  
+
+- Decision tree- The AUC from this model was 0.68 but only 60 charge-off loans were correctly identified. After resampling to increase the proportion of charge-offs, the confusion matrix increased to identifying 700 of the 1100 charge-offs.
+- Logistic Regression- AUC: 0.697.  Confusion matrix ID'd 730 of the 1100 charge-offs.
+- Ensembled- Using bagging
+    
+Analysis review:
+The exploratory analysis was not particularly insightful.  The author did not document the basis for several key decisions such as which variables to include/exclude or why he chose the specific algorithms. The charts were not styled beyond the ggplot defaults. 
+
+<hr>
+[@mdlWu1]
+
+Data: 
+<hr>
+
 [@socialLender]
 [@mdlDarren]
 [@mdlDavenport]
-[@mdlWu1]
+
 [@mdlWu2]
 [@mdlCashorali]
 [@mdlToth]
@@ -21,7 +52,8 @@ vignette: >
 [@mdlKaggle]
 [@mdlDavis]
 [@mdlPatierno]
+[@mdlTsai]
+[@mdlSummers]
 
-https://scaubrey.github.io/
 
 # References
