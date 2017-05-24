@@ -8,7 +8,7 @@ vignette: >
     %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc}
 ---
 
-<hr>
+## Lending club - predicting loan outcomes
 [@mdlOrourke]
 
 Data Period: 2007-2011  
@@ -35,25 +35,57 @@ Analysis review:
 The exploratory analysis was not particularly insightful.  The author did not document the basis for several key decisions such as which variables to include/exclude or why he chose the specific algorithms. The charts were not styled beyond the ggplot defaults. 
 
 <hr>
+## Changes in lending club underwriting
 [@mdlWu1]
 
-Data: 
+Data: June 2015 - May 2016  
+
+Notes: 
+
+- Response to LC's quarterly earnings release, where LC announced changes in underwriting 
+- Used commentary from LC's 10-Q.
+
+Analysis:  
+
+- Scatter plot of average DTI for D grade loans by issue date.  The plot attempts to show that less high DTI loans have been issued since LC changed its underwriting in late April 2016. The article hypothesizes that the loans are removed from the direct pay program.  Direct pay requires the loan proceeds be paid directly to the borrower's existing debts.
+- Scatter plot of number of inquiries by issue date for F and G grade loans. The plot shows that in the past month there have been less loans with a high number of previous inquiries. 
+
+
+<hr>
+## Analysis of Lending Club's data
+[@mdlDarren]  
+
+Data: through June 2015.  
+
+Notes:  
+
+- Removed loans with: 
+    - policy code is not 1 meaning they are new products not yet publically available. 
+    - High FICO score was 0.
+    - No data in revolving credit utilization
+    - FICO scores less than 600.  Per the new underwriting policy, borrowers with a score less than 600 aren't allowed to receive a loan. 
+- New features engineered: 
+    - Year from the issue date
+    - Brackets for FICO scores. 
+- Grouped statuses into 2 categories: debt and purchases. Credit card and debt consolidation were grouped into the debt category and all others to purchases.
+- Simplified the number of delinquencies by threshold +/- 2 delinquiries in 2 years.
+- Simplified the number of public records by threshold +1 .
+
+
 <hr>
 
-[@socialLender]
-[@mdlDarren]
-[@mdlDavenport]
-
-[@mdlWu2]
-[@mdlCashorali]
-[@mdlToth]
-[@mdlMistry]
-[@mdlPolena]
-[@mdlKaggle]
-[@mdlDavis]
-[@mdlPatierno]
-[@mdlTsai]
-[@mdlSummers]
+- [@socialLender]  
+- [@mdlDavenport]  
+- [@mdlWu2]  
+- [@mdlCashorali]  
+- [@mdlToth]  
+- [@mdlMistry]  
+- [@mdlPolena]  
+- [@mdlKaggle]  
+- [@mdlDavis]  
+- [@mdlPatierno]  
+- [@mdlTsai]
+- [@mdlSummers]
 
 
 # References

@@ -6,9 +6,11 @@ output: html_document
 
 # Lending Club Model 
 
+> WARNING: this site is still under development and will be updated from day to day. The LendingClubModel package is a work in process, so please use with caution until this warning is removed. 
+
 This package is the workspace used to develop a model which reduces the note default risk and thereby improve returns. There are a few companion packages that enable this analysis:  
 
-**Lending Club** 
+**LendingClub** 
 Contains the bindings for Lending Club's api. It includes functions to obtain available loans and to view a user's account. The package also contains functions for working with the secondary market. 
 
 **LendingClubData** 
