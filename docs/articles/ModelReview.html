@@ -79,6 +79,9 @@
     
     
 <div class="contents">
+<blockquote>
+<p>NOTE: this file is being used to capture my notes while reading through the models. Once I’ve read and digested, I’ll turn this into a cohesive summary.</p>
+</blockquote>
 <div id="lending-club---predicting-loan-outcomes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#lending-club---predicting-loan-outcomes" class="anchor"></a>Lending club - predicting loan outcomes</h2>
@@ -131,26 +134,57 @@ Notes:</p>
 <a href="#analysis-of-lending-clubs-data" class="anchor"></a>Analysis of Lending Club’s data</h2>
 <p><span class="citation">Darren (2015)</span></p>
 <p>Data: through June 2015.</p>
-<p>Notes:</p>
+<p>Data cleaning:</p>
 <ul>
-<li>Removed loans with:
+<li>Removed loans where the :
 <ul>
 <li>policy code is not 1 meaning they are new products not yet publically available.</li>
-<li>High FICO score was 0.</li>
-<li>No data in revolving credit utilization</li>
-<li>FICO scores less than 600. Per the new underwriting policy, borrowers with a score less than 600 aren’t allowed to receive a loan.</li>
+<li>high FICO score was 0 meaning the data was not valid.</li>
+<li>Revolving credit utilization data was missing</li>
+<li>Low FICO score was less than 600. Per the new underwriting policy, borrowers with a score less than 600 aren’t allowed to receive a loan.</li>
 </ul>
 </li>
 <li>New features engineered:
 <ul>
 <li>Year from the issue date</li>
-<li>Brackets for FICO scores.</li>
+<li>Bins or brackets based on FICO scores</li>
+<li>Buckets for the:
+<ul>
+<li>years, quarthers, and months of issue dates</li>
+<li>number of inquries in the past 6 months</li>
+<li>DTI</li>
+<li>Revolving balance</li>
 </ul>
 </li>
+</ul>
+</li>
+<li>Filtered to remove loans that have matured.</li>
 <li>Grouped statuses into 2 categories: debt and purchases. Credit card and debt consolidation were grouped into the debt category and all others to purchases.</li>
 <li>Simplified the number of delinquencies by threshold +/- 2 delinquiries in 2 years.</li>
-<li>Simplified the number of public records by threshold +1 .</li>
+<li>Simplified the number of public records by threshold +1.</li>
 </ul>
+<p>Analysis:</p>
+<ul>
+<li>FICO score by loan grade showing that most subgrades have average FICO scores within a 10 point range. The initial conclusion is that FICO score doesn’t have a linear relationship with the loan grade. Expanded to show density around the average score by year which shows the densities started with a tight distribution around the mean and then widened with time. The ending conclusion is that LC initially relied heavily on the credit score in the loan grading model and then loosened their reliance on it.</li>
+<li>Look at several variables for a relationship with defaults, loan grades, and fico scores:
+<ul>
+<li>Home ownership – ‘mortgage’ defualted at 11.5% and 2% less than other values. No analysis by loan grades.</li>
+<li>Purpose – ‘education’ and ‘small business’ have higher charge off rates but education is a very small population. At the total population level, the FICO score does not reflect the higher risk.<br>
+</li>
+<li>Revolving balance &amp; employment length – no/minimal link to default. A bump in the charge-off ratio when the employment length is NA which is in contrast to the higher average credit score.</li>
+<li>Number of delinquencies</li>
+<li>Number of open accounts</li>
+<li>Debt to Income</li>
+<li>Public Records</li>
+<li>Age of credit history</li>
+<li>Revolving utilization</li>
+<li>Annual income</li>
+<li>Inquiries in 6 months</li>
+<li>Geography</li>
+</ul>
+</li>
+</ul>
+<p>Model Review: Most comprehensive analysis yet.</p>
 <hr>
 <ul>
 <li>

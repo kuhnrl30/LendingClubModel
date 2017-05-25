@@ -8,6 +8,9 @@ vignette: >
     %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc}
 ---
 
+> NOTE: this file is being used to capture my notes while reading through the models.  Once I've read and digested, I'll turn this into a cohesive summary. 
+
+
 ## Lending club - predicting loan outcomes
 [@mdlOrourke]
 
@@ -57,19 +60,45 @@ Analysis:
 
 Data: through June 2015.  
 
-Notes:  
+Data cleaning:   
 
-- Removed loans with: 
+- Removed loans where the : 
     - policy code is not 1 meaning they are new products not yet publically available. 
-    - High FICO score was 0.
-    - No data in revolving credit utilization
-    - FICO scores less than 600.  Per the new underwriting policy, borrowers with a score less than 600 aren't allowed to receive a loan. 
+    - high FICO score was 0 meaning the data was not valid.
+    - Revolving credit utilization data was missing
+    - Low FICO score was less than 600.  Per the new underwriting policy, borrowers with a score less than 600 aren't allowed to receive a loan. 
 - New features engineered: 
     - Year from the issue date
-    - Brackets for FICO scores. 
+    - Bins or brackets based on FICO scores 
+    - Buckets for the:
+        - years, quarthers, and months of issue dates 
+        - number of inquries in the past 6 months
+        - DTI
+        - Revolving balance
+- Filtered to remove loans that have matured. 
 - Grouped statuses into 2 categories: debt and purchases. Credit card and debt consolidation were grouped into the debt category and all others to purchases.
 - Simplified the number of delinquencies by threshold +/- 2 delinquiries in 2 years.
-- Simplified the number of public records by threshold +1 .
+- Simplified the number of public records by threshold +1.
+
+Analysis: 
+
+- FICO score by loan grade showing that most subgrades have average FICO scores within a 10 point range. The initial conclusion is that FICO score doesn't have a linear relationship with the loan grade. Expanded to show density around the average score by year which shows the densities started with a tight distribution around the mean and then widened with time. The ending conclusion is that LC initially relied heavily on the credit score in the loan grading model and then loosened their reliance on it. 
+- Look at several variables for a relationship with defaults, loan grades, and fico scores: 
+    - Home ownership -- 'mortgage' defualted at 11.5% and 2% less than other values. No analysis by loan grades. 
+    - Purpose -- 'education' and 'small business' have higher charge off rates but education is a very small population. At the total population level, the FICO score does not reflect the higher risk.    
+    - Revolving balance & employment length -- no/minimal link to default.  A bump in the charge-off ratio when the employment length is NA which is in contrast to the higher average credit score. 
+    - Number of delinquencies
+    - Number of open accounts 
+    - Debt to Income 
+    - Public Records
+    - Age of credit history 
+    - Revolving utilization
+    - Annual income 
+    - Inquiries in 6 months 
+    - Geography 
+
+
+Model Review: Most comprehensive analysis yet.
 
 
 <hr>
