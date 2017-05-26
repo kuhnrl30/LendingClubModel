@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Model Review • LendingClubModel</title>
+<title>Model Review Notes • LendingClubModel</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -72,7 +72,7 @@
       </header><div class="row">
   <div class="col-md-9">
     <div class="page-header toc-ignore">
-      <h1>Model Review</h1>
+      <h1>Model Review Notes</h1>
             
           </div>
 
@@ -87,13 +87,18 @@
 <a href="#lending-club---predicting-loan-outcomes" class="anchor"></a>Lending club - predicting loan outcomes</h2>
 <p><span class="citation">ORourke (2016)</span></p>
 <p>Data Period: 2007-2011<br>
-Notes:</p>
+Author Notes:</p>
 <ul>
-<li>Divided characteristics into two categories: those about the loan and about the borrower. Did not formally define the groups.</li>
-<li>Filtered out late loans leaving just fully paid, defaulted, and charged off. Defaulted and charge-off loans combined into a single group.</li>
+<li>
+<a href="https://www.linkedin.com/in/ted-orourke/">LinkedIn profile</a> shows no background in p2p lending or credit markets.<br>
+</li>
+<li>Education at the University of Virginia not yet completed.</li>
 </ul>
 <p>Analysis:</p>
 <ul>
+<li>Divided characteristics into two categories: those about the loan and about the borrower. Did not formally define the groups.</li>
+<li>Filtered out late loans leaving just fully paid, defaulted, and charged off. Defaulted and charge-off loans combined into a single group.<br>
+</li>
 <li>Filtered characteristics by reading the descriptions in the data dictionary. Criteria seems to be intuition and the level of documentation. There was no analysis for correlation with outcome to support decisions.</li>
 <li>Chargeoffs focused in higher interest rates, fully paid more evenly distributed<br>
 </li>
@@ -132,8 +137,13 @@ Notes:</p>
 <div id="analysis-of-lending-clubs-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#analysis-of-lending-clubs-data" class="anchor"></a>Analysis of Lending Club’s data</h2>
-<p><span class="citation">Darren (2015)</span></p>
+<p><span class="citation">Darre (2015)</span></p>
 <p>Data: through June 2015.</p>
+<p>Author Notes:</p>
+<ul>
+<li>Strong educational background for data science: MSc in Statistics from Stanford University and MSc in Applied Math</li>
+<li>LinkedIn profile shows work experience as a quant for UBS in structuring CDOs.</li>
+</ul>
 <p>Data cleaning:</p>
 <ul>
 <li>Removed loans where the :
@@ -166,25 +176,69 @@ Notes:</p>
 <p>Analysis:</p>
 <ul>
 <li>FICO score by loan grade showing that most subgrades have average FICO scores within a 10 point range. The initial conclusion is that FICO score doesn’t have a linear relationship with the loan grade. Expanded to show density around the average score by year which shows the densities started with a tight distribution around the mean and then widened with time. The ending conclusion is that LC initially relied heavily on the credit score in the loan grading model and then loosened their reliance on it.</li>
-<li>Look at several variables for a relationship with defaults, loan grades, and fico scores:
-<ul>
-<li>Home ownership – ‘mortgage’ defualted at 11.5% and 2% less than other values. No analysis by loan grades.</li>
-<li>Purpose – ‘education’ and ‘small business’ have higher charge off rates but education is a very small population. At the total population level, the FICO score does not reflect the higher risk.<br>
-</li>
-<li>Revolving balance &amp; employment length – no/minimal link to default. A bump in the charge-off ratio when the employment length is NA which is in contrast to the higher average credit score.</li>
-<li>Number of delinquencies</li>
-<li>Number of open accounts</li>
-<li>Debt to Income</li>
-<li>Public Records</li>
-<li>Age of credit history</li>
-<li>Revolving utilization</li>
-<li>Annual income</li>
-<li>Inquiries in 6 months</li>
-<li>Geography</li>
+<li>Look at several variables for a relationship with defaults, loan grades, and fico scores:</li>
 </ul>
-</li>
-</ul>
-<p>Model Review: Most comprehensive analysis yet.</p>
+<table class="table">
+<colgroup>
+<col width="25%">
+<col width="75%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Variable Name</th>
+<th>Conclusion</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Home ownership</td>
+<td>‘mortgage’ defualted at 11.5% and 2% less than other values. No analysis by loan grades</td>
+</tr>
+<tr class="even">
+<td align="left">Purpose</td>
+<td>‘education’ and ‘small business’ have higher charge off rates but education is a very small population. At the total population level, the FICO score does not reflect the higher risk</td>
+</tr>
+<tr class="odd">
+<td align="left">Revolving balance &amp; employment length</td>
+<td>no or minimal link to default. A bump in the charge-off ratio when the employment length is NA which is in contrast to the higher average credit score.</td>
+</tr>
+<tr class="even">
+<td align="left">Number of delinquencies</td>
+<td>Majority of borrowers do not have delinquencies leaving a small population which did. Delinquencies did have a lower average credit grade.</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of open accounts</td>
+<td>No clear trend</td>
+</tr>
+<tr class="even">
+<td align="left">Debt to Income</td>
+<td>Author notes a relationship with dti and higher credit score but that does not hold true for scores below 700.</td>
+</tr>
+<tr class="odd">
+<td align="left">Public Records</td>
+<td>Small population but a 2% increase in charge-offs if already had a public record.</td>
+</tr>
+<tr class="even">
+<td align="left">Age of credit history</td>
+<td>Default rates decrease with credit history age. There was a 5% drop in defaults from borrowers with &lt;6 years to &gt;22 years. A secondary analysis could be performed to show the impact of borrower age on credit history age.</td>
+</tr>
+<tr class="odd">
+<td align="left">Revolving utilization</td>
+<td>Higher usage leads to higher default rates</td>
+</tr>
+<tr class="even">
+<td align="left">Annual income</td>
+<td>High income defaults less, but does not eliminate the risk. Likely a significant variable.</td>
+</tr>
+<tr class="odd">
+<td align="left">Inquiries in 6 months</td>
+<td>An indication of desperation to get credit. 7+ inquries are nearly 4x more likely to default than 0 inquiries.</td>
+</tr>
+<tr class="even">
+<td align="left">Geography</td>
+<td>Nevada and Florida are top 2 states for defaults.</td>
+</tr>
+</tbody>
+</table>
+<p>Model Review: A very comprehensive analysis with several persepctives that can be reused and updated. Use of violin charts to show the distribution of credit scores was very effective however plotly charts were less so from a technology perspective. Having just read Tufte’s work, I think the bubble charts were too large to convey so little information. The pie charts also weren’t effective because the default rates by category were embedded in the pop-ups instead of being directly visualized.</p>
 <hr>
 <ul>
 <li>
@@ -234,8 +288,8 @@ Notes:</p>
 <div id="ref-mdlCashorali">
 <p>Cashorali, Tanya, 2011, Mining lending club’s goldmine of loan data part i of ii visualizations by state,. Blog <em>R-bloggers</em> (<a href="https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/" class="uri">https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/</a>).</p>
 </div>
-<div id="ref-mdlDarren">
-<p>Darren, Jean-Francois, 2015, Analysis of lending club’s data,. Blog <em>Data Science Central</em> (<a href="http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data" class="uri">http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data</a>).</p>
+<div id="ref-mdlDarre">
+<p>Darre, Jean-Francois, 2015, Analysis of lending club’s data,. Blog <em>Data Science Central</em> (<a href="http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data" class="uri">http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data</a>).</p>
 </div>
 <div id="ref-mdlDavenport">
 <p>Davenport, Kevin, 2015, Lending club data analysis revisited with python,. Blog <em>Machine Learning and Statistics Blog</em> (<a href="Lending%20Club%20Data%20Analysis%20Revisited%20with%20Python" class="uri">Lending Club Data Analysis Revisited with Python</a>).</p>

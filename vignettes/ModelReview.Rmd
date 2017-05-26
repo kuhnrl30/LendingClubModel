@@ -1,5 +1,5 @@
 ---
-title: "Model Review"
+title: "Model Review Notes"
 output: html_document
 bibliography: bibliographies.bib
 csl: snippet/journal-of-finance.csl
@@ -15,13 +15,17 @@ vignette: >
 [@mdlOrourke]
 
 Data Period: 2007-2011  
-Notes:  
+Author Notes:  
 
-- Divided characteristics into two categories: those about the loan and about the borrower.  Did not formally define the groups.
-- Filtered out late loans leaving just fully paid, defaulted, and charged off.  Defaulted and charge-off loans combined into a single group.  
+- [LinkedIn profile](https://www.linkedin.com/in/ted-orourke/) shows no background in p2p lending or credit markets.  
+- Education at the University of Virginia not yet completed.
+
+
 
 Analysis:    
 
+- Divided characteristics into two categories: those about the loan and about the borrower.  Did not formally define the groups.
+- Filtered out late loans leaving just fully paid, defaulted, and charged off.  Defaulted and charge-off loans combined into a single group.  
 - Filtered characteristics by reading the descriptions in the data dictionary. Criteria seems to be intuition and the level of documentation.  There was no analysis for correlation with outcome to support decisions. 
 - Chargeoffs focused in higher interest rates, fully paid more evenly distributed  
 - distribution of loans by grade  
@@ -38,6 +42,7 @@ Analysis review:
 The exploratory analysis was not particularly insightful.  The author did not document the basis for several key decisions such as which variables to include/exclude or why he chose the specific algorithms. The charts were not styled beyond the ggplot defaults. 
 
 <hr>
+
 ## Changes in lending club underwriting
 [@mdlWu1]
 
@@ -56,9 +61,14 @@ Analysis:
 
 <hr>
 ## Analysis of Lending Club's data
-[@mdlDarren]  
+[@mdlDarre]  
 
 Data: through June 2015.  
+
+Author Notes:
+
+- Strong educational background for data science: MSc in Statistics from Stanford University and MSc in Applied Math
+- LinkedIn profile shows work experience as a quant for UBS in structuring CDOs.  
 
 Data cleaning:   
 
@@ -84,21 +94,26 @@ Analysis:
 
 - FICO score by loan grade showing that most subgrades have average FICO scores within a 10 point range. The initial conclusion is that FICO score doesn't have a linear relationship with the loan grade. Expanded to show density around the average score by year which shows the densities started with a tight distribution around the mean and then widened with time. The ending conclusion is that LC initially relied heavily on the credit score in the loan grading model and then loosened their reliance on it. 
 - Look at several variables for a relationship with defaults, loan grades, and fico scores: 
-    - Home ownership -- 'mortgage' defualted at 11.5% and 2% less than other values. No analysis by loan grades. 
-    - Purpose -- 'education' and 'small business' have higher charge off rates but education is a very small population. At the total population level, the FICO score does not reflect the higher risk.    
-    - Revolving balance & employment length -- no/minimal link to default.  A bump in the charge-off ratio when the employment length is NA which is in contrast to the higher average credit score. 
-    - Number of delinquencies
-    - Number of open accounts 
-    - Debt to Income 
-    - Public Records
-    - Age of credit history 
-    - Revolving utilization
-    - Annual income 
-    - Inquiries in 6 months 
-    - Geography 
 
 
-Model Review: Most comprehensive analysis yet.
+|Variable Name | Conclusion| 
+|:----------------|-----------------------------------------------------|
+|Home ownership | 'mortgage' defualted at 11.5% and 2% less than other values. No analysis by loan grades  
+|Purpose | 'education' and 'small business' have higher charge off rates but education is a very small population. At the total population level, the FICO score does not reflect the higher risk  
+|Revolving balance & employment length | no or minimal link to default.  A bump in the charge-off ratio when the employment length is NA which is in contrast to the higher average credit score.  
+|Number of delinquencies | Majority of borrowers do not have delinquencies leaving a small population which did. Delinquencies did have a lower average credit grade.  
+|Number of open accounts | No clear trend  
+|Debt to Income | Author notes a relationship with dti and higher credit score but that does not hold true for scores below 700. 
+|Public Records | Small population but a 2% increase in charge-offs if already had a public record.
+|Age of credit history | Default rates decrease with credit history age. There was a 5% drop in defaults from borrowers with <6 years to >22 years.  A secondary analysis could be performed to show the impact of borrower age on credit history age. 
+|Revolving utilization | Higher usage leads to higher default rates  
+|Annual income | High income defaults less, but does not eliminate the risk. Likely a significant variable.    
+|Inquiries in 6 months | An indication of desperation to get credit.  7+ inquries are nearly 4x more likely to default than 0 inquiries.  
+|Geography | Nevada and Florida are top 2 states for defaults.  
+
+
+
+Model Review: A very comprehensive analysis with several persepctives that can be reused and updated. Use of violin charts to show the distribution of credit scores was very effective however plotly charts were less so from a technology perspective.  Having just read Tufte's work, I think the bubble charts were too large to convey so little information. The pie charts also weren't effective because the default rates by category were embedded in the pop-ups instead of being directly visualized. 
 
 
 <hr>
