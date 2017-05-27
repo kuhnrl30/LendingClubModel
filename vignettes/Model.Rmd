@@ -3,6 +3,9 @@ title: "Building the Model"
 author: "Ryan Kuhn"
 date: "May 5, 2017"
 output: html_document
+vignette: >
+    %\VignetteIndexEntry{Exploratory Analysis- Loan Amount} 
+    %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc}
 ---
 
 ```{r, echo=F}

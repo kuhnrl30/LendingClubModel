@@ -82,19 +82,22 @@
 <blockquote>
 <p>NOTE: this file is being used to capture my notes while reading through the models. Once I’ve read and digested, I’ll turn this into a cohesive summary.</p>
 </blockquote>
+<div id="purpose" class="section level1">
+<h1 class="hasAnchor">
+<a href="#purpose" class="anchor"></a>Purpose</h1>
 <div id="lending-club---predicting-loan-outcomes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#lending-club---predicting-loan-outcomes" class="anchor"></a>Lending club - predicting loan outcomes</h2>
 <p><span class="citation">ORourke (2016)</span></p>
-<p>Data Period: 2007-2011<br>
-Author Notes:</p>
+<p>Data Period: 2007-2011</p>
+<p><strong>Author Notes</strong>:</p>
 <ul>
 <li>
 <a href="https://www.linkedin.com/in/ted-orourke/">LinkedIn profile</a> shows no background in p2p lending or credit markets.<br>
 </li>
 <li>Education at the University of Virginia not yet completed.</li>
 </ul>
-<p>Analysis:</p>
+<p><strong>Analysis:</strong></p>
 <ul>
 <li>Divided characteristics into two categories: those about the loan and about the borrower. Did not formally define the groups.</li>
 <li>Filtered out late loans leaving just fully paid, defaulted, and charged off. Defaulted and charge-off loans combined into a single group.<br>
@@ -108,13 +111,16 @@ Author Notes:</p>
 </li>
 <li>Current.Account.Ratio number of open credit lines divided by total number f accounts</li>
 </ul>
-<p>Modeling:</p>
+<p><strong>Modeling:</strong></p>
 <ul>
 <li>Decision tree- The AUC from this model was 0.68 but only 60 charge-off loans were correctly identified. After resampling to increase the proportion of charge-offs, the confusion matrix increased to identifying 700 of the 1100 charge-offs.</li>
 <li>Logistic Regression- AUC: 0.697. Confusion matrix ID’d 730 of the 1100 charge-offs.</li>
 <li>Ensembled- Using bagging</li>
 </ul>
-<p>Analysis review: The exploratory analysis was not particularly insightful. The author did not document the basis for several key decisions such as which variables to include/exclude or why he chose the specific algorithms. The charts were not styled beyond the ggplot defaults.</p>
+<p><strong>Analysis review:</strong></p>
+<ul>
+<li>The exploratory analysis was not particularly insightful. The author did not document the basis for several key decisions such as which variables to include/exclude or why he chose the specific algorithms. The charts were not styled beyond the ggplot defaults.</li>
+</ul>
 <hr>
 </div>
 <div id="changes-in-lending-club-underwriting" class="section level2">
@@ -127,7 +133,7 @@ Author Notes:</p>
 <li>Response to LC’s quarterly earnings release, where LC announced changes in underwriting</li>
 <li>Used commentary from LC’s 10-Q.</li>
 </ul>
-<p>Analysis:</p>
+<p><strong>Analysis:</strong></p>
 <ul>
 <li>Scatter plot of average DTI for D grade loans by issue date. The plot attempts to show that less high DTI loans have been issued since LC changed its underwriting in late April 2016. The article hypothesizes that the loans are removed from the direct pay program. Direct pay requires the loan proceeds be paid directly to the borrower’s existing debts.</li>
 <li>Scatter plot of number of inquiries by issue date for F and G grade loans. The plot shows that in the past month there have been less loans with a high number of previous inquiries.</li>
@@ -142,9 +148,10 @@ Author Notes:</p>
 <p>Author Notes:</p>
 <ul>
 <li>Strong educational background for data science: MSc in Statistics from Stanford University and MSc in Applied Math</li>
-<li>LinkedIn profile shows work experience as a quant for UBS in structuring CDOs.</li>
+<li>
+<a href="https://www.linkedin.com/in/jftdarre/">LinkedIn profile</a> shows work experience as a quant for UBS in structuring CDOs.</li>
 </ul>
-<p>Data cleaning:</p>
+<p><strong>Data cleaning:</strong></p>
 <ul>
 <li>Removed loans where the :
 <ul>
@@ -157,9 +164,9 @@ Author Notes:</p>
 <li>New features engineered:
 <ul>
 <li>Year from the issue date</li>
-<li>Bins or brackets based on FICO scores</li>
 <li>Buckets for the:
 <ul>
+<li>FICO scores</li>
 <li>years, quarthers, and months of issue dates</li>
 <li>number of inquries in the past 6 months</li>
 <li>DTI</li>
@@ -168,12 +175,12 @@ Author Notes:</p>
 </li>
 </ul>
 </li>
-<li>Filtered to remove loans that have matured.</li>
+<li>Filtered to remove loans that have not matured.</li>
 <li>Grouped statuses into 2 categories: debt and purchases. Credit card and debt consolidation were grouped into the debt category and all others to purchases.</li>
-<li>Simplified the number of delinquencies by threshold +/- 2 delinquiries in 2 years.</li>
-<li>Simplified the number of public records by threshold +1.</li>
+<li>Simplified the number of delinquencies tp binary: 2+ delinquiries in 2 years.</li>
+<li>Simplified the number of public records to binary: threshold +1.</li>
 </ul>
-<p>Analysis:</p>
+<p><strong>Analysis:</strong></p>
 <ul>
 <li>FICO score by loan grade showing that most subgrades have average FICO scores within a 10 point range. The initial conclusion is that FICO score doesn’t have a linear relationship with the loan grade. Expanded to show density around the average score by year which shows the densities started with a tight distribution around the mean and then widened with time. The ending conclusion is that LC initially relied heavily on the credit score in the loan grading model and then loosened their reliance on it.</li>
 <li>Look at several variables for a relationship with defaults, loan grades, and fico scores:</li>
@@ -238,8 +245,40 @@ Author Notes:</p>
 </tr>
 </tbody>
 </table>
-<p>Model Review: A very comprehensive analysis with several persepctives that can be reused and updated. Use of violin charts to show the distribution of credit scores was very effective however plotly charts were less so from a technology perspective. Having just read Tufte’s work, I think the bubble charts were too large to convey so little information. The pie charts also weren’t effective because the default rates by category were embedded in the pop-ups instead of being directly visualized.</p>
+<p>Model Review:</p>
+<ul>
+<li>A very comprehensive analysis with several appoaces that can be updated and reused. Use of violin charts to show the distribution of credit scores was very effective and can be used fot dti, income, and credit score anakysis. Plotly pie charts were less effective in transferring information because the default rates by category were embedded in the pop-ups instead of being directly visualized. Having just read Tufte’s work, I think the bubble charts were too large to convey so little information and may have been better suited in a table. The analysis was a little disjointed the way he moved between the complete dataset and the subset of matured loans. It may have been useful to do them sequentially or enable a left-right comparison.</li>
+</ul>
 <hr>
+</div>
+<div id="lending-club-loan-analysis-making-money-with-logistic-regression" class="section level2">
+<h2 class="hasAnchor">
+<a href="#lending-club-loan-analysis-making-money-with-logistic-regression" class="anchor"></a>Lending Club Loan Analysis: Making Money with Logistic Regression</h2>
+<p><span class="citation">Davis (2012)</span></p>
+<p>Data: through 2011</p>
+<p><strong>Author Notes</strong>:</p>
+<ul>
+<li>
+<a href="https://www.linkedin.com/in/drjasondavis/?locale=en_US">LinkedIn</a> shows at the time he was the director of Search and Data at Etsy</li>
+<li>PhD in machine learning U of TX- Austin</li>
+</ul>
+<p>**<a href="Notes:**" class="uri">Notes:**</a></p>
+<ul>
+<li>Interesting discussion in the comments</li>
+</ul>
+<p><strong>Analysis:</strong></p>
+<ul>
+<li>Default rate by description character length. He did not define how he measured defaults i.e. did he remove loans that haven’t matured yet or were defaults included with the charge-offs.</li>
+<li>Logistic regression using first 50% of loans and evaluated on 2nd 50%. The model outpout is the probability of default which is then used to weight the interest rate. 12 variables were used in the model with no commentary discussing how they were chosen.</li>
+<li>Expanded to determine sensitivity of each of the variables by re runnning the model after holding out one of the variables. Noted that the amount requested had the biggest impact on investor return.</li>
+</ul>
+<p><strong>Review:</strong> - An interesting take on the model by flowing it through to a pricing model. So far in my review the authors have stopped at a classifier model. This is an important shift towards application.</p>
+<hr>
+</div>
+</div>
+<div id="remaining-models" class="section level1">
+<h1 class="hasAnchor">
+<a href="#remaining-models" class="anchor"></a>Remaining Models</h1>
 <ul>
 <li>
 <span class="citation">Anon. (2015)</span><br>
@@ -266,13 +305,12 @@ Author Notes:</p>
 <span class="citation">Anon.</span><br>
 </li>
 <li>
-<span class="citation">Davis (2012)</span><br>
-</li>
-<li>
 <span class="citation">Patierno (2011)</span><br>
 </li>
 <li><span class="citation">Tsai, Ramiah, and Singh (2014)</span></li>
-<li><span class="citation">Summers (2016)</span></li>
+<li>
+<span class="citation">Summers (2016)</span> <a href="https://github.com/ivanmladek/svm-lendingclub" class="uri">https://github.com/ivanmladek/svm-lendingclub</a>
+</li>
 </ul>
 </div>
 <div id="references" class="section level1 unnumbered">
@@ -333,9 +371,15 @@ Author Notes:</p>
         <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+<li>
+<a href="#purpose">Purpose</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#lending-club---predicting-loan-outcomes">Lending club - predicting loan outcomes</a></li>
       <li><a href="#changes-in-lending-club-underwriting">Changes in lending club underwriting</a></li>
       <li><a href="#analysis-of-lending-clubs-data">Analysis of Lending Club’s data</a></li>
+      <li><a href="#lending-club-loan-analysis-making-money-with-logistic-regression">Lending Club Loan Analysis: Making Money with Logistic Regression</a></li>
+      </ul>
+</li>
+      <li><a href="#remaining-models">Remaining Models</a></li>
       <li><a href="#references">References</a></li>
       </ul>
 </div>

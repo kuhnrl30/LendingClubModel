@@ -1,6 +1,11 @@
 ---
 title: "Model Review Notes"
-output: html_document
+output: 
+    html_document:
+        toc: true
+        toc_float: 
+            collapsed: false
+        toc_depth: 2
 bibliography: bibliographies.bib
 csl: snippet/journal-of-finance.csl
 vignette: >
@@ -10,19 +15,22 @@ vignette: >
 
 > NOTE: this file is being used to capture my notes while reading through the models.  Once I've read and digested, I'll turn this into a cohesive summary. 
 
+# Purpose
+
 
 ## Lending club - predicting loan outcomes
 [@mdlOrourke]
 
 Data Period: 2007-2011  
-Author Notes:  
+
+**Author Notes**:  
 
 - [LinkedIn profile](https://www.linkedin.com/in/ted-orourke/) shows no background in p2p lending or credit markets.  
 - Education at the University of Virginia not yet completed.
 
 
 
-Analysis:    
+**Analysis:**    
 
 - Divided characteristics into two categories: those about the loan and about the borrower.  Did not formally define the groups.
 - Filtered out late loans leaving just fully paid, defaulted, and charged off.  Defaulted and charge-off loans combined into a single group.  
@@ -32,28 +40,30 @@ Analysis:
 - 36 vs 60 month loan chargeoff rates  
 - Current.Account.Ratio  number of open credit lines divided by total number f accounts 
     
-Modeling:  
+**Modeling:**  
 
 - Decision tree- The AUC from this model was 0.68 but only 60 charge-off loans were correctly identified. After resampling to increase the proportion of charge-offs, the confusion matrix increased to identifying 700 of the 1100 charge-offs.
 - Logistic Regression- AUC: 0.697.  Confusion matrix ID'd 730 of the 1100 charge-offs.
 - Ensembled- Using bagging
     
-Analysis review:
-The exploratory analysis was not particularly insightful.  The author did not document the basis for several key decisions such as which variables to include/exclude or why he chose the specific algorithms. The charts were not styled beyond the ggplot defaults. 
+**Analysis review:**
+
+- The exploratory analysis was not particularly insightful.  The author did not document the basis for several key decisions such as which variables to include/exclude or why he chose the specific algorithms. The charts were not styled beyond the ggplot defaults. 
 
 <hr>
 
-## Changes in lending club underwriting
+## Changes in lending club underwriting  
+
 [@mdlWu1]
 
 Data: June 2015 - May 2016  
 
-Notes: 
+Notes:
 
 - Response to LC's quarterly earnings release, where LC announced changes in underwriting 
 - Used commentary from LC's 10-Q.
 
-Analysis:  
+**Analysis:**    
 
 - Scatter plot of average DTI for D grade loans by issue date.  The plot attempts to show that less high DTI loans have been issued since LC changed its underwriting in late April 2016. The article hypothesizes that the loans are removed from the direct pay program.  Direct pay requires the loan proceeds be paid directly to the borrower's existing debts.
 - Scatter plot of number of inquiries by issue date for F and G grade loans. The plot shows that in the past month there have been less loans with a high number of previous inquiries. 
@@ -68,9 +78,9 @@ Data: through June 2015.
 Author Notes:
 
 - Strong educational background for data science: MSc in Statistics from Stanford University and MSc in Applied Math
-- LinkedIn profile shows work experience as a quant for UBS in structuring CDOs.  
+- [LinkedIn profile](https://www.linkedin.com/in/jftdarre/) shows work experience as a quant for UBS in structuring CDOs.  
 
-Data cleaning:   
+**Data cleaning:**   
 
 - Removed loans where the : 
     - policy code is not 1 meaning they are new products not yet publically available. 
@@ -79,18 +89,18 @@ Data cleaning:
     - Low FICO score was less than 600.  Per the new underwriting policy, borrowers with a score less than 600 aren't allowed to receive a loan. 
 - New features engineered: 
     - Year from the issue date
-    - Bins or brackets based on FICO scores 
     - Buckets for the:
+        - FICO scores 
         - years, quarthers, and months of issue dates 
         - number of inquries in the past 6 months
         - DTI
         - Revolving balance
-- Filtered to remove loans that have matured. 
+- Filtered to remove loans that have not matured. 
 - Grouped statuses into 2 categories: debt and purchases. Credit card and debt consolidation were grouped into the debt category and all others to purchases.
-- Simplified the number of delinquencies by threshold +/- 2 delinquiries in 2 years.
-- Simplified the number of public records by threshold +1.
+- Simplified the number of delinquencies tp binary: 2+ delinquiries in 2 years.
+- Simplified the number of public records to binary: threshold +1.
 
-Analysis: 
+**Analysis:**    
 
 - FICO score by loan grade showing that most subgrades have average FICO scores within a 10 point range. The initial conclusion is that FICO score doesn't have a linear relationship with the loan grade. Expanded to show density around the average score by year which shows the densities started with a tight distribution around the mean and then widened with time. The ending conclusion is that LC initially relied heavily on the credit score in the loan grading model and then loosened their reliance on it. 
 - Look at several variables for a relationship with defaults, loan grades, and fico scores: 
@@ -113,10 +123,41 @@ Analysis:
 
 
 
-Model Review: A very comprehensive analysis with several persepctives that can be reused and updated. Use of violin charts to show the distribution of credit scores was very effective however plotly charts were less so from a technology perspective.  Having just read Tufte's work, I think the bubble charts were too large to convey so little information. The pie charts also weren't effective because the default rates by category were embedded in the pop-ups instead of being directly visualized. 
+Model Review: 
+
+- A very comprehensive analysis with several appoaces that can be updated and reused. Use of violin charts to show the distribution of credit scores was very effective and can be used fot dti, income, and credit score anakysis.  Plotly pie charts were less effective in transferring information because the default rates by category were embedded in the pop-ups instead of being directly visualized. Having just read Tufte's work, I think the bubble charts were too large to convey so little information and may have been better suited in a table. The analysis was a little disjointed the way he moved between the complete dataset and the subset of matured loans.  It may have been useful to do them sequentially or enable a left-right comparison. 
 
 
 <hr>
+## Lending Club Loan Analysis: Making Money with Logistic Regression
+
+[@mdlDavis]  
+
+Data: through 2011
+
+**Author Notes**:
+
+- [LinkedIn](https://www.linkedin.com/in/drjasondavis/?locale=en_US) shows at the time he was the director of Search and Data at Etsy
+- PhD in machine learning U of TX- Austin
+
+**Notes:**
+
+- Interesting discussion in the comments
+
+
+**Analysis:**    
+
+- Default rate by description character length. He did not define how he measured defaults i.e. did he remove loans that haven't matured yet or were defaults included with the charge-offs.
+- Logistic regression using first 50% of loans and evaluated on 2nd 50%.  The model outpout is the probability of default which is then used to weight the interest rate.  12 variables were used in the model with no commentary discussing how they were chosen. 
+- Expanded to determine sensitivity of each of the variables by re runnning the model after holding out one of the variables.  Noted that the amount requested had the biggest impact on investor return.  
+
+**Review:**
+- An interesting take on the model by flowing it through to a pricing model.  So far in my review the authors have stopped at a classifier model. This is an important shift towards application. 
+
+
+<hr>
+
+# Remaining Models
 
 - [@socialLender]  
 - [@mdlDavenport]  
@@ -126,10 +167,10 @@ Model Review: A very comprehensive analysis with several persepctives that can b
 - [@mdlMistry]  
 - [@mdlPolena]  
 - [@mdlKaggle]  
-- [@mdlDavis]  
 - [@mdlPatierno]  
 - [@mdlTsai]
 - [@mdlSummers]
+https://github.com/ivanmladek/svm-lendingclub
 
 
 # References
