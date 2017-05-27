@@ -9,10 +9,11 @@ URL: https://www.github.com/kuhnrl30/LendingClubModel
 License: MIT + file LICENSE
 LazyData: TRUE
 RoxygenNote: 6.0.1
-Suggests: knitr
 VignetteBuilder: knitr
 Imports: 
     dplyr,
     ggplot2
-Depends: tidyr 
+Depends: 
+	tidyr,
+	knitr
 Remotes: kuhnrl30/LendingClubData
