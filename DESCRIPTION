@@ -15,5 +15,6 @@ Imports:
     ggplot2
 Depends: 
 	tidyr,
-	knitr
+	knitr,
+	rmarkdown
 Remotes: kuhnrl30/LendingClubData
