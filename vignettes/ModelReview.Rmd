@@ -185,11 +185,14 @@ Debt to Income | Bucketed by 10% increments and intuitively states defaults incr
 Revolving Utilization | Bucketed by 10% increments and intuitively states defaults increase as utilization increased. 
 Purpose | Calculated stats for each loan but summarized as 3 categories: 1) debt, 2) major purchase such as home improvement and cars, 3) luxury such as vacations and weddings. 
 Inquiries | Curve peaking at 3 inq and decreasing again with 4+ inquiries.
-Total accounts | 
-Annual Income |
+Total accounts | He cites a curve peaking at 20 accounts and diminishing effects above that.  There's no analysis documenting the the bin size choice.
+Annual Income | Bin by quintiles- top 20% of annual income are 6% more likely to be performing loans. The top cutoff for the top and bottom quintiles was 42K and 95K.
+Loan Amount | Binned at 0-15,15-30, and 30-35K.  Noting a decrease in performance for 30-35K loans.  *This contrasts with numbers showing in my Loan Amount exploratory analysis?* 
+Employment Length | Binned as NA, <10, >10 years.  No commentary but data suggests 1.25% inprovement for >10 years over <10 years and another 1.25% over NAs. 
+
 
 **Review**:
-Hypothesese for differences in variables but no testing for confirmation. (How?)
+Hypothesese for differences in variables but no testing for confirmation. (and how would you confirm?) No documentation around decisions like bin cutoffs. 
 
 <hr>
 
@@ -212,5 +215,7 @@ Hypothesese for differences in variables but no testing for confirmation. (How?)
     - ML demo: casual analysis and then quickly move to applying ML algorithm
     - Exploratory: product of a course or bootcamp.  Showing relationship of multiple variables.  No resulting model or classifier.
     - Practical application: Blog posts from investment service firms.  Show deep knowledge of the industry but are not a complete and comprehensive review of all variables.  Tend to be a deep dive on a very narrow topic.  
+    
+- Approach for those with DS experience is to go variable by variable and look for the effect. Practitioners tend to focus o current events and the impact on the current credit scoring model. 
 
 # References
