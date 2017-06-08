@@ -212,7 +212,7 @@ Hypothesese for differences in variables but no testing for confirmation. (and h
 # Trends and organization  
 
 - 3 tranches: ML demo, exploratory, and practical application
-    - ML demo: casual analysis and then quickly move to applying ML algorithm
+    - ML demo: casual analysis and then quickly move to applying ML algorithm.  Some feature engineering 
     - Exploratory: product of a course or bootcamp.  Showing relationship of multiple variables.  No resulting model or classifier.
     - Practical application: Blog posts from investment service firms.  Show deep knowledge of the industry but are not a complete and comprehensive review of all variables.  Tend to be a deep dive on a very narrow topic.  
     
