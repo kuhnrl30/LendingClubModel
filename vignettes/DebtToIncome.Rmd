@@ -59,7 +59,6 @@ a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
 a<- a + aes(x=Class, y=dti, fill=Class)
 a<- a + facet_wrap(~Year)
 a<- a + geom_violin(draw_quantiles = c(0.5))
-# a<- a + geom_vline(aes(xintercept=write_mean),data=b)
 a<- a + labs(title="Distribution of DTI by default status and year")
 a<- a + theme_LC()
 a

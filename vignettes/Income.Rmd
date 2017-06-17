@@ -18,8 +18,8 @@ knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, ev
 ### Annual Income 
 ```{r}
 b<- ggplot(LoanData)
-b<- b + aes(annual_inc, group=Class, colour=Class)
-b<- b + geom_density()
+b<- b + aes(y=annual_inc, x=Class, colour=Class)
+b<- b + geom_boxplot(outlier.colour = "red")
 b<- b + labs(title="Distribution of Annual Income by default status")
 b<- b + theme_LC()
 b

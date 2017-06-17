@@ -85,6 +85,7 @@
 <div id="purpose" class="section level1">
 <h1 class="hasAnchor">
 <a href="#purpose" class="anchor"></a>Purpose</h1>
+<p>To compile a list of analyses already performed on the open source data and to learn the interesting relationships discovered in those analyses.</p>
 <div id="lending-club---predicting-loan-outcomes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#lending-club---predicting-loan-outcomes" class="anchor"></a>Lending club - predicting loan outcomes</h2>
@@ -338,24 +339,90 @@
 <td align="left">Employment Length</td>
 <td>Binned as NA, &lt;10, &gt;10 years. No commentary but data suggests 1.25% inprovement for &gt;10 years over &lt;10 years and another 1.25% over NAs.</td>
 </tr>
+<tr class="even">
+<td align="left">Delinquencies past 2 years</td>
+<td>Binned to 0, 1, 2, 3+ based on tail of distribution. No difference in 0-2 delinquencies but a fall-off of loan performance at 3+.</td>
+</tr>
+<tr class="odd">
+<td align="left">Number Open Accounts</td>
+<td>No strong indication</td>
+</tr>
+<tr class="even">
+<td align="left">Verifed Income Statements</td>
+<td>Unexpected worse performance as verification status increased. Author suggests confounding variable as verification increases as credit score degraded.</td>
+</tr>
+<tr class="odd">
+<td align="left">Public Records</td>
+<td>0, 1, 2+. Better performance at 1+ than 0</td>
+</tr>
+<tr class="even">
+<td align="left">Non-Significant Variables</td>
+<td>Months since last delinquencies, months since last majore derogatory note, collections in past 12 months</td>
+</tr>
 </tbody>
 </table>
-<p><strong>Review</strong>: Hypothesese for differences in variables but no testing for confirmation. (and how would you confirm?) No documentation around decisions like bin cutoffs.</p>
+<p><strong>Review</strong>: Extensive analysis of many variables. This variable-by-variable format has been used in other blogs but can be very boring to read without a central theme. The variables don’t build on each other or follow a line of reasoning. Is ther a better way? Also, there is no analysis of interaction between variables.</p>
+<p>Author proposes a hypothesese for differences in results by variables but there’s no testing for confirmation. (and how would you confirm?) Also, minmal documentation around decisions like bin cutoffs.</p>
+<hr>
+</div>
+<div id="gradient-boosting-analysis-of-lendingclubs-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#gradient-boosting-analysis-of-lendingclubs-data" class="anchor"></a>Gradient Boosting: Analysis of LendingClub’s Data</h2>
+<p><span class="citation">Davenport (2013)</span></p>
+<p>Data: Not stated, but likely through Q1 2013.</p>
+<p>Author Notes:</p>
+<ul>
+<li>Data scientist at Amazon<br>
+</li>
+<li>MS Computer Science from Georgia Tech</li>
+</ul>
+<p>Data Cleaning:</p>
+<ul>
+<li>Replace missing values with NA</li>
+<li>Anova analsysis listed Amount Requested, Debt/Income Ratio, Rent or Own Home, Inquiries in Last 6 Months, Length of Loan, and Purpose of Loan as being significantly correlated with MeanFICO and Interest Rate.</li>
+<li>Looked to the credit score info to understand link to other variables</li>
+</ul>
+<p>Modeling:</p>
+<ul>
+<li>Obejective: predict interest rate using RMSE as accuracy measure<br>
+</li>
+<li>Straight to gbm: used to prevent overfitting</li>
+</ul>
+<p>Analysis:</p>
+<p>The author presents a fairly simple analysis which has more to do with interpreting the results of the gbm function than actually predicting the interest rates. This model has minimal utility in predicting default probability or expected cash flow from a loan. There are two possible insights from the blog post:</p>
+<ol style="list-style-type: decimal">
+<li>Loans have already been priced by the time they are on the market but it may be useful to understanding how loans were priced. You could then make a local optimization argument that there are arbitration gains where the interest rate doesn’t reflect risk. The author did not attempt to explore, much less prove, that line of thinking.</li>
+<li>Composition of the FICO score is a combination of amounts owed, payment history, credit mix, length of credit history, and new credit. This is a good starting point to identify confounding or high correlation variables.</li>
+</ol>
+<hr>
+</div>
+<div id="davenport-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#davenport-2" class="anchor"></a>Davenport 2</h2>
+<p><span class="citation">Davenport (2015)</span></p>
+<p>Data:</p>
+<p>Author:</p>
+<ul>
+<li>see above</li>
+</ul>
+<p>Cleaning:</p>
+<ul>
+<li>data cleaning</li>
+</ul>
+<p>Analysis:</p>
 <hr>
 </div>
 </div>
 <div id="remaining-models" class="section level1">
 <h1 class="hasAnchor">
 <a href="#remaining-models" class="anchor"></a>Remaining Models</h1>
+<p><a href="http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/" class="uri">http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/</a> <a href="http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html" class="uri">http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html</a></p>
 <ul>
 <li>
 <span class="citation">Anon. (2015)</span><br>
 </li>
 <li>
-<span class="citation">Davenport (2015)</span><br>
-</li>
-<li>
-<span class="citation">Wu (2013)</span><br>
+<span class="citation"><span class="citeproc-not-found" data-reference-id="mdlWu2"><strong>???</strong></span></span><br>
 </li>
 <li>
 <span class="citation">Cashorali (2011)</span><br>
@@ -380,11 +447,11 @@
 <h1 class="hasAnchor">
 <a href="#trends-and-organization" class="anchor"></a>Trends and organization</h1>
 <ul>
-<li>3 tranches: ML demo, exploratory, and practical application
+<li>3 tranches: ML demo, exploratory analysis, and practical application
 <ul>
-<li>ML demo: casual analysis and then quickly move to applying ML algorithm. Some feature engineering</li>
+<li>ML demo: casual analysis and then quickly move to applying ML algorithm. Some feature engineering, but they don’t tend to be helpful variables</li>
 <li>Exploratory: product of a course or bootcamp. Showing relationship of multiple variables. No resulting model or classifier.</li>
-<li>Practical application: Blog posts from investment service firms. Show deep knowledge of the industry but are not a complete and comprehensive review of all variables. Tend to be a deep dive on a very narrow topic.</li>
+<li>Practical application: Blog posts from investment service firms. Show deep knowledge of the industry but are not a complete and comprehensive review of all variables. Tend to be a deep dive on a very narrow topic. Likely useful for understanding the nuance of the market but not for getting started.</li>
 </ul>
 </li>
 <li>Approach for those with DS experience is to go variable by variable and look for the effect. Practitioners tend to focus o current events and the impact on the current credit scoring model.</li>
@@ -405,6 +472,9 @@
 </div>
 <div id="ref-mdlDarre">
 <p>Darre, Jean-Francois, 2015, Analysis of lending club’s data,. Blog <em>Data Science Central</em> (<a href="http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data" class="uri">http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data</a>).</p>
+</div>
+<div id="ref-mdlDavenport2">
+<p>Davenport, Kevin, 2013, Gradient boosting: Analysis of lendingclub’s data,. Blog (<a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//</a>).</p>
 </div>
 <div id="ref-mdlDavenport">
 <p>Davenport, Kevin, 2015, Lending club data analysis revisited with python,. Blog <em>Machine Learning and Statistics Blog</em> (<a href="http://kldavenport.com/lending-club-data-analysis-revisted-with-python/" class="uri">http://kldavenport.com/lending-club-data-analysis-revisted-with-python/</a>).</p>
@@ -433,9 +503,6 @@
 <div id="ref-mdlTsai">
 <p>Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh, 2014, Peer lending risk predictor, (<a href="http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf">http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf</a>).</p>
 </div>
-<div id="ref-mdlWu2">
-<p>Wu, James, 2013, Gradient boosting: Analysis of lendingclub’s data,. Blog <em>R-bloggers</em> (<a href="https://www.r-bloggers.com/gradient-boosting-analysis-of-lendingclubs-data/" class="uri">https://www.r-bloggers.com/gradient-boosting-analysis-of-lendingclubs-data/</a>).</p>
-</div>
 <div id="ref-mdlWu1">
 <p>Wu, James, 2015, Changes in lending club underwriting,. Blog <em>MonJa</em> (<a href="https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//" class="uri">https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//</a>).</p>
 </div>
@@ -455,6 +522,8 @@
       <li><a href="#analysis-of-lending-clubs-data">Analysis of Lending Club’s data</a></li>
       <li><a href="#lending-club-loan-analysis-making-money-with-logistic-regression">Lending Club Loan Analysis: Making Money with Logistic Regression</a></li>
       <li><a href="#analyzing-historical-default-rates-of-lending-club-notes">Analyzing Historical Default Rates of Lending Club Notes</a></li>
+      <li><a href="#gradient-boosting-analysis-of-lendingclubs-data">Gradient Boosting: Analysis of LendingClub’s Data</a></li>
+      <li><a href="#davenport-2">Davenport 2</a></li>
       </ul>
 </li>
       <li><a href="#remaining-models">Remaining Models</a></li>

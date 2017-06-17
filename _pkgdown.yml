@@ -25,6 +25,7 @@ articles:
 - title: Modeling
   contents:
   - Model
+  - Pricing
   
 navbar:
   title: LendingClubModel

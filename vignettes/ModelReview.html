@@ -229,6 +229,7 @@ div.tocify {
 </blockquote>
 <div id="purpose" class="section level1">
 <h1>Purpose</h1>
+<p>To compile a list of analyses already performed on the open source data and to learn the interesting relationships discovered in those analyses.</p>
 <div id="lending-club---predicting-loan-outcomes" class="section level2">
 <h2>Lending club - predicting loan outcomes</h2>
 <p><span class="citation">ORourke (2016)</span></p>
@@ -474,6 +475,26 @@ div.tocify {
 <td align="left">Employment Length</td>
 <td>Binned as NA, &lt;10, &gt;10 years. No commentary but data suggests 1.25% inprovement for &gt;10 years over &lt;10 years and another 1.25% over NAs.</td>
 </tr>
+<tr class="even">
+<td align="left">Delinquencies past 2 years</td>
+<td>Binned to 0, 1, 2, 3+ based on tail of distribution. No difference in 0-2 delinquencies but a fall-off of loan performance at 3+.</td>
+</tr>
+<tr class="odd">
+<td align="left">Number Open Accounts</td>
+<td>No strong indication</td>
+</tr>
+<tr class="even">
+<td align="left">Verifed Income Statements</td>
+<td>Unexpected worse performance as verification status increased. Author suggests confounding variable as verification increases as credit score degraded.</td>
+</tr>
+<tr class="odd">
+<td align="left">Public Records</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left">Non-Significant Variables</td>
+<td>Months since last delinquencies, months since last majore derogatory note, collections in past 12 months</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Review</strong>: Hypothesese for differences in variables but no testing for confirmation. (and how would you confirm?) No documentation around decisions like bin cutoffs.</p>
@@ -482,6 +503,7 @@ div.tocify {
 </div>
 <div id="remaining-models" class="section level1">
 <h1>Remaining Models</h1>
+<p><a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/</a> <a href="http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/" class="uri">http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/</a> <a href="http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html" class="uri">http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html</a></p>
 <ul>
 <li><span class="citation">Anon. (2015)</span><br />
 </li>
@@ -508,7 +530,7 @@ div.tocify {
 <ul>
 <li>3 tranches: ML demo, exploratory, and practical application
 <ul>
-<li>ML demo: casual analysis and then quickly move to applying ML algorithm</li>
+<li>ML demo: casual analysis and then quickly move to applying ML algorithm. Some feature engineering</li>
 <li>Exploratory: product of a course or bootcamp. Showing relationship of multiple variables. No resulting model or classifier.</li>
 <li>Practical application: Blog posts from investment service firms. Show deep knowledge of the industry but are not a complete and comprehensive review of all variables. Tend to be a deep dive on a very narrow topic.</li>
 </ul></li>
