@@ -1,0 +1,17 @@
+---
+title: "Literature Review"
+output: 
+    html_document:
+        toc: true
+        toc_float: 
+            collapsed: false
+        toc_depth: 2
+bibliography: bibliographies.bib
+csl: snippet/journal-of-finance.csl
+vignette: >
+    %\VignetteIndexEntry{Exploratory Analysis- Loan Amount} 
+    %\VignetteEngine{knitr::rmarkdown}\usepackage[utf8]{inputenc}
+---
+
+## Literature Resources
+http://admin.nber.org/
