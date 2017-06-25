@@ -243,7 +243,8 @@ Author:
 Cleaning:
 
 - Question relationships to identify risks, but no proposed solutions  or conclusions without confirmation or analysis. 
-- ID these risks:
+- Explorarorty analysis was generally just distributions  
+- ID'd these risks:
 
 |Variable Name | Risk| 
 |:----------------|-----------------------------------------------------|
@@ -252,16 +253,51 @@ Cleaning:
 | Earliest credit line | Longer period could indicate age and earning potential. 
 
 
-Analysis:
-- Objective was to predict interest rate
-- Explorarorty analysis was generally just distributions 
+Modeling:
 
+- Objective was to explain the differences in interest rate
+- Removed correlated variables >0.55 
+- Used gradient boosting regression, tuned with grid search
+- Accuracy gets better with more iterations.  Is there an over fitting concern?
+
+
+Analysis:
+This is the first model that mentioned the risks of being wrong instead of being assertive towards assumed explanations.  Most other models had been cavalier towards their hypotheses around deviances in the variables. 
+
+Putting the Python code in the analysis was a bit distracting. While it's good for reproducibility, it took away from the goal of understanding the author's message and what's happening with the loans. I think its preferrable to include a link to Github or hold everything to the end. 
+
+<hr>
+## Lending Club Deep Learning
+[@mdlSummers]  
+
+Data: 2015 & 1H 2016
+
+Modeling:
+
+- Defined objective as "Use machine learning model to create a portfolio of 100 loans with a higher return than a Lending Club baseline".  Note this is stated as measuring against profitability- shouldn't be just a default score. Used an average 10% return for the total population- no hold out.
+- Links to external analyses- less duplicated work. 
+- Three strategies:
+
+Strategy | Notes |
+|:----------------|-----------------------------------------------------|
+1| Model assigns the probablity of default. Scans through the range of probabilities calculating the average return, interest rate, and default rate for all loans above the cutoff. Find point of maximum return. Risk rate is the actual default rate. Model reduces risk of default but doesn't compensate for lower interest rate.  
+2|Same model as above but applied to subsets of loans by grade. The model shows minimal improvement over a random sample from A & B grades but the results improve as the grades increase.
+3| Change optimization from focusing on default rates to total return.  Weight the payback probability by the interest rate. Minimal discussion, but the return percentage is higher than approach #1.   
+
+- The margin over average LC returns was highest in approach 3 but 2 applied to higher interest rate loans would be the best overall return. Approach number 3 maximizes the risk adjusted return.  
+- Using 10 fold cross validation
+
+Analysis:
+Approach is written to maximize profit but the objective is written as a machine learning task.  He starts as a demo type post but then does a better job of framing the writeup like a business driven model. 
+
+Author lets the code do much of the talking which makes interpretting the model difficult since my Python is not as strong.  Recommnd using a more verbose commentary to let non-Python readers understand what is happening in the code. 
 
 <hr>
 # Remaining Models
 
 http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/
 http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html
+http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf
 
 - [@socialLender]  
 - [@mdlWu2]  
@@ -271,7 +307,6 @@ http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html
 - [@mdlKaggle]  
 - [@mdlPatierno]  
 - [@mdlTsai]
-- [@mdlSummers]  
 
 # Trends and organization  
 

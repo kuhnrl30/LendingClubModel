@@ -22,6 +22,7 @@ articles:
 - title: Literature Reviews
   contents:
   - ModelReview
+  - LiteratureReview
 - title: Modeling
   contents:
   - Model
