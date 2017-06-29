@@ -1,14 +1,11 @@
 ---
-output: html_document
+title: Lending Club Model
 ---
 
-[![Build Status](https://travis-ci.org/kuhnrl30/LendingClubModel.svg?branch=master)](https://travis-ci.org/kuhnrl30/LendingClubModel) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/kuhnrl30/LendingClubModel?branch=master&svg=true)](https://ci.appveyor.com/project/kuhnrl30/LendingClubModel/branch/master)
 
-# Lending Club Model 
+> WARNING: This site is still under development and will be updated from day to day. Please use with caution until this warning has been removed. 
 
-> WARNING: This site is still under development and will be updated from day to day. The LendingClubModel package is a work in process, so please use with caution until this warning is removed. 
-
-This package is the workspace used to develop a model which reduces the note default risk and thereby improve returns. There are a few companion packages that enable this analysis:  
+This site is the workspace used to develop a model which increases P2P lending profitability. There are a few companion packages that enable this analysis:  
 
 **LendingClub** 
 Contains the bindings for Lending Club's api. It includes functions to obtain available loans and to view a user's account. The package also contains functions for working with the secondary market. 

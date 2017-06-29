@@ -1,0 +1,48 @@
+name: Lending Club Model
+output:
+  html_document:
+    theme: journal
+bibliography: bibliographies.bib
+csl: journal-of-finance.csl
+output_dir: "docs"
+navbar:
+  title: Lending Club Model
+  type: default
+  left:
+    - text: "Analysis"
+      menu:
+      - text: "Planning"
+      - text: "Research Questions"
+        href: "ResearchQuestions.html"
+      - text: " ---------"
+      - text: "Exploratory Analysis"
+      - text: "Loan Amount"
+        href: "LoanAmount.html"
+      - text: "Loan Grades"
+        href: "LoanGrades.html"
+      - text: "Debt-To-Income"
+        href: "DebtToIncome.html"
+      - text: "Income"
+        href: "Income.html"
+      - text: "Loan Purpose"
+        href: "LoanPurpose.html"
+      - text: "---------" 
+      - text: "Literature Reviews"
+        href: "LiteratureReview.html"
+      - text: "Model Review"
+        href: "ModelReview.html"
+      - text: "---------"
+      - text: "Modeling"
+      - text: "Model"
+        href: "Modeling.html"
+  right:
+    - text: Related Packages
+      menu:
+      - text: LendingClub
+        href: http://ryankuhn.net/LendingClub
+      - text: LendingClubData
+        href: http://ryankuhn.net/LendingClubData
+    - text: ryankuhn.net
+      href: http://ryankuhn.net
+    - icon: fa-github
+      href: https://github.com/kuhnrl30/LendingClubModel

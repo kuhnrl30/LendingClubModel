@@ -1,0 +1,11 @@
+---
+title: "Research Questions"
+---
+
+1. Is the primary market efficient and all risks are priced into the original issue interest rate? Can we reduce the risk of default using more than when using intuitive features such as FICO score and debt-to-income and thereby increase profitability?
+
+2. Can we determine the market price of a loan after issuance?  Use the listings on the secondary market to develop a pricing guide or tool? 
+  - Can market price be determined from the secondary market listings?  Take regular downloads of the market and look for time until sale.  
+  - Can the typical consumer price their loans to market value? Is there a random walk around the true price point for given attributs/risk factors?
+
+2. Can we estimate the value a loan on the secondary market and build a pricing model such that: Value = PV of cash flow discounted for default risk and market data asymmetry.  Influences are expected cash flow driven by defualt rates/ survival analysis; present value driven by investor requirements or IRR; general discount as the buyer doesn't know why you are selling so feels lack of trust (constant?).

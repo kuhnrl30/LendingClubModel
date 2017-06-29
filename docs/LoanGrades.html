@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Loan Grades</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Lending Club Model</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Planning</li>
+    <li>
+      <a href="ResearchQuestions.html">Research Questions</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Exploratory Analysis</li>
+    <li>
+      <a href="LoanAmount.html">Loan Amount</a>
+    </li>
+    <li>
+      <a href="LoanGrades.html">Loan Grades</a>
+    </li>
+    <li>
+      <a href="DebtToIncome.html">Debt-To-Income</a>
+    </li>
+    <li>
+      <a href="Income.html">Income</a>
+    </li>
+    <li>
+      <a href="LoanPurpose.html">Loan Purpose</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="LiteratureReview.html">Literature Reviews</a>
+    </li>
+    <li>
+      <a href="ModelReview.html">Model Review</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Modeling</li>
+    <li>
+      <a href="Modeling.html">Model</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Related Packages
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="http://ryankuhn.net/LendingClub">LendingClub</a>
+    </li>
+    <li>
+      <a href="http://ryankuhn.net/LendingClubData">LendingClubData</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="http://ryankuhn.net">ryankuhn.net</a>
+</li>
+<li>
+  <a href="https://github.com/kuhnrl30/LendingClubModel">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Loan Grades</h1>
+
+</div>
+
+
+<p>To start off, this analysis makes a few assumptions about how to classify loans.</p>
+<ol style="list-style-type: decimal">
+<li><p>Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B). Some of those late loans will be made current it’s not a likely action. Contrarily, some of the loans in the grace period will go into default.</p></li>
+<li><p>No filters have been applied to the dataset. All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.</p></li>
+</ol>
+<div id="loan-distribution-by-grade" class="section level3">
+<h3>Loan Distribution by Grade</h3>
+<table>
+<caption>Distribution by Loan Grade</caption>
+<thead>
+<tr class="header">
+<th align="left">Grade</th>
+<th align="right">Total</th>
+<th align="right">Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">234,030</td>
+<td align="right">0.16</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">417,841</td>
+<td align="right">0.29</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">411,758</td>
+<td align="right">0.29</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">210,761</td>
+<td align="right">0.15</td>
+</tr>
+<tr class="odd">
+<td align="left">E</td>
+<td align="right">101,570</td>
+<td align="right">0.07</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">34,118</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="odd">
+<td align="left">G</td>
+<td align="right">8,548</td>
+<td align="right">0.01</td>
+</tr>
+</tbody>
+</table>
+<p><img src="LoanGrades_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>There are 1,418,626 loans in the dataset and the median loan grade level is C. We can further describe this distribution using skewness and kurtosis. From the chart we can say that the data is skewed towards the lower loan grades and that the lower grade tail is fatter than the higher grade tail. This is inherently true beacause the max grade is A and you cannot have a tail with values greater than A.</p>
+<p>Kurtosis is a description of the shape or peaked-ness of the curve. The kurtosis score for this distribution is 0.104681. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution. Again, this makes sense intuitively because there are only 7 possible grades. This poses an upper and lower constraint on the loans effectively eliminating extreme outliers.</p>
+</div>
+<div id="distribution-by-year" class="section level3">
+<h3>Distribution by Year</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Year</th>
+<th align="right">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2007</td>
+<td align="right">603</td>
+</tr>
+<tr class="even">
+<td align="left">2008</td>
+<td align="right">2,393</td>
+</tr>
+<tr class="odd">
+<td align="left">2009</td>
+<td align="right">5,281</td>
+</tr>
+<tr class="even">
+<td align="left">2010</td>
+<td align="right">12,537</td>
+</tr>
+<tr class="odd">
+<td align="left">2011</td>
+<td align="right">21,721</td>
+</tr>
+<tr class="even">
+<td align="left">2012</td>
+<td align="right">53,367</td>
+</tr>
+<tr class="odd">
+<td align="left">2013</td>
+<td align="right">134,814</td>
+</tr>
+<tr class="even">
+<td align="left">2014</td>
+<td align="right">235,629</td>
+</tr>
+<tr class="odd">
+<td align="left">2015</td>
+<td align="right">421,095</td>
+</tr>
+<tr class="even">
+<td align="left">2016</td>
+<td align="right">434,407</td>
+</tr>
+<tr class="odd">
+<td align="left">2017</td>
+<td align="right">96,779</td>
+</tr>
+</tbody>
+</table>
+<p>The number of loans issued has grown significantly since 2007. In fact the growth rate from 2007 to 2016 was 26% however growth has leveled off since 2015 to only 3%.</p>
+<blockquote>
+<p>QUESTION: Why has growth slowed in the past year? Does this signal a change in the borrower mix and would that affect default rates?</p>
+</blockquote>
+<blockquote>
+<p>QUESTION: 2017 Q1 run rate is less than 2016 full year loan count. Is there a seasonal trend to loan issuance?</p>
+</blockquote>
+<table>
+<caption>Distribution by Loan Grade and Year</caption>
+<thead>
+<tr class="header">
+<th align="left">grade</th>
+<th align="right">2007</th>
+<th align="right">2008</th>
+<th align="right">2009</th>
+<th align="right">2010</th>
+<th align="right">2011</th>
+<th align="right">2012</th>
+<th align="right">2013</th>
+<th align="right">2014</th>
+<th align="right">2015</th>
+<th align="right">2016</th>
+<th align="left">2017</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">0.13</td>
+<td align="right">0.13</td>
+<td align="right">0.23</td>
+<td align="right">0.23</td>
+<td align="right">0.26</td>
+<td align="right">0.20</td>
+<td align="right">0.13</td>
+<td align="right">0.15</td>
+<td align="right">0.17</td>
+<td align="right">0.16</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">0.16</td>
+<td align="right">0.25</td>
+<td align="right">0.27</td>
+<td align="right">0.29</td>
+<td align="right">0.30</td>
+<td align="right">0.35</td>
+<td align="right">0.33</td>
+<td align="right">0.26</td>
+<td align="right">0.28</td>
+<td align="right">0.31</td>
+<td align="left">0.30</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">0.23</td>
+<td align="right">0.24</td>
+<td align="right">0.26</td>
+<td align="right">0.22</td>
+<td align="right">0.18</td>
+<td align="right">0.22</td>
+<td align="right">0.28</td>
+<td align="right">0.28</td>
+<td align="right">0.29</td>
+<td align="right">0.30</td>
+<td align="left">0.35</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">0.16</td>
+<td align="right">0.18</td>
+<td align="right">0.15</td>
+<td align="right">0.15</td>
+<td align="right">0.13</td>
+<td align="right">0.14</td>
+<td align="right">0.15</td>
+<td align="right">0.18</td>
+<td align="right">0.15</td>
+<td align="right">0.14</td>
+<td align="left">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">E</td>
+<td align="right">0.17</td>
+<td align="right">0.12</td>
+<td align="right">0.06</td>
+<td align="right">0.08</td>
+<td align="right">0.08</td>
+<td align="right">0.06</td>
+<td align="right">0.07</td>
+<td align="right">0.09</td>
+<td align="right">0.08</td>
+<td align="right">0.06</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">0.09</td>
+<td align="right">0.05</td>
+<td align="right">0.02</td>
+<td align="right">0.02</td>
+<td align="right">0.03</td>
+<td align="right">0.02</td>
+<td align="right">0.03</td>
+<td align="right">0.03</td>
+<td align="right">0.02</td>
+<td align="right">0.02</td>
+<td align="left">0.02</td>
+</tr>
+<tr class="odd">
+<td align="left">G</td>
+<td align="right">0.06</td>
+<td align="right">0.04</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="left">0.01</td>
+</tr>
+</tbody>
+</table>
+<p>Grade A loans reached its peak share of the loan distribution. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades.</p>
+<blockquote>
+<p>QUESTION: Is this due to a change in the scoring model or the applicant pool?</p>
+</blockquote>
+</div>
+<div id="package-version" class="section level3">
+<h3>Package Version</h3>
+<p>The analysis was based on LendingClubData version 0.1.2.</p>
+</div>
+<div id="references" class="section level3">
+<h3>References</h3>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

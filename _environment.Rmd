@@ -1,0 +1,8 @@
+```{r environment, echo=FALSE}
+library(dplyr)
+library(LendingClubData)
+library(LendingClubModel)
+library(ggplot2)
+library(scales)
+library(tidyr)
+```

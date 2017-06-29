@@ -11,7 +11,7 @@
 
 
 
-<title>Lending Club Model</title>
+<title>Debt to Income Ratio</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -253,17 +253,24 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lending Club Model</h1>
+<h1 class="title toc-ignore">Debt to Income Ratio</h1>
 
 </div>
 
 
-<blockquote>
-<p>WARNING: This site is still under development and will be updated from day to day. Please use with caution until this warning has been removed.</p>
-</blockquote>
-<p>This site is the workspace used to develop a model which increases P2P lending profitability. There are a few companion packages that enable this analysis:</p>
-<p><strong>LendingClub</strong> Contains the bindings for Lending Club’s api. It includes functions to obtain available loans and to view a user’s account. The package also contains functions for working with the secondary market.</p>
-<p><strong>LendingClubData</strong> Contains the historical loan data so it doesn’t need to be downloaded repeatedly from the Lending Club website. It also documents the process to obtain the data.</p>
+<p>To start off, this analysis makes a few assumptions about how to classify loans.</p>
+<ol style="list-style-type: decimal">
+<li><p>Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B). Some of those late loans will be made current it’s not a likely action. Contrarily, some of the loans in the grace period will go into default.</p></li>
+<li><p>No filters have been applied to the dataset. All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.</p></li>
+</ol>
+<div id="debt-to-income-ratio" class="section level3">
+<h3>Debt-to-Income Ratio</h3>
+<p>Lending Club sets a upper limit of 0.5 debt to income ratio. There are a few points in the dataset above that limit but they are very clearly outliers. For this analysis, I’ve set those values at the limit of 50.</p>
+<p><img src="DebtToIncome_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="DebtToIncome_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="DebtToIncome_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="DebtToIncome_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
 
 
 

@@ -1,0 +1,21 @@
+---
+title: "Pricing Loans"
+subtitle: "Using the Present Value of Expected Cash Flow"
+---
+
+```{r, echo=F}
+options(scipen = 6)
+knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80, message= FALSE, echo= FALSE, warning = FALSE, eval=F)
+```
+
+```{r, child="_environment.Rmd"}
+```
+
+```{r, child="_preamble.Rmd"}
+```
+
+### Calculate Number of Payments Made
+
+
+
+### Present Value of Expected Payments   
