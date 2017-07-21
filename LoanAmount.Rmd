@@ -1,5 +1,7 @@
 ---
 title: "Loan Amounts"
+bibliography: bibliographies.bib
+csl: journal-of-finance.csl
 ---
 
 ```{r, echo=F}

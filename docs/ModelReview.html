@@ -292,6 +292,14 @@ div.tocify {
       <a href="ResearchQuestions.html">Research Questions</a>
     </li>
     <li class="divider"></li>
+    <li class="dropdown-header">Prior Research Review</li>
+    <li>
+      <a href="LiteratureReview.html">Literature</a>
+    </li>
+    <li>
+      <a href="ModelReview.html">Models</a>
+    </li>
+    <li class="divider"></li>
     <li class="dropdown-header">Exploratory Analysis</li>
     <li>
       <a href="LoanAmount.html">Loan Amount</a>
@@ -307,13 +315,6 @@ div.tocify {
     </li>
     <li>
       <a href="LoanPurpose.html">Loan Purpose</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="LiteratureReview.html">Literature Reviews</a>
-    </li>
-    <li>
-      <a href="ModelReview.html">Model Review</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Modeling</li>
@@ -370,11 +371,11 @@ div.tocify {
 <p>To compile a list of analyses already performed on the open source data and to learn the interesting relationships discovered in those analyses.</p>
 <div id="lending-club---predicting-loan-outcomes" class="section level2">
 <h2>Lending club - predicting loan outcomes</h2>
-<p><span class="citation">[@mdlOrourke]</span></p>
+<p><span class="citation">ORourke (2016)</span></p>
 <p>Data Period: 2007-2011</p>
 <p><strong>Author Notes</strong>:</p>
 <ul>
-<li><a href="https://www.linkedin.com/in/ted-orourke/">LinkedIn profile</a> shows no background in p2p lending or credit markets.<br />
+<li><a href="https://www.linkedin.com/in/ted-orourke/">LinkedIn profile</a> shows NO background in p2p lending or credit markets.<br />
 </li>
 <li>Education at the University of Virginia not yet completed.</li>
 </ul>
@@ -406,7 +407,7 @@ div.tocify {
 </div>
 <div id="changes-in-lending-club-underwriting" class="section level2">
 <h2>Changes in lending club underwriting</h2>
-<p><span class="citation">[@mdlWu1]</span></p>
+<p><span class="citation">Wu (2015)</span></p>
 <p>Data: June 2015 - May 2016</p>
 <p><strong>Notes</strong>:</p>
 <ul>
@@ -422,7 +423,7 @@ div.tocify {
 </div>
 <div id="analysis-of-lending-clubs-data" class="section level2">
 <h2>Analysis of Lending Club’s data</h2>
-<p><span class="citation">[@mdlDarre]</span></p>
+<p><span class="citation">Darre (2015)</span></p>
 <p>Data: through June 2015.</p>
 <p><strong>Author Notes</strong>:</p>
 <ul>
@@ -433,7 +434,7 @@ div.tocify {
 <ul>
 <li>Removed loans where the :
 <ul>
-<li>policy code is not 1 meaning they are new products not yet publically available.</li>
+<li>policy code is not 1 meaning they are new products not yet publicly available.</li>
 <li>high FICO score was 0 meaning the data was not valid.</li>
 <li>Revolving credit utilization data was missing</li>
 <li>Low FICO score was less than 600. Per the new underwriting policy, borrowers with a score less than 600 aren’t allowed to receive a loan.</li>
@@ -444,15 +445,15 @@ div.tocify {
 <li>Buckets for the:
 <ul>
 <li>FICO scores</li>
-<li>years, quarthers, and months of issue dates</li>
-<li>number of inquries in the past 6 months</li>
+<li>years, quarters, and months of issue dates</li>
+<li>number of inquires in the past 6 months</li>
 <li>DTI</li>
 <li>Revolving balance</li>
 </ul></li>
 </ul></li>
 <li>Filtered to remove loans that have not matured.</li>
 <li>Grouped statuses into 2 categories: debt and purchases. Credit card and debt consolidation were grouped into the debt category and all others to purchases.</li>
-<li>Simplified the number of delinquencies tp binary: 2+ delinquiries in 2 years.</li>
+<li>Simplified the number of delinquencies to binary: 2+ delinquencies in 2 years.</li>
 <li>Simplified the number of public records to binary: threshold +1.</li>
 </ul>
 <p><strong>Analysis:</strong></p>
@@ -474,7 +475,7 @@ div.tocify {
 <tbody>
 <tr class="odd">
 <td align="left">Home ownership</td>
-<td>‘mortgage’ defualted at 11.5% and 2% less than other values. No analysis by loan grades</td>
+<td>‘mortgage’ defaulted at 11.5% and 2% less than other values. No analysis by loan grades</td>
 </tr>
 <tr class="even">
 <td align="left">Purpose</td>
@@ -514,7 +515,7 @@ div.tocify {
 </tr>
 <tr class="odd">
 <td align="left">Inquiries in 6 months</td>
-<td>An indication of desperation to get credit. 7+ inquries are nearly 4x more likely to default than 0 inquiries.</td>
+<td>An indication of desperation to get credit. 7+ inquires are nearly 4x more likely to default than 0 inquiries.</td>
 </tr>
 <tr class="even">
 <td align="left">Geography</td>
@@ -524,13 +525,13 @@ div.tocify {
 </table>
 <p>Model Review:</p>
 <ul>
-<li>A very comprehensive analysis with several appoaces that can be updated and reused. Use of violin charts to show the distribution of credit scores was very effective and can be used fot dti, income, and credit score anakysis. Plotly pie charts were less effective in transferring information because the default rates by category were embedded in the pop-ups instead of being directly visualized. Having just read Tufte’s work, I think the bubble charts were too large to convey so little information and may have been better suited in a table. The analysis was a little disjointed the way he moved between the complete dataset and the subset of matured loans. It may have been useful to do them sequentially or enable a left-right comparison.</li>
+<li>A very comprehensive analysis with several approaches that can be updated and reused. Use of violin charts to show the distribution of credit scores was very effective and can be used for dti, income, and credit score analysis. Plotly pie charts were less effective in transferring information because the default rates by category were embedded in the pop-ups instead of being directly visualized. Having just read Tufte’s work, I think the bubble charts were too large to convey so little information and may have been better suited in a table. The analysis was a little disjointed the way he moved between the complete dataset and the subset of matured loans. It may have been useful to do them sequentially or enable a left-right comparison.</li>
 </ul>
 <hr>
 </div>
 <div id="lending-club-loan-analysis-making-money-with-logistic-regression" class="section level2">
 <h2>Lending Club Loan Analysis: Making Money with Logistic Regression</h2>
-<p><span class="citation">[@mdlDavis]</span></p>
+<p><span class="citation">Davis (2012)</span></p>
 <p>Data: through 2011</p>
 <p><strong>Author Notes</strong>:</p>
 <ul>
@@ -544,15 +545,15 @@ div.tocify {
 <p><strong>Analysis:</strong></p>
 <ul>
 <li>Default rate by description character length. He did not define how he measured defaults i.e. did he remove loans that haven’t matured yet or were defaults included with the charge-offs.</li>
-<li>Logistic regression using first 50% of loans and evaluated on 2nd 50%. The model outpout is the probability of default which is then used to weight the interest rate. 12 variables were used in the model with no commentary discussing how they were chosen.</li>
-<li>Expanded to determine sensitivity of each of the variables by re runnning the model after holding out one of the variables. Noted that the amount requested had the biggest impact on investor return.</li>
+<li>Logistic regression using first 50% of loans and evaluated on 2nd 50%. The model output is the probability of default which is then used to weight the interest rate. 12 variables were used in the model with no commentary discussing how they were chosen.</li>
+<li>Expanded to determine sensitivity of each of the variables by re running the model after holding out one of the variables. Noted that the amount requested had the biggest impact on investor return.</li>
 </ul>
 <p><strong>Review:</strong> - An interesting take on the model by flowing it through to a pricing model. So far in my review the authors have stopped at a classifier model. This is an important shift towards application.</p>
 <hr>
 </div>
 <div id="analyzing-historical-default-rates-of-lending-club-notes" class="section level2">
 <h2>Analyzing Historical Default Rates of Lending Club Notes</h2>
-<p><span class="citation">[@mdlToth]</span></p>
+<p><span class="citation">Toth (2015)</span></p>
 <p>Data: 2012-2013</p>
 <p>Author Notes:</p>
 <ul>
@@ -611,7 +612,7 @@ div.tocify {
 </tr>
 <tr class="odd">
 <td align="left">Employment Length</td>
-<td>Binned as NA, &lt;10, &gt;10 years. No commentary but data suggests 1.25% inprovement for &gt;10 years over &lt;10 years and another 1.25% over NAs.</td>
+<td>Binned as NA, &lt;10, &gt;10 years. No commentary but data suggests 1.25% improvement for &gt;10 years over &lt;10 years and another 1.25% over NAs.</td>
 </tr>
 <tr class="even">
 <td align="left">Delinquencies past 2 years</td>
@@ -631,17 +632,17 @@ div.tocify {
 </tr>
 <tr class="even">
 <td align="left">Non-Significant Variables</td>
-<td>Months since last delinquencies, months since last majore derogatory note, collections in past 12 months</td>
+<td>Months since last delinquencies, months since last major derogatory note, collections in past 12 months</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Review</strong>: Extensive analysis of many variables. This variable-by-variable format has been used in other blogs but can be very boring to read without a central theme. The variables don’t build on each other or follow a line of reasoning. Is ther a better way? Also, there is no analysis of interaction between variables.</p>
-<p>Author proposes a hypothesese for differences in results by variables but there’s no testing for confirmation. (and how would you confirm?) Also, minmal documentation around decisions like bin cutoffs.</p>
+<p><strong>Review</strong>: Extensive analysis of many variables. This variable-by-variable format has been used in other blogs but can be very boring to read without a central theme. The variables don’t build on each other or follow a line of reasoning. Is there a better way? Also, there is no analysis of interaction between variables.</p>
+<p>Author proposes a hypotheses for differences in results by variables but there’s no testing for confirmation. (and how would you confirm?) Also, minimal documentation around decisions like bin cutoffs.</p>
 <hr>
 </div>
 <div id="gradient-boosting-analysis-of-lendingclubs-data" class="section level2">
 <h2>Gradient Boosting: Analysis of LendingClub’s Data</h2>
-<p><span class="citation">[@mdlDavenport2]</span></p>
+<p><span class="citation">Davenport (2013)</span></p>
 <p>Data: Not stated, but likely through Q1 2013.</p>
 <p>Author Notes:</p>
 <ul>
@@ -652,12 +653,12 @@ div.tocify {
 <p>Data Cleaning:</p>
 <ul>
 <li>Replace missing values with NA</li>
-<li>Anova analsysis listed Amount Requested, Debt/Income Ratio, Rent or Own Home, Inquiries in Last 6 Months, Length of Loan, and Purpose of Loan as being significantly correlated with MeanFICO and Interest Rate.</li>
+<li>Anova analysis listed Amount Requested, Debt/Income Ratio, Rent or Own Home, Inquiries in Last 6 Months, Length of Loan, and Purpose of Loan as being significantly correlated with MeanFICO and Interest Rate.</li>
 <li>Looked to the credit score info to understand link to other variables</li>
 </ul>
 <p>Modeling:</p>
 <ul>
-<li>Obejective: predict interest rate using RMSE as accuracy measure<br />
+<li>Objective: predict interest rate using RMSE as accuracy measure<br />
 </li>
 <li>Straight to gbm: used to prevent overfitting</li>
 </ul>
@@ -671,7 +672,7 @@ div.tocify {
 </div>
 <div id="lending-club-data-analysis-revisited-with-python" class="section level2">
 <h2>Lending Club Data Analysis Revisited with Python</h2>
-<p><span class="citation">[@mdlDavenport]</span></p>
+<p><span class="citation">Davenport (2015)</span></p>
 <p>Data:</p>
 <p>Author:</p>
 <ul>
@@ -680,7 +681,7 @@ div.tocify {
 <p>Cleaning:</p>
 <ul>
 <li>Question relationships to identify risks, but no proposed solutions or conclusions without confirmation or analysis.</li>
-<li>Explorarorty analysis was generally just distributions<br />
+<li>Exploratory analysis was generally just distributions<br />
 </li>
 <li>ID’d these risks:</li>
 </ul>
@@ -718,12 +719,12 @@ div.tocify {
 <li>Accuracy gets better with more iterations. Is there an over fitting concern?</li>
 </ul>
 <p>Analysis: This is the first model that mentioned the risks of being wrong instead of being assertive towards assumed explanations. Most other models had been cavalier towards their hypotheses around deviances in the variables.</p>
-<p>Putting the Python code in the analysis was a bit distracting. While it’s good for reproducibility, it took away from the goal of understanding the author’s message and what’s happening with the loans. I think its preferrable to include a link to Github or hold everything to the end.</p>
+<p>Putting the Python code in the analysis was a bit distracting. While it’s good for reproducibility, it took away from the goal of understanding the author’s message and what’s happening with the loans. I think its preferable to include a link to Github or hold everything to the end.</p>
 <hr>
 </div>
 <div id="lending-club-deep-learning" class="section level2">
 <h2>Lending Club Deep Learning</h2>
-<p><span class="citation">[@mdlSummers]</span></p>
+<p><span class="citation">Summers (2016)</span></p>
 <p>Data: 2015 &amp; 1H 2016</p>
 <p>Modeling:</p>
 <ul>
@@ -745,7 +746,7 @@ div.tocify {
 <tbody>
 <tr class="odd">
 <td align="left">1</td>
-<td>Model assigns the probablity of default. Scans through the range of probabilities calculating the average return, interest rate, and default rate for all loans above the cutoff. Find point of maximum return. Risk rate is the actual default rate. Model reduces risk of default but doesn’t compensate for lower interest rate.</td>
+<td>Model assigns the probability of default. Scans through the range of probabilities calculating the average return, interest rate, and default rate for all loans above the cutoff. Find point of maximum return. Risk rate is the actual default rate. Model reduces risk of default but doesn’t compensate for lower interest rate.</td>
 </tr>
 <tr class="even">
 <td align="left">2</td>
@@ -763,12 +764,12 @@ div.tocify {
 <li>Used 10 fold cross validation</li>
 </ul>
 <p>Analysis: Approach was written to maximize profit but the objective is written as a machine learning task. He starts as a demo type post but then does a better job of framing the writeup like a business driven model.</p>
-<p>Author lets the code do much of the talking which makes interpretting the model difficult since my Python is not as strong. Recommnd using a more verbose commentary to let non-Python readers understand what is happening in the code.</p>
+<p>Author lets the code do much of the talking which makes interpreting the model difficult since my Python is not as strong. Recommend using a more verbose commentary to let non-Python readers understand what is happening in the code.</p>
 <hr>
 </div>
 <div id="mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state" class="section level2">
 <h2>Mining Lending Club’s Goldmine of Loan Data Part I of II – Visualizations by State</h2>
-<p><span class="citation">[@mdlCashorali]</span></p>
+<p><span class="citation">Cashorali (2011)</span></p>
 <p>Data: Before Q3 2011</p>
 <p>Author:</p>
 <ul>
@@ -787,9 +788,9 @@ div.tocify {
 </div>
 <div id="investing-at-lending-club-with-watson-analytics" class="section level2">
 <h2>Investing at Lending Club with Watson Analytics</h2>
-<p><span class="citation">[@mdlPolena]</span><br />
+<p><span class="citation">Polena (2016)</span><br />
 Data: Jan 2009- Dec 2012</p>
-<p>Author: - Was an analyst at IBM at the time of the post. - Master’s in quantatative economics - Master’s in Financial Markets and Banking</p>
+<p>Author: - Was an analyst at IBM at the time of the post. - Master’s in quantitative economics - Master’s in Financial Markets and Banking</p>
 <p>Cleaning: - Nothing described in the article</p>
 <p>Modeling:</p>
 <ul>
@@ -810,7 +811,7 @@ Data: Jan 2009- Dec 2012</p>
 <tbody>
 <tr class="odd">
 <td align="left">1</td>
-<td>Whyoming had the lowest default rate. The average rate by state was 14% but WY was only 9%.</td>
+<td>Wyoming had the lowest default rate. The average rate by state was 14% but WY was only 9%.</td>
 </tr>
 <tr class="even">
 <td align="left">2</td>
@@ -822,13 +823,13 @@ Data: Jan 2009- Dec 2012</p>
 </tr>
 </tbody>
 </table>
-<p>Analysis: Claims were not supported by code to reproduce the analysis or understand the exact assumptions and methods used. Claims were also not supported by a train of evidence and assumptions leading up the the final conclusion– the autor just custs straight to the point. That may be useful as a demo of Watson’s capabilities but not from an analytical reference.</p>
+<p>Analysis: Claims were not supported by code to reproduce the analysis or understand the exact assumptions and methods used. Claims were also not supported by a train of evidence and assumptions leading up the the final conclusion– the autor just cuts straight to the point. That may be useful as a demo of Watson’s capabilities but not from an analytic reference.</p>
 <hr>
 </div>
 <div id="application-of-survival-analysis-to-p2p-lending-club-loans-data" class="section level2">
 <h2>Application of survival analysis to P2P Lending Club loans data</h2>
-<p><span class="citation">[@mdlMistry]</span></p>
-<p>Data: NOt explicitly stated but assumed through Q2 2016</p>
+<p><span class="citation">Mistry (2016)</span></p>
+<p>Data: Not explicitly stated but assumed through Q2 2016</p>
 <p>Author:<a href="https://www.linkedin.com/in/hitesh-mistry-1ba60121">LinkedIn</a> profile shows</p>
 <ul>
 <li>Clinical researcher and modeling</li>
@@ -860,24 +861,73 @@ Data: Jan 2009- Dec 2012</p>
 </div>
 <div id="survival-prediction-p2p-loan-profitability-competitions" class="section level2">
 <h2>Survival prediction (P2P loan profitability) competitions</h2>
-<p><span class="citation">[@mdlMistry2]</span></p>
+<p><span class="citation">Mistry (2017)</span></p>
 <p>Suggested healthcare for survival analysis research. No model built in this post. Survival is used often to model disease states and how long a patient can live given a treatment variable. This is well developed science in healthcare and could be an opportunity to port over to finance specifically P2P lending.</p>
 <hr>
+</div>
+<div id="using-genetic-algorithms-to-maximize-lending-club-performance" class="section level2">
+<h2>Using genetic algorithms to maximize Lending Club performance</h2>
+<p><span class="citation">Patierno (2011)</span></p>
+<p>Author:</p>
+<ul>
+<li>Software engineer at Google</li>
+<li>BS in Computer Science</li>
+</ul>
+<p>Data: Written in Feb 2011 and claiming to analyze 4 years of data. Assuming through Q4 2010.</p>
+<p>Modeling:</p>
+<ul>
+<li>Used genetic algorithm to select attributes. No exploratory analysis. No test or hold out dataset used to validate and prevent overfitting.</li>
+<li>Model source code on <a href="https://github.com/dmpatierno/LCBT">GitHub</a></li>
+<li>Claimed to result in a 12.5% return</li>
+</ul>
+<p>Analysis: Author created a tool rather than a model. There are no conclusions for how to maximize returns, reduce defaults, or any other objective.</p>
+<hr>
+</div>
+<div id="peer-lending-risk-predictor" class="section level2">
+<h2>Peer Lending Risk Predictor</h2>
+<p><span class="citation">Tsai, Ramiah, and Singh (2014)</span></p>
+<p>Authors: Students at Stanford, advised by Andrew Ng</p>
+<p>Data: 2007- 2013</p>
+<p>Cleaning:</p>
+<ul>
+<li>Removed loans that were fully paid or defaulted. Similar to filtering for matured loans but would include early pay-offs and early defaults. (Does this change the result?)</li>
+<li>Rebalanced the training set to be 50/50 defaulted vs paid loans. No discussion on how.
+<ul>
+<li>Feature selection using information gain in Weka and Matlab. Multiple methods consistently identified interest_rate, loan_amount, annual_income, and loan_purpose.</li>
+</ul></li>
+<li>Definition: Recall is number of loans paid and identified as paid</li>
+<li>Definition: Precision is number of loans correctly identified as not performing</li>
+<li>Used term precision to describe the amount of loans that were fully paid vs total loans in the category.</li>
+</ul>
+<p>MOdeling:</p>
+<ul>
+<li>Linear regression- Penalty function added to logistic regression to avoid classifying defaulted as paid off. Preference for precision over recall or overall accuracy. Penalty factor increased precision from 88.9% to 95.9%.</li>
+<li>SVM- Minimal discussion, probably truncated for space- 5 page limit.</li>
+<li>Naive Bayes- No discussion</li>
+<li>Random Forest: training accuracy was high but was over fitting. Used out-of-bag error to measure success and minimized error at 37.25%.</li>
+<li>TF-IDF- Ranked words by TF-IDF for both paid and defaulted loans. Comparison for words with high rank in one but low in the other. <em>steady</em> and <em>God</em> ranked higher in loans that defaulted but <em>university</em> ranked higher in paid loans. Created binary variables for each an improved accuracy by 3%. [Are descriptions even required anymore?]</li>
+<li>PCA for visualization. Plotting loans by 1st and 2nd components. Running a logistic regression to create a decision boundary. Eliminating defaulted loans also eliminates most good loans- hence high precision but low recall again.</li>
+</ul>
+<p>Conclusions:</p>
+<ul>
+<li>Acknowledged that models recommended only 0.6% of loans and wasn’t practical</li>
+<li>Compare to LC: Used Modified LogReg to create portfolio with same risk profile as A1 subgrade but 2% higher return. Similarly compared model classifications to LC grades. Concludes LC is classifying high quality loans into lower credit grades/high interest. Opportunity knocks.</li>
+<li>Understand model sensitivity to population skew, rebalance test set as needed. Generally, know your algorithms assumptions and weeknesses.</li>
+<li>Achieved greatest success by using the penalty factor for incorrectly idenifying bad loans.</li>
+</ul>
+<p>Analysis: The first 3/4 of the paper goes through several models and measuring performance. Ng’s influence is apparent in the theoretical commentary and mathematical notation. The last page of the paper compares the best model against LC. Use their model to create similar risk tranches as LC, but with higher interest rates. This paper is the first I’ve read which quanifies the profitability impact of reducing defaulted loans. It is also the first to include a penalty function in the model- other papers have accepted models out of the box with no/minimal tuning.</p>
+<p>I appreciated the idea of optimizing for precision instead of accuracy. Investment dollars are limited and at this point in my portfolio I am more likely to run out of funds before running out of investment opportunities. It is acceptable to significantly reduce the number of loans. I assume this is the case until a single investor is purchasing a material share of the market- say &gt; 10%.</p>
+<p>This seems to be a recurring project in the course as there are papers for the <a href="http://cs229.stanford.edu/proj2011/JunjieLiang-PredictingBorrowersChanceOfDefaultingOnCreditLoans.pdf">2011</a>, <a href="http://cs229.stanford.edu/proj2014/Marie-Laure%20Charpignon,%20Enguerrand%20Horel,%20Flora%20Tixier,%20Prediction%20of%20consumer%20credit%20risk.pdf">2014</a>, <a href="http://cs229.stanford.edu/proj2015/199_report.pdf">2015</a> and <a href="http://cs229.stanford.edu/proj2016spr/report/039.pdf">2016</a> sessions.</p>
 <hr>
 </div>
 </div>
 <div id="remaining-models" class="section level1">
 <h1>Remaining Models</h1>
-<p><a href="http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/" class="uri">http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/</a> <a href="http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html" class="uri">http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html</a> <a href="http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf">http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf</a> <a href="http://blog.yhat.com/posts/machine-learning-for-predicting-bad-loans.html" class="uri">http://blog.yhat.com/posts/machine-learning-for-predicting-bad-loans.html</a></p>
+<p><a href="http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/" class="uri">http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/</a> <a href="http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html" class="uri">http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html</a> <a href="http://blog.yhat.com/posts/machine-learning-for-predicting-bad-loans.html" class="uri">http://blog.yhat.com/posts/machine-learning-for-predicting-bad-loans.html</a></p>
 <ul>
-<li><span class="citation">[@socialLender]</span><br />
+<li><span class="citation">Anon. (2015)</span><br />
 </li>
-<li><p><span class="citation">[@mdlWu2]</span></p></li>
-<li><span class="citation">[@mdlKaggle]</span><br />
-</li>
-<li><span class="citation">[@mdlPatierno]</span><br />
-</li>
-<li><p><span class="citation">[@mdlTsai]</span></p></li>
+<li><span class="citation">Anon.</span></li>
 </ul>
 </div>
 <div id="trends-and-organization" class="section level1">
@@ -885,15 +935,74 @@ Data: Jan 2009- Dec 2012</p>
 <ul>
 <li>3 tranches: ML demo, exploratory analysis, and practical application
 <ul>
-<li>ML demo: casual analysis and then quickly move to applying ML algorithm. Some feature engineering, but they don’t tend to be helpful variables</li>
+<li>ML demo: casual analysis and then quickly move to applying ML algorithm. Some feature engineering, but they don’t tend to be helpful variables. This category can be bifurcated into citizen data scientists doing demos of applied algos and academics using Greek letters to explain algos.</li>
 <li>Exploratory: product of a course or bootcamp. Showing relationship of multiple variables. No resulting model or classifier.</li>
 <li>Practical application: Blog posts from investment service firms. Show deep knowledge of the industry but are not a complete and comprehensive review of all variables. Tend to be a deep dive on a very narrow topic. Likely useful for understanding the nuance of the market but not for getting started.</li>
 </ul></li>
 <li>Approach for those with DS experience is to go variable by variable and look for the effect. Practitioners tend to focus o current events and the impact on the current credit scoring model.</li>
 </ul>
+<div id="major-take-aways" class="section level4">
+<h4>Major take-aways:</h4>
+<ul>
+<li>Adding a penalty function for identifying defaulted loans and the optimize for precision</li>
+<li>Model for profitability, not accuracy of the model</li>
+<li>Reading a step-by-step analysis by variable is very boring but without the detail it’s hard to accept the conclusions. Should make sure to have a strong executive summary or abstract.</li>
+<li>Follow intution- the expected variables are likely to have significance.</li>
+</ul>
 </div>
-<div id="references" class="section level1">
+</div>
+<div id="references" class="section level1 unnumbered">
 <h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-socialLender">
+<p>Anon., 2015, Lending club - predicting loan outcomes,. Blog <em>Peer Lending Server</em> (<a href="Analyzing Lending Club Payment History" class="uri">Analyzing Lending Club Payment History</a>).</p>
+</div>
+<div id="ref-mdlKaggle">
+<p>Anon., Give me some credit,. Blog <em>Kaggle</em> (<a href="https://www.kaggle.com/c/GiveMeSomeCredit" class="uri">https://www.kaggle.com/c/GiveMeSomeCredit</a>).</p>
+</div>
+<div id="ref-mdlCashorali">
+<p>Cashorali, Tanya, 2011, Mining lending club’s goldmine of loan data part i of ii visualizations by state,. Blog <em>R-bloggers</em> (<a href="https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/" class="uri">https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/</a>).</p>
+</div>
+<div id="ref-mdlDarre">
+<p>Darre, Jean-Francois, 2015, Analysis of lending club’s data,. Blog <em>Data Science Central</em> (<a href="http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data" class="uri">http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data</a>).</p>
+</div>
+<div id="ref-mdlDavenport2">
+<p>Davenport, Kevin, 2013, Gradient boosting: Analysis of lendingclub’s data,. Blog (<a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//</a>).</p>
+</div>
+<div id="ref-mdlDavenport">
+<p>Davenport, Kevin, 2015, Lending club data analysis revisited with python,. Blog <em>Machine Learning and Statistics Blog</em> (<a href="http://kldavenport.com/lending-club-data-analysis-revisted-with-python/" class="uri">http://kldavenport.com/lending-club-data-analysis-revisted-with-python/</a>).</p>
+</div>
+<div id="ref-mdlDavis">
+<p>Davis, Jason, 2012, Lending club loan analysis: Making money with logistic regression,. Blog <em>Data Startups</em> (<a href="http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression" class="uri">http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression</a>).</p>
+</div>
+<div id="ref-mdlMistry">
+<p>Mistry, Hitesh, 2016, Application of survival analysis to p2p lending club loans data,. Blog <em>Systems Forecasting</em> (<a href="http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/" class="uri">http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/</a>).</p>
+</div>
+<div id="ref-mdlMistry2">
+<p>Mistry, Hitesh, 2017, Survival prediction (p2p loan profitability) competitions,. Blog <em>Systems Forecasting</em> (http://systemsforecasting.com/2017/02/survival-prediction-p2p-loan-profitability-competitions/).</p>
+</div>
+<div id="ref-mdlOrourke">
+<p>ORourke, Ted, 2016, Lending club - predicting loan outcomes,. Blog <em>Rpubs</em> (<a href="https://rpubs.com/torourke97/190551" class="uri">https://rpubs.com/torourke97/190551</a>).</p>
+</div>
+<div id="ref-mdlPatierno">
+<p>Patierno, David, 2011, Using genetic algorithms to maximize lending club performance,. Blog (<a href="http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm" class="uri">http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm</a>).</p>
+</div>
+<div id="ref-mdlPolena">
+<p>Polena, Michal, 2016, Investing at lending club with watson analytics,. Blog <em>IBM</em> (<a href="https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/" class="uri">https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/</a>).</p>
+</div>
+<div id="ref-mdlSummers">
+<p>Summers, Cameron, 2016, Lending club deep learning, (<a href="https://scaubrey.github.io/" class="uri">https://scaubrey.github.io/</a>).</p>
+</div>
+<div id="ref-mdlToth">
+<p>Toth, Michael, 2015, Analyzing historical default rates of lending club notes,. Blog <em>R-bloggers</em> (<a href="http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html" class="uri">http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html</a>).</p>
+</div>
+<div id="ref-mdlTsai">
+<p>Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh, 2014, Peer lending risk predictor, (<a href="http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf">http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf</a>).</p>
+</div>
+<div id="ref-mdlWu1">
+<p>Wu, James, 2015, Changes in lending club underwriting,. Blog <em>MonJa</em> (<a href="https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//" class="uri">https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//</a>).</p>
+</div>
+</div>
 </div>
 
 
