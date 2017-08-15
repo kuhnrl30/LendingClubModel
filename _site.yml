@@ -19,7 +19,7 @@ navbar:
       - text: "Literature"
         href: "LiteratureReview.html"
       - text: "Models"
-        href: "ModelReview.html"
+        href: "ModelReviewNotes.html"
       - text: "---------" 
       - text: "Exploratory Analysis"
       - text: "Loan Amount"

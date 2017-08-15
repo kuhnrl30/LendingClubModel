@@ -64,4 +64,4 @@ a<- a + geom_violin(draw_quantiles = c(0.5))
 a<- a + labs(title="Distribution of DTI by default status and year")
 a<- a + theme_LC()
 a
-```
+```     

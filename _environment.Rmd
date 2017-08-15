@@ -5,4 +5,5 @@ library(LendingClubModel)
 library(ggplot2)
 library(scales)
 library(tidyr)
+library(ggjoy)
 ```

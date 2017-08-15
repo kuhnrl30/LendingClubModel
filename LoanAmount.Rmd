@@ -21,8 +21,8 @@ knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, ev
 ## Analyzing the Loan Amount
 ```{r}
 g<- ggplot(LoanData)
-g<- g + aes(loan_amnt, group=grade, colour=grade)
-g<- g + geom_density(size= 1)
+g<- g + aes(x=loan_amnt, y=grade, fill=grade)
+g<- g + geom_joy()
 g<- g + labs(title= "Distribution of loan amount by grades",
              x= "Loan Amount")
 g<- g + theme_LC()
