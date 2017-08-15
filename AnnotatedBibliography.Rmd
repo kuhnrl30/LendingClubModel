@@ -11,11 +11,11 @@ output:
 keywords: P2P Lending
 csl: journal-of-finance-annotated-bib.csl
 thanks: Notes are available on GitHub
-abstract: "Research and experimentation suggest that Peer-to-Peer lending returns
+abstract: "Practitioner models and experimentation suggest that Peer-to-Peer lending returns
   can be improved with the application of machine learning models and high quality
-  analysis. The existing body of models is focused on identifying and excluding loans
-  that will default and therefor improve investor profitability. To encourage the
-  consolidation of knowledge, I've prepared a resource bibliography of published analyses,
+  data analysis. The existing body of models is generally focused on identifying and excluding loans
+  that will default and therefore improve investor profitability. To encourage the
+  consolidation of knowledge, I've prepared a resource bibliography of analyses,
   models, and blog posts from around the web that could be used to understand the
   current state of portfolio analysis.\n\nArticles can be classified into one of three
   categories based on their rigor and depth of analysis- elementary, exploratory,

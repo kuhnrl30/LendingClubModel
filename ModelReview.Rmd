@@ -9,7 +9,7 @@ keywords:
 - lending
 - Literature Review
 abstract: |
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+  Abstract describing the content of the Model review noting that this is not a literature review but instead an analysis of available models in the wild.
 author:
   - name: Ryan Kuhn
     email: kuhnrl30@gmail.com
@@ -19,6 +19,8 @@ author_summary: |
 ---
 
 ## Summary
+
+Work in Progress-  see the Annotated Bibliography in the interim.
 
 
 ## References
