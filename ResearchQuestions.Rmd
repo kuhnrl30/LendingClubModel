@@ -9,3 +9,5 @@ title: "Research Questions"
     - Can the typical consumer price their loans to market value? Is there a random walk around the true price point for given attributs/risk factors?
 
 2. Can we estimate the value a loan on the secondary market and build a pricing model such that: Value = PV of cash flow discounted for default risk and market data asymmetry.  Influences are expected cash flow driven by defualt rates/ survival analysis; present value driven by investor requirements or IRR; general discount as the buyer doesn't know why you are selling so feels lack of trust (constant?).
+
+3. Can we leverage the latest fraud research to identify over stated income and replace with an estimated true amount to feed the model?

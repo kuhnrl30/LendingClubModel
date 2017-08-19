@@ -5,20 +5,17 @@ author:
   email: kuhnrl30@gmail.com
   name: Ryan Kuhn
 bibliography: bibliographies.bib
-output:
-  html_document: default
-  pdf_document: default
+output: html_document
 keywords: P2P Lending
 csl: journal-of-finance-annotated-bib.csl
-thanks: Notes are available on GitHub
-abstract: "Practitioner models and experimentation suggest that Peer-to-Peer lending returns
-  can be improved with the application of machine learning models and high quality
-  data analysis. The existing body of models is generally focused on identifying and excluding loans
-  that will default and therefore improve investor profitability. To encourage the
-  consolidation of knowledge, I've prepared a resource bibliography of analyses,
-  models, and blog posts from around the web that could be used to understand the
-  current state of portfolio analysis.\n\nArticles can be classified into one of three
-  categories based on their rigor and depth of analysis- elementary, exploratory,
+abstract: "Practitioner models and experimentation suggest that Peer-to-Peer lending
+  returns can be improved with the application of machine learning models and high
+  quality data analysis. The existing body of models is generally focused on identifying
+  and excluding loans that will default and therefore improve investor profitability.
+  To encourage the consolidation of knowledge, I've prepared a resource bibliography
+  of analyses, models, and blog posts from around the web that could be used to understand
+  the current state of portfolio analysis.\n\nArticles can be classified into one
+  of three categories based on their rigor and depth of analysis- elementary, exploratory,
   and explanatory. \n"
 ---
 
@@ -28,11 +25,22 @@ abstract: "Practitioner models and experimentation suggest that Peer-to-Peer len
 
 A blog post quickly moving towards applying machine learning algorithms without first completing a thorough exploratory analysis or defining hypotheses to evaluate results.  In this blog post O'Rourke applies two algorithms to historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not contributed new insights into the Lending Club marketplace and the article is a demonstration of the author's ability to apply a model which is a neccessary step in the learning process.
 
+[@mdlDavenport2]
 
+
+[@mdlDavenport]  
+
+[@mdlCashorali] 
+
+[@mdlPolena]  
 
 
 
 ## Exploratory  
+
+[@mdlDarre]  
+[@mdlDavis]  
+
 
 ## Explanatory  
 [@mdlWu1]

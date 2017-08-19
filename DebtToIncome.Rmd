@@ -7,8 +7,6 @@ options(scipen = 6)
 knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80, message= FALSE, echo= FALSE, warning = FALSE)
 ```
 
-```{r, child="_environment.Rmd"}
-```
 
 ```{r, child="_preamble.Rmd"}
 ```
@@ -53,10 +51,10 @@ a
 ```
 
 ```{r, fig.height=6}
-b<- LoanData %>%
-    group_by(grade, Class) %>%
-    summarize(write_mean= mean(dti))
-
+# b<- LoanData %>%
+#     group_by(grade, Class) %>%
+#     summarize(write_mean= mean(dti))
+# 
 a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
 a<- a + aes(x=Class, y=dti, fill=Class)
 a<- a + facet_wrap(~Year)

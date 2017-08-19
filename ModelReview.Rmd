@@ -3,11 +3,11 @@ title: "Reviewing the Current State of Modeling P2P Lending Data"
 bibliography: bibliographies.bib
 csl: journal-of-finance.csl
 output: pdf_document
-date: '`r Sys.Date()'
+date: `r Sys.Date()'
 keywords:
-- Peer-to-peer
-- lending
-- Literature Review
+  - Peer-to-peer
+  - lending
+  - Literature Review
 abstract: |
   Abstract describing the content of the Model review noting that this is not a literature review but instead an analysis of available models in the wild.
 author:

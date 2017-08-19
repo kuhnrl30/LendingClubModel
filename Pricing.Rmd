@@ -1,5 +1,5 @@
 ---
-title: "Pricing Loans"
+title: "Pricing Loans: Naive Model"
 subtitle: "Using the Present Value of Expected Cash Flow"
 ---
 

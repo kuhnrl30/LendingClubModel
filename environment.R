@@ -1,8 +1,6 @@
-```{r environment, echo=FALSE}
 library(dplyr)
 library(LendingClubData)
 library(ggplot2)
 library(scales)
 library(tidyr)
 library(ggjoy)
-```

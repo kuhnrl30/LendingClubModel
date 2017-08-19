@@ -11,7 +11,7 @@
 
 
 
-<title>Debt to Income Ratio</title>
+<title>Reviewing the Current State of Modeling P2P Lending Data</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,6 +39,16 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </script>
 
 
+<style type="text/css">
+  p.abstract{
+    text-align: center;
+    font-weight: bold;
+  }
+  div.abstract{
+    margin: auto;
+    width: 90%;
+  }
+</style>
 
 <style type="text/css">
 h1 {
@@ -254,23 +264,26 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Debt to Income Ratio</h1>
+<h1 class="title toc-ignore">Reviewing the Current State of Modeling P2P Lending Data</h1>
+<h4 class="author"><em>Ryan Kuhn</em></h4>
+<address class="author_afil">
+Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@gmail.com">kuhnrl30@gmail.com</a></a>
+</address>
+<h4 class="date"><em>`r Sys.Date()</em></h4>
+<div class="abstract">
+<p class="abstract">Abstract</p>
+<p>Abstract describing the content of the Model review noting that this is not a literature review but instead an analysis of available models in the wild.</p>
+</div>
 
 </div>
 
 
-<p>To start off, this analysis makes a few assumptions about how to classify loans.</p>
-<ol style="list-style-type: decimal">
-<li><p>Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B). Some of those late loans will be made current it’s not a likely action. Contrarily, some of the loans in the grace period will go into default.</p></li>
-<li><p>No filters have been applied to the dataset. All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.</p></li>
-</ol>
-<div id="debt-to-income-ratio" class="section level3">
-<h3>Debt-to-Income Ratio</h3>
-<p>Lending Club sets a upper limit of 0.5 debt to income ratio. There are a few points in the dataset above that limit but they are very clearly outliers. For this analysis, I’ve set those values at the limit of 50.</p>
-<p><img src="DebtToIncome_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p><img src="DebtToIncome_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p><img src="DebtToIncome_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p><img src="DebtToIncome_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>Work in Progress- see the Annotated Bibliography in the interim.</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
 </div>
 
 
