@@ -20,6 +20,8 @@ navbar:
         href: "LiteratureReview.html"
       - text: "Reviewing Data Models"
         href: "ModelReview.html"
+      - text: "Annotated Bibliography"
+        href: "AnnotatedBibliography.html"
       - text: "---------" 
       - text: "Exploratory Analysis"
       - text: "Loan Amount"

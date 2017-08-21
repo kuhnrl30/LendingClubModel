@@ -2,9 +2,7 @@
 title: "Model Review Notes"
 csl: journal-of-finance.csl
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '2'
+  pdf_document: default
   html_document:
     toc: yes
     toc_depth: 2

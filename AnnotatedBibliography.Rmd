@@ -23,9 +23,41 @@ abstract: "Practitioner models and experimentation suggest that Peer-to-Peer len
 ## Elementary 
 [@mdlOrourke]
 
-A blog post quickly moving towards applying machine learning algorithms without first completing a thorough exploratory analysis or defining hypotheses to evaluate results.  In this blog post O'Rourke applies two algorithms to historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not contributed new insights into the Lending Club marketplace and the article is a demonstration of the author's ability to apply a model which is a neccessary step in the learning process.
+A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed hypothesis to test agairst not contributed new insights into the Lending Club marketplace.. The article is a demonstration of the author's ability to apply a model which is a neccessary step in the learning process.
 
 [@mdlDavenport2]
+
+
+An analysis to model the interest rates
+
+
+
+Data: Not stated, but likely through Q1 2013. 
+
+Author Notes: 
+
+- Data scientist at Amazon  
+- MS Computer Science from Georgia Tech  
+
+Data Cleaning:
+
+- Replace missing values with NA
+- Anova analysis  listed Amount Requested, Debt/Income Ratio, Rent or Own Home, Inquiries in Last 6 Months, Length of Loan, and Purpose of Loan as being significantly correlated with MeanFICO and Interest Rate. 
+- Looked to the credit score info to understand link to other variables  
+
+
+Modeling: 
+
+- Objective: predict interest rate using RMSE as accuracy measure  
+- Straight to gbm: used to prevent overfitting
+
+Analysis: 
+
+The author presents a fairly simple analysis which has more to do with interpreting the results of the gbm function than actually predicting the interest rates. This model has minimal utility in predicting default probability or expected cash flow from a loan. There are two possible insights from the blog post: 
+
+1) Loans have already been priced by the time they are on the market but it may be useful to understanding how loans were priced.  You could then make a local optimization argument that there are arbitration gains where the interest rate doesn't reflect risk.  The author did not attempt to explore, much less prove, that line of thinking. 
+2) Composition of the FICO score is a combination of amounts owed, payment history, credit mix, length of credit history, and new credit. This is a good starting point to identify confounding or high correlation variables. 
+
 
 
 [@mdlDavenport]  
@@ -39,6 +71,8 @@ A blog post quickly moving towards applying machine learning algorithms without 
 ## Exploratory  
 
 [@mdlDarre]  
+A comprehensive exploratory analysis of the primary variables.  The analysis was a little disjointed the way he moved between the complete dataset and the subset of matured loans. It may have been useful to do them sequentially or enable a left-right comparison.
+
 [@mdlDavis]  
 
 
