@@ -493,7 +493,7 @@ http://andirog.blogspot.com/2012/10/lending-club-loan-purpose-default-rate.html
 http://blog.yhat.com/posts/machine-learning-for-predicting-bad-loans.html
 
 - [@mdlGupta]
-- [@socialLender]  
+- [@mdlSocialLender]  
 - [@mdlKaggle]  
 
 

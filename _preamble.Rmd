@@ -1,8 +1,3 @@
-```{r preamble, echo=FALSE}
-# LoanData<- LendingClubData::IssuedLoans()
-# LoanData$Class<- LendingClubData::SetClass(LoanData$loan_status)
-# LoanData<- LoanData[-which(is.na(LoanData$loan_amnt)),]
-``` 
 
 To start off, this analysis makes a few assumptions about how to classify loans. 
 

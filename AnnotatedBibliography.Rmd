@@ -1,5 +1,6 @@
 ---
 title: 'Improving Portfolio Returns: An Annotated Bibliography'
+date: '`r format(Sys.Date(),"%B %d, %Y")`'
 author:
 - affiliation: Independent
   email: kuhnrl30@gmail.com
@@ -10,8 +11,8 @@ keywords: P2P Lending
 csl: journal-of-finance-annotated-bib.csl
 abstract: "Practitioner models and experimentation suggest that Peer-to-Peer lending
   returns can be improved with the application of machine learning models and high
-  quality data analysis. The existing body of models is generally focused on identifying
-  and excluding loans that will default and therefore improve investor profitability.
+  quality data analysis. The existing body of models is generally focused improving profitiability 
+  by mimimizing the probability of default with minimal research to directly optimize for profitability. 
   To encourage the consolidation of knowledge, I've prepared a resource bibliography
   of analyses, models, and blog posts from around the web that could be used to understand
   the current state of portfolio analysis.\n\nArticles can be classified into one
@@ -19,45 +20,29 @@ abstract: "Practitioner models and experimentation suggest that Peer-to-Peer len
   and explanatory. \n"
 ---
 
+## Research towards Modeling Profitability 
 
-## Elementary 
+[@litEmekter]
+
+[@litCipoeru]
+
+[@litNandi]
+
+[@litBlochlinger]
+
+
+## Modeling the Probability of Default
+
+
+#### Simplistic Models
+
 [@mdlOrourke]
 
-A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed hypothesis to test agairst not contributed new insights into the Lending Club marketplace.. The article is a demonstration of the author's ability to apply a model which is a neccessary step in the learning process.
+A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of demonstrating of the author's ability to apply a model, a neccessary step in the learning process.
 
 [@mdlDavenport2]
 
-
-An analysis to model the interest rates
-
-
-
-Data: Not stated, but likely through Q1 2013. 
-
-Author Notes: 
-
-- Data scientist at Amazon  
-- MS Computer Science from Georgia Tech  
-
-Data Cleaning:
-
-- Replace missing values with NA
-- Anova analysis  listed Amount Requested, Debt/Income Ratio, Rent or Own Home, Inquiries in Last 6 Months, Length of Loan, and Purpose of Loan as being significantly correlated with MeanFICO and Interest Rate. 
-- Looked to the credit score info to understand link to other variables  
-
-
-Modeling: 
-
-- Objective: predict interest rate using RMSE as accuracy measure  
-- Straight to gbm: used to prevent overfitting
-
-Analysis: 
-
-The author presents a fairly simple analysis which has more to do with interpreting the results of the gbm function than actually predicting the interest rates. This model has minimal utility in predicting default probability or expected cash flow from a loan. There are two possible insights from the blog post: 
-
-1) Loans have already been priced by the time they are on the market but it may be useful to understanding how loans were priced.  You could then make a local optimization argument that there are arbitration gains where the interest rate doesn't reflect risk.  The author did not attempt to explore, much less prove, that line of thinking. 
-2) Composition of the FICO score is a combination of amounts owed, payment history, credit mix, length of credit history, and new credit. This is a good starting point to identify confounding or high correlation variables. 
-
+An analysis to understand which attributes are driving LendingClub's interest rates by creating a model from Lending Club's published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC's scoring model.  A brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for idntifying confounding variables. The discussion suggests furthering the knowledge to find local optimizations of credit risk to interest rate give then LC using flat interest rates for loan subgrades.
 
 
 [@mdlDavenport]  
@@ -68,7 +53,7 @@ The author presents a fairly simple analysis which has more to do with interpret
 
 
 
-## Exploratory  
+#### Exploratory  
 
 [@mdlDarre]  
 A comprehensive exploratory analysis of the primary variables.  The analysis was a little disjointed the way he moved between the complete dataset and the subset of matured loans. It may have been useful to do them sequentially or enable a left-right comparison.
@@ -76,7 +61,7 @@ A comprehensive exploratory analysis of the primary variables.  The analysis was
 [@mdlDavis]  
 
 
-## Explanatory  
+#### Explanatory  Models 
 [@mdlWu1]
 
 Data: June 2015 - May 2016  
