@@ -11,7 +11,7 @@
 
 
 
-<title>Lending Club Model</title>
+<title>Research Questions</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -178,6 +178,8 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bar-chart"></span>
+     
     Analysis
      
     <span class="caret"></span>
@@ -257,17 +259,29 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lending Club Model</h1>
+<h1 class="title toc-ignore">Research Questions</h1>
 
 </div>
 
 
-<blockquote>
-<p>WARNING: This site is still under development and will be updated from day to day. Please use with caution until this warning has been removed.</p>
-</blockquote>
-<p>This site is the workspace used to develop a model which increases P2P lending profitability. There are a few companion packages that enable this analysis:</p>
-<p><strong>LendingClub</strong> Contains the bindings for Lending Club’s api. It includes functions to obtain available loans and to view a user’s account. The package also contains functions for working with the secondary market.</p>
-<p><strong>LendingClubData</strong> Contains the historical loan data so it doesn’t need to be downloaded repeatedly from the Lending Club website. It also documents the process to obtain the data.</p>
+<div id="objective" class="section level2">
+<h2>Objective</h2>
+<p>The objective of this reseach is to determine the strategy which optimizes the ratio of investor income to risk. An investment can be viewed as a fair exchange transaction: The investor seeks to receive a return on their capital so purchases a potential cash flow which includes interest payments. I say potential cash flow because it is not guaranteed that the borrower will not default. The investor’s payment for this interest income is the amount of risk they accepte that the borrower will default on the loan causing the investor to lose the invested captial and the opportunity cost of lost interest income. Higher interst rates, then, will require them to accept greater amounts of risk.</p>
+<p>The initial interest rate (price) is set by LC’s determination of the investor’s risk. On the secondary market, the yield on the loan includes the interest payments from LC’s credit scoring model plus the seller’s markup adjustment for their perceived risk score. There may also be market factors at work setting prevailing yield amounts. In order to optimize the ratio of income to risk, I will have to find areas in these two pricing models which overptice borrower’s risk. The interest rate is set higher than the default risk warrants.</p>
+<p>On the journey towards the over arching objective, I have these interim questions to answer:</p>
+<ol style="list-style-type: decimal">
+<li><p>Can we identify over priced default risk by using more than just the intuitive features such as FICO score and debt-to-income and thereby increase profitability?</p></li>
+<li>Can we determine the market price of a loan after issuance (secondary marke)? Use the listings on the secondary market to develop a pricing guide or tool?
+<ul>
+<li>Can market price be determined from the secondary market listings? Take regular downloads of the market and look for time until sale.<br />
+</li>
+<li>Can the typical consumer price their loans to market value? Is there a random walk around the true price point for given attributes/risk factors? Is there an opportunity for arbitration?</li>
+</ul></li>
+<li><p>Can we estimate the value a loan on the secondary market and build a pricing model such that: Value = PV of cash flow discounted for default risk and market data asymmetry. Influences are expected cash flow driven by defualt rates/ survival analysis; present value driven by investor requirements or IRR; general discount as the buyer doesn’t know why you are selling so feels lack of trust (constant?).</p></li>
+<li><p>Can we leverage the latest fraud research to identify over stated income and replace with an estimated true amount to feed the model?</p></li>
+<li><p>How does Basel II Probability of default definitions apply? Can that research and precendents be applied?</p></li>
+</ol>
+</div>
 
 
 

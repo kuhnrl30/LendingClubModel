@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2017-08-24" />
+<meta name="date" content="2017-08-26" />
 
 <title>Improving Portfolio Returns: An Annotated Bibliography</title>
 
@@ -189,6 +189,8 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bar-chart"></span>
+     
     Analysis
      
     <span class="caret"></span>
@@ -273,55 +275,33 @@ $(document).ready(function () {
 <address class="author_afil">
 Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@gmail.com">kuhnrl30@gmail.com</a></a>
 </address>
-<h4 class="date"><em>August 24, 2017</em></h4>
+<h4 class="date"><em>August 26, 2017</em></h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
-<p>Practitioner models and experimentation suggest that Peer-to-Peer lending returns can be improved with the application of machine learning models and high quality data analysis. The existing body of models is generally focused improving profitiability by mimimizing the probability of default with minimal research to directly optimize for profitability. To encourage the consolidation of knowledge, I’ve prepared a resource bibliography of analyses, models, and blog posts from around the web that could be used to understand the current state of portfolio analysis.</p>
-<p>Articles can be classified into one of three categories based on their rigor and depth of analysis- elementary, exploratory, and explanatory.</p>
+<p>Practitioner models and experimentation suggest that Peer-to-Peer lending returns can be improved with the application of machine learning models and high quality data analysis. The existing body of research and models are generally focused on understanding the profitiability by mimimizing the probability of default rather than optimizing for profitability. To encourage the consolidation of knowledge, I’ve prepared a resource bibliography of research and articles from around the web that could be used to understand the current state of analysis.</p>
+<p>Articles can be classified into one of three categories based on their rigor and depth of analysis. This bibliogrpahy puts forward the categorization of- simplistic, exploratory, and explanatory. Simplistic models are early entries into the topic but do not provide significant insight. Exploratory models give a methodical review of loan attributes with hypothesis for further testing. Explanantory articles seek to explain a narrowly focused topic through review of specific variable relationships.</p>
 </div>
 
 </div>
 
 
 <div id="research-towards-modeling-profitability" class="section level2">
-<h2>Research towards Modeling Profitability</h2>
-<p><span class="citation"><strong>Emekter, Riza et al.</strong>, <strong>2015</strong>, <strong>Evaluating credit risk and loan performance in online peer-to-peer (p2p) lending., </strong><strong><em>Applied Economics</em></strong></span></p>
-<p><span class="citation"><strong>Cimpoeru, Smaranda Stoenescu</strong>, <strong>2011</strong>, <strong>NEURAL networks and their application in credit risk assessment. evidence from the romanian market., </strong><strong><em>Technological &amp; Economic Development of Economy</em></strong></span></p>
-<p><span class="citation"><strong>Nandi, Jayanta Kishore, and Navin Kumar Choudhary</strong>, <strong>2011</strong>, <strong>Credit risk management of loan portfolios by indian banks: Some empirical evidence., </strong><strong><em>IUP Journal of Bank Management</em></strong></span></p>
-<p><span class="citation"><strong>Blöchlinger, Andreas</strong>, <strong>2012</strong>, <strong>Validation of default probabilities., </strong><strong><em>Journal of Financial &amp; Quantitative Analysis</em></strong></span></p>
+<h2><span class="header-section-number">0.1</span> Research towards Modeling Profitability</h2>
 </div>
 <div id="modeling-the-probability-of-default" class="section level2">
-<h2>Modeling the Probability of Default</h2>
-<div id="simplistic-models" class="section level4">
-<h4>Simplistic Models</h4>
+<h2><span class="header-section-number">0.2</span> Modeling the Probability of Default</h2>
+<div id="simplistic-models" class="section level3">
+<h3><span class="header-section-number">0.2.1</span> Simplistic Models</h3>
 <p><span class="citation"><strong>ORourke, Ted</strong>, <strong>2016</strong>, <strong>Lending club - predicting loan outcomes,</strong><strong>. Blog</strong> <strong><em>Rpubs</em></strong><strong> (<a href="https://rpubs.com/torourke97/190551" class="uri">https://rpubs.com/torourke97/190551</a>)</strong></span></p>
 <p>A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms. O’Rourke applies two algorithms to Lending Club’s historical loan data from 2007-2011: Decision Tree and Logistic Regression. The author has not developed hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of demonstrating of the author’s ability to apply a model, a neccessary step in the learning process.</p>
 <p><span class="citation"><strong>Davenport, Kevin</strong>, <strong>2013</strong>, <strong>Gradient boosting: Analysis of lendingclub’s data,</strong><strong>. Blog</strong><strong> (<a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//</a>)</strong></span></p>
 <p>An analysis to understand which attributes are driving LendingClub’s interest rates by creating a model from Lending Club’s published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC’s scoring model. A brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for idntifying confounding variables. The discussion suggests furthering the knowledge to find local optimizations of credit risk to interest rate give then LC using flat interest rates for loan subgrades.</p>
-<p><span class="citation"><strong>Davenport, Kevin</strong>, <strong>2015</strong>, <strong>Lending club data analysis revisited with python,</strong><strong>. Blog</strong> <strong><em>Machine Learning and Statistics Blog</em></strong><strong> (<a href="http://kldavenport.com/lending-club-data-analysis-revisted-with-python/" class="uri">http://kldavenport.com/lending-club-data-analysis-revisted-with-python/</a>)</strong></span></p>
-<p><span class="citation"><strong>Cashorali, Tanya</strong>, <strong>2011</strong>, <strong>Mining lending club’s goldmine of loan data part i of ii visualizations by state,</strong><strong>. Blog</strong> <strong><em>R-bloggers</em></strong><strong> (<a href="https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/" class="uri">https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/</a>)</strong></span></p>
-<p><span class="citation"><strong>Polena, Michal</strong>, <strong>2016</strong>, <strong>Investing at lending club with watson analytics,</strong><strong>. Blog</strong> <strong><em>IBM</em></strong><strong> (<a href="https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/" class="uri">https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/</a>)</strong></span></p>
 </div>
-<div id="exploratory" class="section level4">
-<h4>Exploratory</h4>
-<p><span class="citation"><strong>Darre, Jean-Francois</strong>, <strong>2015</strong>, <strong>Analysis of lending club’s data,</strong><strong>. Blog</strong> <strong><em>Data Science Central</em></strong><strong> (<a href="http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data" class="uri">http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data</a>)</strong></span><br />
-A comprehensive exploratory analysis of the primary variables. The analysis was a little disjointed the way he moved between the complete dataset and the subset of matured loans. It may have been useful to do them sequentially or enable a left-right comparison.</p>
-<p><span class="citation"><strong>Davis, Jason</strong>, <strong>2012</strong>, <strong>Lending club loan analysis: Making money with logistic regression,</strong><strong>. Blog</strong> <strong><em>Data Startups</em></strong><strong> (<a href="http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression" class="uri">http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression</a>)</strong></span></p>
+<div id="exploratory-models" class="section level3">
+<h3><span class="header-section-number">0.2.2</span> Exploratory Models</h3>
 </div>
-<div id="explanatory-models" class="section level4">
-<h4>Explanatory Models</h4>
-<p><span class="citation"><strong>Wu, James</strong>, <strong>2015</strong>, <strong>Changes in lending club underwriting,</strong><strong>. Blog</strong> <strong><em>MonJa</em></strong><strong> (<a href="https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//" class="uri">https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//</a>)</strong></span></p>
-<p>Data: June 2015 - May 2016</p>
-<p><strong>Notes</strong>:</p>
-<ul>
-<li>Response to LC’s quarterly earnings release, where LC announced changes in underwriting</li>
-<li>Used commentary from LC’s 10-Q.</li>
-</ul>
-<p><strong>Analysis:</strong></p>
-<ul>
-<li>Scatter plot of average DTI for D grade loans by issue date. The plot attempts to show that less high DTI loans have been issued since LC changed its underwriting in late April 2016. The article hypothesizes that the loans are removed from the direct pay program. Direct pay requires the loan proceeds be paid directly to the borrower’s existing debts.</li>
-<li>Scatter plot of number of inquiries by issue date for F and G grade loans. The plot shows that in the past month there have been less loans with a high number of previous inquiries.</li>
-</ul>
+<div id="explanatory-models" class="section level3">
+<h3><span class="header-section-number">0.2.3</span> Explanatory Models</h3>
 </div>
 </div>
 

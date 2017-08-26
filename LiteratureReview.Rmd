@@ -1,6 +1,23 @@
 ---
 title: "Literature Review"
+abstract: |
+  This is an abstract
+date: '`r format(Sys.Date(),"%B %d, %Y")`'
+author:
+- affiliation: Independent
+  email: kuhnrl30@gmail.com
+  name: Ryan Kuhn
+keywords: P2P Lending
+csl: journal-of-finance-annotated-bib.csl
+bibliography: bibliographies.bib
 ---
+## Summary
+
+*Placeholder for review of P2P lending research. *
+
+## Review of Loan & Bond Pricing Models
+
+
 
 ## Literature Resources
 http://admin.nber.org/

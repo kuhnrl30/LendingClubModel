@@ -1,4 +1,4 @@
-﻿name: Lending Club Model
+name: Lending Club Model
 output:
   html_document:
     theme: journal
@@ -9,7 +9,8 @@ navbar:
   title: Lending Club Model
   type: default
   left:
-    - text: "Analysis"
+    - icon: fa-bar-chart
+      text: "Analysis"
       menu:
       - text: "Planning"
       - text: "Research Questions"

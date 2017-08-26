@@ -6,35 +6,32 @@ author:
   email: kuhnrl30@gmail.com
   name: Ryan Kuhn
 bibliography: bibliographies.bib
-output: html_document
+output: 
+  html_document:
+    number_sections: yes
 keywords: P2P Lending
 csl: journal-of-finance-annotated-bib.csl
 abstract: "Practitioner models and experimentation suggest that Peer-to-Peer lending
   returns can be improved with the application of machine learning models and high
-  quality data analysis. The existing body of models is generally focused improving profitiability 
-  by mimimizing the probability of default with minimal research to directly optimize for profitability. 
+  quality data analysis. The existing body of research and models are generally focused on understanding the profitiability 
+  by mimimizing the probability of default rather than optimizing for profitability. 
   To encourage the consolidation of knowledge, I've prepared a resource bibliography
-  of analyses, models, and blog posts from around the web that could be used to understand
-  the current state of portfolio analysis.\n\nArticles can be classified into one
-  of three categories based on their rigor and depth of analysis- elementary, exploratory,
-  and explanatory. \n"
+  of research and articles from around the web that could be used to understand
+  the current state of analysis.\n\nArticles can be classified into one
+  of three categories based on their rigor and depth of analysis.  This bibliogrpahy puts forward the 
+  categorization of- simplistic, exploratory, and explanatory. Simplistic models are early entries
+  into the topic but do not provide significant insight.  Exploratory models give a methodical review of 
+  loan attributes with hypothesis for further testing.  Explanantory articles seek to explain a narrowly 
+  focused topic through review of specific variable relationships.\n"
 ---
 
 ## Research towards Modeling Profitability 
-
-[@litEmekter]
-
-[@litCipoeru]
-
-[@litNandi]
-
-[@litBlochlinger]
 
 
 ## Modeling the Probability of Default
 
 
-#### Simplistic Models
+### Simplistic Models
 
 [@mdlOrourke]
 
@@ -44,36 +41,7 @@ A blog post which quickly moves through a cursory exploratory analysis and on to
 
 An analysis to understand which attributes are driving LendingClub's interest rates by creating a model from Lending Club's published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC's scoring model.  A brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for idntifying confounding variables. The discussion suggests furthering the knowledge to find local optimizations of credit risk to interest rate give then LC using flat interest rates for loan subgrades.
 
+### Exploratory Models  
 
-[@mdlDavenport]  
-
-[@mdlCashorali] 
-
-[@mdlPolena]  
-
-
-
-#### Exploratory  
-
-[@mdlDarre]  
-A comprehensive exploratory analysis of the primary variables.  The analysis was a little disjointed the way he moved between the complete dataset and the subset of matured loans. It may have been useful to do them sequentially or enable a left-right comparison.
-
-[@mdlDavis]  
-
-
-#### Explanatory  Models 
-[@mdlWu1]
-
-Data: June 2015 - May 2016  
-
-**Notes**:
-
-- Response to LC's quarterly earnings release, where LC announced changes in underwriting 
-- Used commentary from LC's 10-Q.
-
-**Analysis:**    
-
-- Scatter plot of average DTI for D grade loans by issue date.  The plot attempts to show that less high DTI loans have been issued since LC changed its underwriting in late April 2016. The article hypothesizes that the loans are removed from the direct pay program.  Direct pay requires the loan proceeds be paid directly to the borrower's existing debts.
-- Scatter plot of number of inquiries by issue date for F and G grade loans. The plot shows that in the past month there have been less loans with a high number of previous inquiries. 
-
+### Explanatory  Models 
 
