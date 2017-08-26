@@ -24,8 +24,9 @@ Lending Club sets a upper limit of 0.5 debt to income ratio.  There are a few po
 LoanData[which(LoanData$dti>50),"dti"]<- 50
 
 ggplot(LoanData) + 
-    aes(dti, group=Class, colour=Class) + 
-    geom_density()+ 
+    aes(Class, dti, fill= Class) + 
+    geom_boxplot() + 
+    coord_flip() +
     labs(title="Distribution of DTI by default status") + 
     theme_LC()
 ```
