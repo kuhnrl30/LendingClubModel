@@ -26,7 +26,9 @@ abstract: "Practitioner models and experimentation suggest that Peer-to-Peer len
 ---
 
 ## Research towards Modeling Profitability 
+[@litSerrano]
 
+An article proposing a decision support system for choosing loans to optimize profitability.  The previous literature was focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return or IRR to meausre of a loan's prfitability.  IRR was chosen because it is able to handle uneven payments at non uniform intervals.  They created several models predict a loans IRR as the dependent variable. 
 
 ## Modeling the Probability of Default
 
