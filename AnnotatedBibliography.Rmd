@@ -11,24 +11,25 @@ output:
     number_sections: yes
 keywords: P2P Lending
 csl: journal-of-finance-annotated-bib.csl
-abstract: "Practitioner models and experimentation suggest that Peer-to-Peer lending
+abstract: "Practitioner experimentation and models suggest that Peer-to-Peer lending
   returns can be improved with the application of machine learning models and high
-  quality data analysis. The existing body of research and models are generally focused on understanding the profitiability 
-  by mimimizing the probability of default rather than optimizing for profitability. 
-  To encourage the consolidation of knowledge, I've prepared a resource bibliography
-  of research and articles from around the web that could be used to understand
-  the current state of analysis.\n\nArticles can be classified into one
-  of three categories based on their rigor and depth of analysis.  This bibliogrpahy puts forward the 
-  categorization of- simplistic, exploratory, and explanatory. Simplistic models are early entries
-  into the topic but do not provide significant insight.  Exploratory models give a methodical review of 
-  loan attributes with hypothesis for further testing.  Explanantory articles seek to explain a narrowly 
+  quality data analysis. The existing body of research and models generally focus on 
+  understanding profitability by minimizing the probability of default rather than 
+  optimizing for profitability. To encourage the consolidation of knowledge, I've 
+  prepared a resource bibliography of research and articles from around the web that 
+  could be used to understand the current state of analysis.\n\nArticles can be classified 
+  into one of three categories based on their rigor and depth of analysis.  This 
+  bibliography puts forward the categorization of- simplistic, exploratory, and explanatory. 
+  Simplistic models are early entries into the topic but do not provide significant insight. 
+  Exploratory models methodically review loan attributes and hypothesize 
+  further testing approaches.  Explanatory articles seek to explain a narrowly 
   focused topic through review of specific variable relationships.\n"
 ---
 
 ## Research towards Modeling Profitability 
 [@litSerrano]
 
-An article proposing a decision support system for choosing loans to optimize profitability.  The previous literature was focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return or IRR to meausre of a loan's prfitability.  IRR was chosen because it is able to handle uneven payments at non uniform intervals.  They created several models predict a loans IRR as the dependent variable. 
+An article proposing a decision support system for choosing loans to optimize profitability.  The previous literature was focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return or IRR to measure of a loan's profitability.  IRR was chosen because it is able to handle uneven payments at non uniform intervals.  They created several models predict a loans IRR as the dependent variable. 
 
 ## Modeling the Probability of Default
 
@@ -37,13 +38,18 @@ An article proposing a decision support system for choosing loans to optimize pr
 
 [@mdlOrourke]
 
-A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of demonstrating of the author's ability to apply a model, a neccessary step in the learning process.
+A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of demonstrating of the author's ability to apply a model, a necessary step in the learning process.
 
 [@mdlDavenport2]
 
-An analysis to understand which attributes are driving LendingClub's interest rates by creating a model from Lending Club's published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC's scoring model.  A brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for idntifying confounding variables. The discussion suggests furthering the knowledge to find local optimizations of credit risk to interest rate give then LC using flat interest rates for loan subgrades.
+An analysis to understand which attributes are driving LendingClub's interest rates by creating a model from Lending Club's published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC's scoring model.  A brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests furthering the knowledge to find local optima of credit risk to interest rate give then LC using flat interest rates for loan sub grades.
 
 ### Exploratory Models  
+
+[@mdlDarre]
+
+An analysis exploring the relationship between many of the loan attributes and the historical default experience.  The author puts forth the analysis as exploratory rather than seeking to answer a specific questions.  Hence, their are only observations and not specific conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC's  rating algorithm improved.
+
 
 ### Explanatory  Models 
 
