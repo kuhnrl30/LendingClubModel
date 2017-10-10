@@ -75,7 +75,7 @@ LoanData %>%
 
 Grade A loans reached its peak share of the loan distribution. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. 
 
-> QUESTION: Is this due to a change in the scoring model or the applicant pool? 
+> QUESTION: Is this grade mix due to a change in the scoring model or the applicant pool? 
 
 ### Package Version
 The analysis was based on LendingClubData version `r packageVersion("LendingClubData")`.
