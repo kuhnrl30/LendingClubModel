@@ -16,12 +16,12 @@ abstract: "Practitioner experimentation and models suggest that Peer-to-Peer len
   quality data analysis. The existing body of research generally focused on 
   minimizing the probability of default rather than 
   optimizing for profitability. To encourage the consolidation of knowledge, This 
-  bibliography is a rsource of research and articles from around the web that could
+  bibliography is a source of research and articles from around the web that could
   be used to understand the current state of analysis."
 ---
 
 ## Introduction
-Peer-to-peer lending connects borrowers with investors through an online marketplace. Loans offered through LendingClub are made possible by investors, who invest in exchange for solid returns.
+Peer-to-peer lending connects borrowers with investors through an online marketplace. Loans offered through Lending Club are made possible by investors, who invest in exchange for solid returns.
 
 This bibliography classifies articles into one of three categories based on their rigor and depth of analysis- simplistic, exploratory, and explanatory. Simplistic models are early entries into the topic that do not provide significant insight.  Exploratory models methodically review loan attributes and propose further testing approaches.  Explanatory articles seek to explain a narrowly focused insight through review of specific variable relationships.
 
@@ -42,7 +42,12 @@ A blog post which quickly moves through a cursory exploratory analysis and on to
 
 [@mdlDavenport2]
 
-An analysis to understand which attributes are driving LendingClub's interest rates by creating a model from Lending Club's published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC's scoring model.  The article includes a brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests furthering the knowledge to find local optima of credit risk to interest rate give then LC using flat interest rates for loan sub grades.
+An analysis to understand which attributes are driving Lending Club's interest rates by creating a model from Lending Club's published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC's scoring model.  The article includes a brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests furthering the knowledge to find local optima of credit risk to interest rate give then LC using flat interest rates for loan sub grades.
+
+
+[@mdlDavis]
+
+This analysis is proposes a simple valuation method by weighting the interest rate by the probability of defaulting to arrive at the expected interest rate.  The author used this valuation method along with logistic regression model built to predict the default risk to show that returns can be significantly improved for portfolios with less than 400 loans.  
 
 ### Exploratory Models  
 
@@ -52,4 +57,3 @@ An analysis exploring the relationship between many of the loan attributes and t
 
 
 ### Explanatory  Models 
-

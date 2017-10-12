@@ -15,6 +15,9 @@ bibliography: bibliographies.bib
 
 *Placeholder for review of P2P lending research. *
 
+## Communities and Thought Leaders 
+NSR, PeerCube, LendingRobot, Mon Ja
+
 ## Review of Loan & Bond Pricing Models
 
 
