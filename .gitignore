@@ -1,4 +1,11 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.RData
+*.Ruserdata
+
+buildsite.R
+
+Superceded/*
+
+*.pdf

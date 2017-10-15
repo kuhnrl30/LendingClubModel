@@ -1,5 +1,5 @@
 ---
-title: 'Improving P2P Lending Portfolio Returns: An Annotated Bibliography'
+title: 'Improving P2P Lending Returns: An Annotated Bibliography'
 date: '`r format(Sys.Date(),"%B %d, %Y")`'
 author:
 - affiliation: Independent
@@ -11,10 +11,9 @@ output:
     number_sections: yes
 keywords: P2P Lending
 csl: journal-of-finance-annotated-bib.csl
-abstract: "Practitioner experimentation and models suggest that Peer-to-Peer lending
-  profitability can be improved with the application of high
-  quality data analysis. The existing body of research generally focused on 
-  minimizing the probability of default rather than 
+abstract: "Current models suggest that Peer-to-Peer lending profitability can be 
+  improved with the application of high quality data analysis. The existing body 
+  of research generally focused on minimizing the probability of default rather than 
   optimizing for profitability. To encourage the consolidation of knowledge, This 
   bibliography is a source of research and articles from around the web that could
   be used to understand the current state of analysis."
@@ -23,37 +22,54 @@ abstract: "Practitioner experimentation and models suggest that Peer-to-Peer len
 ## Introduction
 Peer-to-peer lending connects borrowers with investors through an online marketplace. Loans offered through Lending Club are made possible by investors, who invest in exchange for solid returns.
 
-This bibliography classifies articles into one of three categories based on their rigor and depth of analysis- simplistic, exploratory, and explanatory. Simplistic models are early entries into the topic that do not provide significant insight.  Exploratory models methodically review loan attributes and propose further testing approaches.  Explanatory articles seek to explain a narrowly focused insight through review of specific variable relationships.
+This bibliography classifies articles into one of three categories based on their source and intented audience: academic research, industry analysis, and models 'in the wild'. Industry analysis generally explain a narrowly focused insight through review of specific variable relationships.  Models use by individual investors may methodically review loan attributes and propose further testing approaches.  
 
 
-## Research towards Modeling Profitability 
+## Academic Research  
 [@litSerrano]
 
-An article proposing a decision support system for choosing loans to optimize profitability.  The previous literature was focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return or IRR to measure of a loan's profitability.  IRR was chosen because it is able to handle uneven payments at non uniform intervals.  They created several models predict a loans IRR as the dependent variable. 
+This article proposes a decision support system for choosing loans optimized for profitability.  This is in contrase to previous literature which focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return, or IRR, to measure of a loan's profitability.  IRR was chosen because it is able to handle uneven payments at non-uniform intervals.  They created several models predict a loan's IRR as the dependent variable. 
 
-## Modeling the Probability of Default
+## Industry Analysis  
+
+- Orchard
+- Mon Ja
+- Lending Times
+- Lend Academy
+- Lending Robot
+- NSR/ Peer Cube
 
 
-### Simplistic Models
+## Modeling "In the Wild"  
 
-[@mdlOrourke]
-
-A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author's ability to apply a model to a dataset which is a necessary step in the learning process.
-
-[@mdlDavenport2]
-
-An analysis to understand which attributes are driving Lending Club's interest rates by creating a model from Lending Club's published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC's scoring model.  The article includes a brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests furthering the knowledge to find local optima of credit risk to interest rate give then LC using flat interest rates for loan sub grades.
+[@mdlCashorali]
 
 
 [@mdlDavis]
 
 This analysis is proposes a simple valuation method by weighting the interest rate by the probability of defaulting to arrive at the expected interest rate.  The author used this valuation method along with logistic regression model built to predict the default risk to show that returns can be significantly improved for portfolios with less than 400 loans.  
 
-### Exploratory Models  
+[@mdlDavenport]
+
+An analysis to understand which attributes are driving Lending Club's interest rates. It includes a brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests finding local optima of credit risk to interest rate given that LC uses flat interest rates for loan sub grades.  The article was written in 2013 so does not reflect the subsequent changes in LC's scoring model.  
+
+[@mdlDavenport2]
+
+An expansion on the author's earlier analyis but with discussion around challenges in improving the model.  Challenges includes developing meaningful groupings of employement title by overcoming the current diversity in the dataset. 
+
 
 [@mdlDarre]
 
 An analysis exploring the relationship between many of the loan attributes and the historical default experience.  The author puts forth the analysis as exploratory rather than seeking to answer a specific questions.  Hence, their are only observations and not specific conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC's  rating algorithm improved.
 
+[@mdlOrourke]
 
-### Explanatory  Models 
+A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed a hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author's ability to apply a model to a dataset which is a necessary step in the learning process.
+
+[@mdlSummers]
+
+
+[@mdlToth]
+
+An exploratory analysis of loan attributes and their connection to the loan's outcome. Toth provides a step-by-step write up of how he analyzed data from 2012-2013. The article does not include a summary nor a discussion of the results. An interesting method was to group the loan purposes into three categories: 1) debt, 2) major purposes such as home improvement, and 3) luxury purchase such as vacations and weddings. 
+
