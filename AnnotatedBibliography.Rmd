@@ -68,6 +68,7 @@ A blog post which quickly moves through a cursory exploratory analysis and on to
 
 [@mdlSummers]
 
+This article takes the first steps in building a model to optimize profitability but falls short by not including lost principle in returns calculation.  The 'loss' of a defaulted loan is the opportunity cost of lost interest and understates the downside risk for a given laon.  
 
 [@mdlToth]
 
