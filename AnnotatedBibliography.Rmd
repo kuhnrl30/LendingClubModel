@@ -1,22 +1,23 @@
 ---
 title: 'Improving P2P Lending Returns: An Annotated Bibliography'
-date: '`r format(Sys.Date(),"%B %d, %Y")`'
 author:
 - affiliation: Independent
   email: kuhnrl30@gmail.com
   name: Ryan Kuhn
-bibliography: bibliographies.bib
-output: 
+date: '`r format(Sys.Date(),"%B %d, %Y")`'
+output:
+  pdf_document: default
   html_document:
     number_sections: yes
+bibliography: bibliographies.bib
 keywords: P2P Lending
 csl: journal-of-finance-annotated-bib.csl
-abstract: "Current models suggest that Peer-to-Peer lending profitability can be 
-  improved with the application of high quality data analysis. The existing body 
-  of research generally focused on minimizing the probability of default rather than 
-  optimizing for profitability. To encourage the consolidation of knowledge, This 
-  bibliography is a source of research and articles from around the web that could
-  be used to understand the current state of analysis."
+abstract: Current models suggest that Peer-to-Peer lending profitability can be improved
+  with the application of high quality data analysis. The existing body of research
+  generally focused on minimizing the probability of default rather than optimizing
+  for profitability. To encourage the consolidation of knowledge, This bibliography
+  is a source of research and articles from around the web that could be used to understand
+  the current state of analysis.
 ---
 
 ## Introduction
@@ -26,6 +27,25 @@ This bibliography classifies articles into one of three categories based on thei
 
 
 ## Academic Research  
+
+[@litAlaraj]
+
+[@litCipoeru]
+
+[@litEmekter]
+
+[@litKeough]
+
+An artile exploring the concept that fraudulently reported income increases default risk since the borrowor was granted more credit than their ability to repay warranted. The authors hypothesize that borrowers with verified income will default less than non-verified borrowers but their limited testing lead to the opposite conclusion. The superficial analysis did not identify or control for confounding variables leaving the conclusion unreliable.
+
+[@litGe]
+
+[@litGuo]
+
+[@litNandi]
+
+[@litReddy]
+
 [@litSerrano]
 
 This article proposes a decision support system for choosing loans optimized for profitability.  This is in contrase to previous literature which focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return, or IRR, to measure of a loan's profitability.  IRR was chosen because it is able to handle uneven payments at non-uniform intervals.  They created several models predict a loan's IRR as the dependent variable. 
@@ -38,16 +58,23 @@ This article proposes a decision support system for choosing loans optimized for
 - Lend Academy
 - Lending Robot
 - NSR/ Peer Cube
+- Peer Lending Server
 
+[@mdlSocialLender]
+
+[@indLendAcad1]
+
+[@indWu1]
 
 ## Modeling "In the Wild"  
 
 [@mdlCashorali]
 
+This geographical analysis of loans prior to Q3 2011 showed a high proportion of loans in California and Florida defaulted there whereas Texas, Pennsylvania, and New Jersey had comparably low default rates.
 
-[@mdlDavis]
+[@mdlDarre]
 
-This analysis is proposes a simple valuation method by weighting the interest rate by the probability of defaulting to arrive at the expected interest rate.  The author used this valuation method along with logistic regression model built to predict the default risk to show that returns can be significantly improved for portfolios with less than 400 loans.  
+An analysis exploring the relationship between many of the loan attributes and the historical default experience.  The author puts forth the analysis as exploratory rather than seeking to answer a specific questions.  Hence, their are only observations and not specific conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC's  rating algorithm improved.
 
 [@mdlDavenport]
 
@@ -57,14 +84,27 @@ An analysis to understand which attributes are driving Lending Club's interest r
 
 An expansion on the author's earlier analyis but with discussion around challenges in improving the model.  Challenges includes developing meaningful groupings of employement title by overcoming the current diversity in the dataset. 
 
+[@mdlDavis]
 
-[@mdlDarre]
+This analysis is proposes a simple valuation method by weighting the interest rate by the probability of defaulting to arrive at the expected interest rate.  The author used this valuation method along with logistic regression model built to predict the default risk to show that returns can be significantly improved for portfolios with less than 400 loans.  
 
-An analysis exploring the relationship between many of the loan attributes and the historical default experience.  The author puts forth the analysis as exploratory rather than seeking to answer a specific questions.  Hence, their are only observations and not specific conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC's  rating algorithm improved.
+[@mdlKaggle]
+
+[@mdlMistry]
+
+An insightful analysis using 3 unique methods including: modeling profitability with survival analysis, measuring significance with concordance instead of p-values, and measuring profit as the ratio of cash in/out flows.  Survival analysis can measure to probability that the cash inflows, or payment received, will reach payback a given threshold. Concordance analysis is more robust to big data and prevents statistically significant variables that don't improve the model. 
+
+[@mdlMoy]
 
 [@mdlOrourke]
 
 A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed a hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author's ability to apply a model to a dataset which is a necessary step in the learning process.
+
+[@mdlPatierno]
+
+Using a genetic algorithm, the author proposes a rules based approach for selecting a mix of loans which maximizes the cash inflows. 
+
+[@mdlPolena]
 
 [@mdlSummers]
 
@@ -73,4 +113,6 @@ This article takes the first steps in building a model to optimize profitability
 [@mdlToth]
 
 An exploratory analysis of loan attributes and their connection to the loan's outcome. Toth provides a step-by-step write up of how he analyzed data from 2012-2013. The article does not include a summary nor a discussion of the results. An interesting method was to group the loan purposes into three categories: 1) debt, 2) major purposes such as home improvement, and 3) luxury purchase such as vacations and weddings. 
+
+[@mdlTsai]
 
