@@ -1,0 +1,652 @@
+%% template.tex
+%% from
+%% bare_conf.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+\documentclass[conference,final,]{IEEEtran}
+% Some Computer Society conferences also require the compsoc mode option,
+% but others use the standard conference format.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at:
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+
+%% BEGIN MY ADDITIONS %%
+
+
+
+\usepackage[unicode=true]{hyperref}
+
+\hypersetup{
+            pdftitle={Improving P2P Lending Returns: An Annotated Bibliography},
+            pdfkeywords={P2P Lending},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+% Pandoc toggle for numbering sections (defaults to be off)
+\setcounter{secnumdepth}{0}
+% Pandoc header
+\interlinepenalty=10000
+\widowpenalty=1000
+
+%% END MY ADDITIONS %%
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Improving P2P Lending Returns: An Annotated Bibliography}
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+
+\author{
+\IEEEauthorblockN{Ryan Kuhn}
+\IEEEauthorblockA{Independent\\
+\\
+Basking Ridge, NJ 07920\\
+kuhnrl30@gmail.com
+}
+}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+%
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3},
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+Current models suggest that Peer-to-Peer lending profitability can be
+improved with the application of high quality data analysis. The
+existing body of research generally focused on minimizing the
+probability of default rather than optimizing for profitability. To
+encourage the consolidation of knowledge, This bibliography is a source
+of research and articles from around the web that could be used to
+understand the current state of analysis.
+\end{abstract}
+
+% no keywords
+
+% use for special paper notices
+
+
+
+% make the title area
+\maketitle
+
+% no keywords
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+\section{Introduction}\label{introduction}
+
+Peer-to-peer lending connects borrowers with investors through an online
+marketplace. Loans offered through Lending Club are made possible by
+investors, who invest in exchange for solid returns.
+
+This bibliography classifies articles into one of three categories based
+on their source and intented audience: academic research, industry
+analysis, and models `in the wild'. Industry analysis generally explain
+a narrowly focused insight through review of specific variable
+relationships. Models use by individual investors may methodically
+review loan attributes and propose further testing approaches.
+
+\subsection{Academic Research}\label{academic-research}
+
+\textbf{Ala'raj, Maher, and Maysam F. Abbod}, \textbf{2016}, \textbf{A
+new hybrid ensemble credit scoring model based on classifiers consensus
+system approach., }\textbf{\emph{Expert Systems with
+Applications}}\textbf{ 64}\textbf{, 36--55}
+
+\textbf{Cimpoeru, Smaranda Stoenescu}, \textbf{2011}, \textbf{Neural
+networks networks and their application in credit risk assessment.
+evidence from the romanian market., }\textbf{\emph{Technological \&
+Economic Development of Economy}}\textbf{ 17}\textbf{, 519--534}
+
+\textbf{Emekter, Riza et al.}, \textbf{2015}, \textbf{Evaluating credit
+risk and loan performance in online peer-to-peer (p2p) lending.,
+}\textbf{\emph{Applied Economics}}\textbf{ 47}\textbf{, 54--70}
+
+\textbf{Keough, David, Nicolaus Enko, and Brian Shake},
+\textbf{Developing a data science approach to detecting income fraud for
+the peer to peer loan industry., }\textbf{\emph{SSRN}}\textbf{
+(https://ssrn.com/abstract=2836134)}
+
+An artile exploring the concept that fraudulently reported income
+increases default risk since the borrowor was granted more credit than
+their ability to repay warranted. The authors hypothesize that borrowers
+with verified income will default less than non-verified borrowers but
+their limited testing lead to the opposite conclusion. The superficial
+analysis did not identify or control for confounding variables leaving
+the conclusion unreliable.
+
+\textbf{Ge, Ruyi et al.}, \textbf{2017}, \textbf{Predicting and
+deterring default with social media information in peer-to-peer
+lending., }\textbf{\emph{Journal of Management Information
+Systems}}\textbf{ 34}\textbf{, 401--424}
+
+\textbf{Guo, Yanhong et al.}, \textbf{2016}, \textbf{Instance-based
+credit risk assessment for investment decisions in p2p lending.,
+}\textbf{\emph{European Journal of Operational Research}}\textbf{
+249}\textbf{, 417--426}
+
+\textbf{Nandi, Jayanta Kishore, and Navin Kumar Choudhary},
+\textbf{2011}, \textbf{Credit risk management of loan portfolios by
+indian banks: Some empirical evidence., }\textbf{\emph{IUP Journal of
+Bank Management}}\textbf{ 10}\textbf{, 32--42}
+
+\textbf{Reddy, Sriharsha, and Krishna Gopalaraman}, \textbf{2016},
+\textbf{Peer to peer lending, default prediction evidence from lending
+club., }\textbf{\emph{Journal of Internet Banking \& Commerce}}\textbf{
+21}\textbf{, 1--19}
+
+\textbf{Serrano-Cinca, Carlos, and Begoña Gutièrrez-Nieto},
+\textbf{2016}, \textbf{The use ofprofit scoring as an alternative to
+credit scoring systems in peer-to-peer (p2p) lending,}\textbf{. Article}
+\textbf{\emph{Decision Support Systems}}
+
+This article proposes a decision support system for choosing loans
+optimized for profitability. This is in contrase to previous literature
+which focused on modeling default probabilities without considering the
+increased interest rates to compensate the investor's risk. The authors
+proposed using internal rate of return, or IRR, to measure of a loan's
+profitability. IRR was chosen because it is able to handle uneven
+payments at non-uniform intervals. They created several models predict a
+loan's IRR as the dependent variable.
+
+\subsection{Industry Analysis}\label{industry-analysis}
+
+Orchard Mon Ja Lending Times Lend Academy Lending Robot NSR/ Peer Cube
+Peer Lending Server
+
+\textbf{Anon.}, \textbf{2015}, \textbf{Lending club - predicting loan
+outcomes,}\textbf{. Blog} \textbf{\emph{Peer Lending Server}}\textbf{
+(\href{Analyzing\%20Lending\%20Club\%20Payment\%20History}{Analyzing Lending Club Payment History})}
+
+\textbf{Renton, Peter}, \textbf{2011}, \textbf{How lending club and
+prosper set interest rates,}\textbf{. Blog} \textbf{\emph{Lend
+Academy}}\textbf{
+(\url{http://www.lendacademy.com/how-lending-club-and-prosper-set-interest-rates/})}
+
+\textbf{Wu, James}, \textbf{2015}, \textbf{Changes in lending club
+underwriting,}\textbf{. Blog} \textbf{\emph{MonJa}}\textbf{
+(\url{http://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines/})}
+
+\subsection{\texorpdfstring{Modeling ``In the
+Wild''}{Modeling In the Wild}}\label{modeling-in-the-wild}
+
+\textbf{Cashorali, Tanya}, \textbf{2011}, \textbf{Mining lending club's
+goldmine of loan data part i of ii visualizations by state,}\textbf{.
+Blog} \textbf{\emph{R-bloggers}}\textbf{
+(\url{https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/})}
+
+This geographical analysis of loans prior to Q3 2011 showed a high
+proportion of loans in California and Florida defaulted there whereas
+Texas, Pennsylvania, and New Jersey had comparably low default rates.
+
+\textbf{Darre, Jean-Francois}, \textbf{2015}, \textbf{Analysis of
+lending club's data,}\textbf{. Blog} \textbf{\emph{Data Science
+Central}}\textbf{
+(\url{http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data})}
+
+An analysis exploring the relationship between many of the loan
+attributes and the historical default experience. The author puts forth
+the analysis as exploratory rather than seeking to answer a specific
+questions. Hence, their are only observations and not specific
+conclusions. The observations include: Default rates decrease with
+credit history age; higher credit utilization leads to greater risk of
+default; loan grades are progressively less correlated with the FICO
+score, presumably, as LC's rating algorithm improved.
+
+\textbf{Davenport, Kevin}, \textbf{2015}, \textbf{Lending club data
+analysis revisited with python,}\textbf{. Blog} \textbf{\emph{Machine
+Learning and Statistics Blog}}\textbf{
+(\url{http://kldavenport.com/lending-club-data-analysis-revisted-with-python/})}
+
+An analysis to understand which attributes are driving Lending Club's
+interest rates. It includes a brief summary of the components of the
+FICO score, such as length of credit history and payment history, and
+how that may be a starting point for identifying confounding variables.
+The discussion suggests finding local optima of credit risk to interest
+rate given that LC uses flat interest rates for loan sub grades. The
+article was written in 2013 so does not reflect the subsequent changes
+in LC's scoring model.
+
+\textbf{Davenport, Kevin}, \textbf{2013}, \textbf{Gradient boosting:
+Analysis of lendingclub's data,}\textbf{. Blog}\textbf{
+(\url{http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/})}
+
+An expansion on the author's earlier analyis but with discussion around
+challenges in improving the model. Challenges includes developing
+meaningful groupings of employement title by overcoming the current
+diversity in the dataset.
+
+\textbf{Davis, Jason}, \textbf{2012}, \textbf{Lending club loan
+analysis: Making money with logistic regression,}\textbf{. Blog}
+\textbf{\emph{Data Startups}}\textbf{
+(\url{http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression})}
+
+This analysis is proposes a simple valuation method by weighting the
+interest rate by the probability of defaulting to arrive at the expected
+interest rate. The author used this valuation method along with logistic
+regression model built to predict the default risk to show that returns
+can be significantly improved for portfolios with less than 400 loans.
+
+\textbf{Anon.}, \textbf{Give me some credit,}\textbf{. Blog}
+\textbf{\emph{Kaggle}}\textbf{
+(\url{https://www.kaggle.com/c/GiveMeSomeCredit})}
+
+\textbf{Mistry, Hitesh}, \textbf{2016}, \textbf{Application of survival
+analysis to p2p lending club loans data,}\textbf{. Blog}
+\textbf{\emph{Systems Forecasting}}\textbf{
+(\url{http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/})}
+
+An insightful analysis using 3 unique methods including: modeling
+profitability with survival analysis, measuring significance with
+concordance instead of p-values, and measuring profit as the ratio of
+cash in/out flows. Survival analysis can measure to probability that the
+cash inflows, or payment received, will reach payback a given threshold.
+Concordance analysis is more robust to big data and prevents
+statistically significant variables that don't improve the model.
+
+\textbf{Moy, Philip}, \textbf{2015}, \textbf{Lending club default
+analysis, }\textbf{
+(\url{http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/})}
+
+\textbf{ORourke, Ted}, \textbf{2016}, \textbf{Lending club - predicting
+loan outcomes,}\textbf{. Blog} \textbf{\emph{Rpubs}}\textbf{
+(\url{https://rpubs.com/torourke97/190551})}
+
+A blog post which quickly moves through a cursory exploratory analysis
+and on to applying machine learning algorithms. O'Rourke applies two
+algorithms to Lending Club's historical loan data from 2007-2011:
+Decision Tree and Logistic Regression. The author has not developed a
+hypothesis to test against nor contributed new insights to the body of
+knowledge. The article is a common form of analysis meant to demonstrate
+the author's ability to apply a model to a dataset which is a necessary
+step in the learning process.
+
+\textbf{Patierno, David}, \textbf{2011}, \textbf{Using genetic
+algorithms to maximize lending club performance,}\textbf{. Blog}\textbf{
+(\url{http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm})}
+
+Using a genetic algorithm, the author proposes a rules based approach
+for selecting a mix of loans which maximizes the cash inflows.
+
+\textbf{Polena, Michal}, \textbf{2016}, \textbf{Investing at lending
+club with watson analytics,}\textbf{. Blog} \textbf{\emph{IBM}}\textbf{
+(\url{https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/})}
+
+\textbf{Summers, Cameron}, \textbf{2016}, \textbf{Lending club deep
+learning, }\textbf{ (\url{https://scaubrey.github.io/})}
+
+This article takes the first steps in building a model to optimize
+profitability but falls short by not including lost principle in returns
+calculation. The `loss' of a defaulted loan is the opportunity cost of
+lost interest and understates the downside risk for a given laon.
+
+\textbf{Toth, Michael}, \textbf{2015}, \textbf{Analyzing historical
+default rates of lending club notes,}\textbf{. Blog}
+\textbf{\emph{R-bloggers}}\textbf{
+(\url{http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html})}
+
+An exploratory analysis of loan attributes and their connection to the
+loan's outcome. Toth provides a step-by-step write up of how he analyzed
+data from 2012-2013. The article does not include a summary nor a
+discussion of the results. An interesting method was to group the loan
+purposes into three categories: 1) debt, 2) major purposes such as home
+improvement, and 3) luxury purchase such as vacations and weddings.
+
+\textbf{Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh},
+\textbf{2014}, \textbf{Peer lending risk predictor, }\textbf{
+(\href{http://cs229.stanford.edu/proj2014/Kevin\%20Tsai,Sivagami\%20Ramiah,Sudhanshu\%20Singh,Peer\%20Lending\%20Risk\%20Predictor.pdf}{http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf})}
+
+\end{document}
+
+
