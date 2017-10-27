@@ -103,6 +103,9 @@ An insightful analysis using 3 unique methods including: modeling profitability 
 
 [@mdlMoy]
 
+This blog post introduces a simple method for quantifying the expected investment return using the results of the loan classification algorithm. The model assumes you will only invest in loans predicted not to default.  Of those loans, use the probability of the loan still defaulting (Type II) to weight the gain or loss for each state.  
+$[P(Pred= "No Default" | No Default) * Gain]- [P(Pred= "No Default" | Default ) x Loss] * P(Pred = "No Default")$
+
 [@mdlOrourke]
 
 A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed a hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author's ability to apply a model to a dataset which is a necessary step in the learning process.
