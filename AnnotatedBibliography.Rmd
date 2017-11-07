@@ -1,20 +1,21 @@
 ---
 title: 'Improving P2P Lending Returns: An Annotated Bibliography'
 author:
-- name: Ryan Kuhn
-  affiliation: Independent
-  email: kuhnrl30@gmail.com
-  location: Basking Ridge, NJ 07920
+  - name: Ryan Kuhn
+    affiliation: Independent
+    email: kuhnrl30@gmail.com
+    location: Basking Ridge, NJ 07920
 date: '`r format(Sys.Date(),"%B %d, %Y")`'
 output:
   html_document:
     number_sections: yes
   pdf_docuement:
+    number_sections: yes
     includes: 
       in_header: latexOps.tex
 bibliography: bibliographies.bib
 spacing: double
-keywords: P2P Lending
+keywords: [P2P Lending]
 csl: journal-of-finance-annotated-bib.csl
 abstract: |
   Current models suggest that Peer-to-Peer lending profitability can be improved
@@ -25,12 +26,11 @@ abstract: |
   the current state of analysis.
 ---
 
-Introduction
-=============
-  
-Peer-to-peer lending connects borrowers with investors through an online marketplace. Loans offered through Lending Club are made possible by investors, who invest in exchange for solid returns.
+## Introduction
 
-This bibliography classifies articles into one of three categories based on their source and intented audience: academic research, industry analysis, and models 'in the wild'. Industry analysis generally explain a narrowly focused insight through review of specific variable relationships.  Models use by individual investors may methodically review loan attributes and propose further testing approaches.  
+Peer-to-peer lending connects borrowers with investors through an online marketplace. Loans offered through the marketplace are made possible by investors, who invest in exchange for solid returns.
+
+This bibliography classifies articles into one of three categories based on their source and intended audience: academic research, industry analysis, and models 'in the wild'. Industry analysis generally explain a narrowly focused insight through review of specific variable relationships.  Models use by individual investors may methodically review loan attributes and propose further testing approaches.  
 
 
 ## Academic Research  
@@ -40,10 +40,6 @@ This bibliography classifies articles into one of three categories based on thei
 [@litCipoeru]
 
 [@litEmekter]
-
-[@litKeough]
-
-An artile exploring the concept that fraudulently reported income increases default risk since the borrowor was granted more credit than their ability to repay warranted. The authors hypothesize that borrowers with verified income will default less than non-verified borrowers but their limited testing lead to the opposite conclusion. The superficial analysis did not identify or control for confounding variables leaving the conclusion unreliable.
 
 [@litGe]
 
@@ -55,7 +51,7 @@ An artile exploring the concept that fraudulently reported income increases defa
 
 [@litSerrano]
 
-This article proposes a decision support system for choosing loans optimized for profitability.  This is in contrase to previous literature which focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return, or IRR, to measure of a loan's profitability.  IRR was chosen because it is able to handle uneven payments at non-uniform intervals.  They created several models predict a loan's IRR as the dependent variable. 
+This article proposes a decision support system for choosing loans optimized for profitability.  This is in contrast to previous literature which focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return, or IRR, to measure of a loan's profitability.  IRR was chosen because it is able to handle uneven payments at non-uniform intervals.  They created several models to predict a loan's IRR. 
 
 ## Industry Analysis  
 
@@ -77,48 +73,54 @@ Peer Lending Server
 
 [@mdlCashorali]
 
-This geographical analysis of loans prior to Q3 2011 showed a high proportion of loans in California and Florida defaulted there whereas Texas, Pennsylvania, and New Jersey had comparably low default rates.
+This geographical analysis of loans prior to Q3 2011 showed loans in California and Florida defaulted more often whereas Texas, Pennsylvania, and New Jersey had comparably low default rates.
 
 [@mdlDarre]
 
-An analysis exploring the relationship between many of the loan attributes and the historical default experience.  The author puts forth the analysis as exploratory rather than seeking to answer a specific questions.  Hence, their are only observations and not specific conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC's  rating algorithm improved.
+An analysis exploring the relationship between many of the loan attributes and the historical default experience.  The author puts forth the analysis as exploratory rather than seeking to answer specific questions.  Hence, their are only observations and no conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC's  rating algorithm improved.
 
 [@mdlDavenport]
 
-An analysis to understand which attributes are driving Lending Club's interest rates. It includes a brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests finding local optima of credit risk to interest rate given that LC uses flat interest rates for loan sub grades.  The article was written in 2013 so does not reflect the subsequent changes in LC's scoring model.  
+An analysis to understand which attributes are driving Lending Club's interest rates. It includes a brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests finding local optima of credit risk to interest rate given that LC uses flat interest rates for loan sub grades.  The article does not reflect the subsequent changes in LC's scoring model since 2013.  
 
 [@mdlDavenport2]
 
-An expansion on the author's earlier analyis but with discussion around challenges in improving the model.  Challenges includes developing meaningful groupings of employement title by overcoming the current diversity in the dataset. 
+An expansion on the author's earlier analysis but with discussion around challenges in improving the model.  One such challenge is overcoming the numberous unique employment titles to create meaningful groupings.
 
 [@mdlDavis]
 
-This analysis is proposes a simple valuation method by weighting the interest rate by the probability of defaulting to arrive at the expected interest rate.  The author used this valuation method along with logistic regression model built to predict the default risk to show that returns can be significantly improved for portfolios with less than 400 loans.  
+This analysis is proposes a simple valuation method by weighting the interest rate by the probability of defaulting to arrive at the expected interest rate.  The author used this valuation method along with a logistic regression model built to predict the default risk to show that returns can be significantly improved for portfolios with less than 400 loans.  
 
 [@mdlKaggle]
 
+[@litKeough]
+
+An article exploring the concept that fraudulently reported income increases default risk since the borrower was granted more credit than their ability to repay warranted. The authors hypothesize that borrowers with verified income will default less than non-verified borrowers but their limited testing leads to the opposite conclusion. The superficial analysis did not identify nor control for confounding variables leaving the conclusion unreliable.
+
 [@mdlMistry]
 
-An insightful analysis using 3 unique methods including: modeling profitability with survival analysis, measuring significance with concordance instead of p-values, and measuring profit as the ratio of cash in/out flows.  Survival analysis can measure to probability that the cash inflows, or payment received, will reach payback a given threshold. Concordance analysis is more robust to big data and prevents statistically significant variables that don't improve the model. 
+An insightful analysis using 3 unique methods: modeling profitability with survival analysis, measuring significance with concordance instead of p-values, and measuring profit as the ratio of cash in(out) flows.  Survival analysis can measure the probability that the cash inflows, or payment received, will reach a given payback threshold. Concordance analysis is more robust to big data and prevents statistically significant variables that don't improve the model. 
 
 [@mdlMoy]
 
 This blog post introduces a simple method for quantifying the expected investment return using the results of the loan classification algorithm. The model assumes you will only invest in loans predicted not to default.  Of those loans, use the probability of the loan still defaulting (Type II) to weight the gain or loss for each state.  
-$[P(Pred= "No Default" | No Default) * Gain]- [P(Pred= "No Default" | Default ) x Loss] * P(Pred = "No Default")$
+$[P(Pred= "No Default" | No Default) * Gain]- [P(Pred= "No Default" | Default ) * Loss] * P(Pred = "No Default")$
 
 [@mdlOrourke]
 
-A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author has not developed a hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author's ability to apply a model to a dataset which is a necessary step in the learning process.
+A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms.  O'Rourke applies two algorithms to Lending Club's historical loan data from 2007-2011: Decision Tree and Logistic Regression.  The author did not develope a hypothesis to test nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author's ability to apply a model to a dataset (a necessary step in the learning process).
 
 [@mdlPatierno]
 
-Using a genetic algorithm, the author proposes a rules based approach for selecting a mix of loans which maximizes the cash inflows. 
+Using a genetic algorithm, the author proposes a rules based approach for selecting a mix of loans which optimizes the cash inflows. 
 
 [@mdlPolena]
 
+An article demonstrating how to use Watson Analytics on Lending Club data.  The cursory analysis showed that employment length was negatively correlated with default probability.  Meaning that over 6 or more years of employment defaulted more than less than 5 years.
+
 [@mdlSummers]
 
-This article takes the first steps in building a model to optimize profitability but falls short by not including lost principle in returns calculation.  The 'loss' of a defaulted loan is the opportunity cost of lost interest and understates the downside risk for a given laon.  
+This article takes the first steps in building a model to optimize profitability but falls short by not including lost principle in returns calculation.  The 'loss' of a defaulted loan is the opportunity cost of lost interest and understates the downside risk for a given loan.  
 
 [@mdlToth]
 
@@ -126,3 +128,4 @@ An exploratory analysis of loan attributes and their connection to the loan's ou
 
 [@mdlTsai]
 
+This master's thesis starts from the goal of not losing money and optimizes for precision, or identifying all defaulted loans at the expense of misidentifying performing loans. This is accomplished by introducing a penalty function which decreases overall accuracy but increases the precision. The authors apply thier model to identify loans with interest rates set higher then the risk profile warrants.
