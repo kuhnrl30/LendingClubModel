@@ -1,5 +1,5 @@
 ---
-title: "Reviewing the Current State of Modeling P2P Lending Data"
+title: "Reviewing the Current State of Modeling Lending Club Data"
 bibliography: bibliographies.bib
 csl: journal-of-finance.csl
 output: pdf_document
@@ -14,13 +14,44 @@ author:
   - name: Ryan Kuhn
     email: kuhnrl30@gmail.com
     affiliation: Independent
-author_summary: |
- "Author summary goes here"
 ---
 
-## Summary
+## Introduction  
 
-Work in Progress-  see the Annotated Bibliography in the interim.
+
+## Characteristics of Authors 
+
+The blog authors come from very diverse backgrounds
+
+
+Education
+Work experience
+other writing
+
+## Varying Analysis Objectives
+
+The analyses can be bifurcated into two general categories based on the author's objective.  The first category is an axploratory analysis of many or all of the variables in the Lending Club dataset and their influence on the default status. 
+
+Exploratory Analysis
+Defined Objective
+  - Predict default
+  - Effective interest rate
+  - 
+
+## Observations  
+
+
+| Author | Top 5 Significant Variables |
+| ----------------------- | ---------------------------------------- |  
+| [@mdlDavenport] | FICO Score,  \newline Loan Length,  \newline Amount Requested |  
+| [@mdlDavis] | Amount Requested, \newline FICO Score, \newline Application Date, \newline Earliest Credit Line, \newline Interest Rate |
+| [@mdlMistry] | FICO Score, \newline Loan length |
+| [@mdlMoy] | Interest Rate, \newline Debt to Income, \newline Annual Income, \newline Revolving credit balance, \newline Revolving credit utilization | 
+| [@mdlOrourke] | Interest rate, \newline Loan length, \newline Annual income, \newline Revolving credit utilization, \newline Employement length  |
+| [@mdlTsai] | Loan Amount, \newline Loan length, \newline Interest rate, \newline Installment, \newline Annual income |
+ 
+ 
+## Discussion  
 
 
 ## References

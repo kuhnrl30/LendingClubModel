@@ -10,9 +10,9 @@
 
 
 
-<meta name="date" content="2017-10-10" />
+<meta name="date" content="2017-11-15" />
 
-<title>Reviewing the Current State of Modeling P2P Lending Data</title>
+<title>Reviewing the Current State of Modeling Lending Club Data</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,6 +24,15 @@
 <link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66230069-3');
+</script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -203,13 +212,13 @@ $(document).ready(function () {
     <li class="divider"></li>
     <li class="dropdown-header">Prior Research Review</li>
     <li>
+      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
+    </li>
+    <li>
       <a href="LiteratureReview.html">Reviewing the Literature</a>
     </li>
     <li>
       <a href="ModelReview.html">Reviewing Data Models</a>
-    </li>
-    <li>
-      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Exploratory Analysis</li>
@@ -270,12 +279,12 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Reviewing the Current State of Modeling P2P Lending Data</h1>
+<h1 class="title toc-ignore">Reviewing the Current State of Modeling Lending Club Data</h1>
 <h4 class="author"><em>Ryan Kuhn</em></h4>
 <address class="author_afil">
 Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@gmail.com">kuhnrl30@gmail.com</a></a>
 </address>
-<h4 class="date"><em>October 10, 2017</em></h4>
+<h4 class="date"><em>November 15, 2017</em></h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>Abstract describing the content of the model review noting that this is not a literature review but instead an analysis of available models in the wild.</p>
@@ -284,12 +293,85 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 </div>
 
 
-<div id="summary" class="section level2">
-<h2>Summary</h2>
-<p>Work in Progress- see the Annotated Bibliography in the interim.</p>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
 </div>
-<div id="references" class="section level2">
+<div id="characteristics-of-authors" class="section level2">
+<h2>Characteristics of Authors</h2>
+<p>The blog authors come from very diverse backgrounds</p>
+<p>Education Work experience other writing</p>
+</div>
+<div id="varying-analysis-objectives" class="section level2">
+<h2>Varying Analysis Objectives</h2>
+<p>The analyses can be bifurcated into two general categories based on the author’s objective. The first category is an axploratory analysis of many or all of the variables in the Lending Club dataset and their influence on the default status.</p>
+<p>Exploratory Analysis Defined Objective - Predict default - Effective interest rate -</p>
+</div>
+<div id="observations" class="section level2">
+<h2>Observations</h2>
+<table style="width:90%;">
+<colgroup>
+<col width="33%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Author</th>
+<th>Top 5 Significant Variables</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation">Davenport (2015)</span></td>
+<td>FICO Score, Loan Length, Amount Requested</td>
+</tr>
+<tr class="even">
+<td><span class="citation">Davis (2012)</span></td>
+<td>Amount Requested, FICO Score, Application Date, Earliest Credit Line, Interest Rate</td>
+</tr>
+<tr class="odd">
+<td><span class="citation">Mistry (2016)</span></td>
+<td>FICO Score, Loan length</td>
+</tr>
+<tr class="even">
+<td><span class="citation">Moy (2015)</span></td>
+<td>Interest Rate, Debt to Income, Annual Income, Revolving credit balance, Revolving credit utilization</td>
+</tr>
+<tr class="odd">
+<td><span class="citation">ORourke (2016)</span></td>
+<td>Interest rate, Loan length, Annual income, Revolving credit utilization, Employement length</td>
+</tr>
+<tr class="even">
+<td><span class="citation">Tsai, Ramiah, and Singh (2014)</span></td>
+<td>Loan Amount, Loan length, Interest rate, Installment, Annual income</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="discussion" class="section level2">
+<h2>Discussion</h2>
+</div>
+<div id="references" class="section level2 unnumbered">
 <h2>References</h2>
+<div id="refs" class="references">
+<div id="ref-mdlDavenport">
+<p>Davenport, Kevin, 2015, Lending club data analysis revisited with python,. Blog <em>Machine Learning and Statistics Blog</em> (<a href="http://kldavenport.com/lending-club-data-analysis-revisted-with-python/" class="uri">http://kldavenport.com/lending-club-data-analysis-revisted-with-python/</a>).</p>
+</div>
+<div id="ref-mdlDavis">
+<p>Davis, Jason, 2012, Lending club loan analysis: Making money with logistic regression,. Blog <em>Data Startups</em> (<a href="http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression" class="uri">http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression</a>).</p>
+</div>
+<div id="ref-mdlMistry">
+<p>Mistry, Hitesh, 2016, Application of survival analysis to p2p lending club loans data,. Blog <em>Systems Forecasting</em> (<a href="http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/" class="uri">http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/</a>).</p>
+</div>
+<div id="ref-mdlMoy">
+<p>Moy, Philip, 2015, Lending club default analysis, (<a href="http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/" class="uri">http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/</a>).</p>
+</div>
+<div id="ref-mdlOrourke">
+<p>ORourke, Ted, 2016, Lending club - predicting loan outcomes,. Blog <em>Rpubs</em> (<a href="https://rpubs.com/torourke97/190551" class="uri">https://rpubs.com/torourke97/190551</a>).</p>
+</div>
+<div id="ref-mdlTsai">
+<p>Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh, 2014, Peer lending risk predictor, (<a href="http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf" class="uri">http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf</a>).</p>
+</div>
+</div>
 </div>
 
 

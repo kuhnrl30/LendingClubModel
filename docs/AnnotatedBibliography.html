@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2017-11-07" />
+<meta name="date" content="2017-11-15" />
 
 <title>Improving P2P Lending Returns: An Annotated Bibliography</title>
 
@@ -49,16 +49,6 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </script>
 
 
-<style type="text/css">
-  p.abstract{
-    text-align: center;
-    font-weight: bold;
-  }
-  div.abstract{
-    margin: auto;
-    width: 90%;
-  }
-</style>
 
 <style type="text/css">
 h1 {
@@ -284,11 +274,7 @@ $(document).ready(function () {
 <address class="author_afil">
 Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@gmail.com">kuhnrl30@gmail.com</a></a>
 </address>
-<h4 class="date"><em>November 07, 2017</em></h4>
-<div class="abstract">
-<p class="abstract">Abstract</p>
-<p>Current models suggest that Peer-to-Peer lending profitability can be improved with the application of high quality data analysis. The existing body of research generally focused on minimizing the probability of default rather than optimizing for profitability. To encourage the consolidation of knowledge, This bibliography is a source of research and articles from around the web that could be used to understand the current state of analysis.</p>
-</div>
+<h4 class="date"><em>November 15, 2017</em></h4>
 
 </div>
 
@@ -296,7 +282,8 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 <div id="introduction" class="section level2">
 <h2><span class="header-section-number">0.1</span> Introduction</h2>
 <p>Peer-to-peer lending connects borrowers with investors through an online marketplace. Loans offered through the marketplace are made possible by investors, who invest in exchange for solid returns.</p>
-<p>This bibliography classifies articles into one of three categories based on their source and intended audience: academic research, industry analysis, and models ‘in the wild’. Industry analysis generally explain a narrowly focused insight through review of specific variable relationships. Models use by individual investors may methodically review loan attributes and propose further testing approaches.</p>
+<p>Current models suggest that investor profitability can be improved with the application of high quality data analysis. The existing body of research generally focuses on assigning a probability of default to minimize adverse selection rather than optimizing for investor profitability. To encourage the consolidation of knowledge, this bibliography is a source of research and articles from around the web that could be used to understand the current state of analysis.</p>
+<p>This bibliography classifies articles into one of three categories based on their source and intended audience: academic research, industry analysis, and models ‘in the wild’. Industry analysis are generally published by a thought leadership organization or service provider to explain a narrowly focused insight by reviewing relationships between specific variables. Models use by individual investors may methodically review loan attributes to propose further testing approaches or they may develop an investment strategy by applying an algorithm.</p>
 </div>
 <div id="academic-research" class="section level2">
 <h2><span class="header-section-number">0.2</span> Academic Research</h2>
@@ -326,7 +313,7 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 <p><span class="citation"><strong>Davenport, Kevin</strong>, <strong>2015</strong>, <strong>Lending club data analysis revisited with python,</strong><strong>. Blog</strong> <strong><em>Machine Learning and Statistics Blog</em></strong><strong> (<a href="http://kldavenport.com/lending-club-data-analysis-revisted-with-python/" class="uri">http://kldavenport.com/lending-club-data-analysis-revisted-with-python/</a>)</strong></span></p>
 <p>An analysis to understand which attributes are driving Lending Club’s interest rates. It includes a brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests finding local optima of credit risk to interest rate given that LC uses flat interest rates for loan sub grades. The article does not reflect the subsequent changes in LC’s scoring model since 2013.</p>
 <p><span class="citation"><strong>Davenport, Kevin</strong>, <strong>2013</strong>, <strong>Gradient boosting: Analysis of lendingclub’s data,</strong><strong>. Blog</strong><strong> (<a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/</a>)</strong></span></p>
-<p>An expansion on the author’s earlier analysis but with discussion around challenges in improving the model. One such challenge is overcoming the numberous unique employment titles to create meaningful groupings.</p>
+<p>An expansion on the author’s earlier analysis but with discussion around challenges in improving the model. One such challenge is overcoming the numerous unique employment titles to create meaningful groupings.</p>
 <p><span class="citation"><strong>Davis, Jason</strong>, <strong>2012</strong>, <strong>Lending club loan analysis: Making money with logistic regression,</strong><strong>. Blog</strong> <strong><em>Data Startups</em></strong><strong> (<a href="http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression" class="uri">http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression</a>)</strong></span></p>
 <p>This analysis is proposes a simple valuation method by weighting the interest rate by the probability of defaulting to arrive at the expected interest rate. The author used this valuation method along with a logistic regression model built to predict the default risk to show that returns can be significantly improved for portfolios with less than 400 loans.</p>
 <p><span class="citation"><strong>Anon.</strong>, <strong>Give me some credit,</strong><strong>. Blog</strong> <strong><em>Kaggle</em></strong><strong> (<a href="https://www.kaggle.com/c/GiveMeSomeCredit" class="uri">https://www.kaggle.com/c/GiveMeSomeCredit</a>)</strong></span></p>
@@ -338,7 +325,7 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 <p>This blog post introduces a simple method for quantifying the expected investment return using the results of the loan classification algorithm. The model assumes you will only invest in loans predicted not to default. Of those loans, use the probability of the loan still defaulting (Type II) to weight the gain or loss for each state.<br />
 <span class="math inline">\([P(Pred= &quot;No Default&quot; | No Default) * Gain]- [P(Pred= &quot;No Default&quot; | Default ) * Loss] * P(Pred = &quot;No Default&quot;)\)</span></p>
 <p><span class="citation"><strong>ORourke, Ted</strong>, <strong>2016</strong>, <strong>Lending club - predicting loan outcomes,</strong><strong>. Blog</strong> <strong><em>Rpubs</em></strong><strong> (<a href="https://rpubs.com/torourke97/190551" class="uri">https://rpubs.com/torourke97/190551</a>)</strong></span></p>
-<p>A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms. O’Rourke applies two algorithms to Lending Club’s historical loan data from 2007-2011: Decision Tree and Logistic Regression. The author did not develope a hypothesis to test nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author’s ability to apply a model to a dataset (a necessary step in the learning process).</p>
+<p>A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms. O’Rourke applies two algorithms to Lending Club’s historical loan data from 2007-2011: Decision Tree and Logistic Regression. The author did not develop a hypothesis to test nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author’s ability to apply a model to a dataset (a necessary step in the learning process).</p>
 <p><span class="citation"><strong>Patierno, David</strong>, <strong>2011</strong>, <strong>Using genetic algorithms to maximize lending club performance,</strong><strong>. Blog</strong><strong> (<a href="http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm" class="uri">http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm</a>)</strong></span></p>
 <p>Using a genetic algorithm, the author proposes a rules based approach for selecting a mix of loans which optimizes the cash inflows.</p>
 <p><span class="citation"><strong>Polena, Michal</strong>, <strong>2016</strong>, <strong>Investing at lending club with watson analytics,</strong><strong>. Blog</strong> <strong><em>IBM</em></strong><strong> (<a href="https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/" class="uri">https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/</a>)</strong></span></p>
@@ -348,7 +335,7 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 <p><span class="citation"><strong>Toth, Michael</strong>, <strong>2015</strong>, <strong>Analyzing historical default rates of lending club notes,</strong><strong>. Blog</strong> <strong><em>R-bloggers</em></strong><strong> (<a href="http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html" class="uri">http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html</a>)</strong></span></p>
 <p>An exploratory analysis of loan attributes and their connection to the loan’s outcome. Toth provides a step-by-step write up of how he analyzed data from 2012-2013. The article does not include a summary nor a discussion of the results. An interesting method was to group the loan purposes into three categories: 1) debt, 2) major purposes such as home improvement, and 3) luxury purchase such as vacations and weddings.</p>
 <p><span class="citation"><strong>Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh</strong>, <strong>2014</strong>, <strong>Peer lending risk predictor, </strong><strong> (<a href="http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf" class="uri">http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf</a>)</strong></span></p>
-<p>This master’s thesis starts from the goal of not losing money and optimizes for precision, or identifying all defaulted loans at the expense of misidentifying performing loans. This is accomplished by introducing a penalty function which decreases overall accuracy but increases the precision. The authors apply thier model to identify loans with interest rates set higher then the risk profile warrants.</p>
+<p>This master’s thesis starts from the goal of not losing money and optimizes for precision, or identifying all defaulted loans at the expense of misidentifying performing loans. This is accomplished by introducing a penalty function which decreases overall accuracy but increases the precision. The authors apply their model to identify loans with interest rates set higher then the risk profile warrants.</p>
 </div>
 
 
