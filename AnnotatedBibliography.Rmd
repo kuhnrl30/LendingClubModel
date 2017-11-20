@@ -70,6 +70,7 @@ Orchard
 
 This geographical analysis of loans prior to Q3 2011 showed loans in California and Florida defaulted more often whereas Texas, Pennsylvania, and New Jersey had comparably low default rates.
 
+
 [@mdlDarre]
 
 An analysis exploring the relationship between many of the loan attributes and the historical default experience.  The author puts forth the analysis as exploratory rather than seeking to answer specific questions.  Hence, their are only observations and no conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC's  rating algorithm improved.
