@@ -10,9 +10,10 @@
 
 
 
-<meta name="date" content="2017-10-03" />
+<meta name="date" content="2017-11-15" />
 
-<title>Improving Portfolio Returns: An Annotated Bibliography</title>
+
+<title>Improving P2P Lending Returns: An Annotated Bibliography</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,6 +25,15 @@
 <link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66230069-3');
+</script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -40,16 +50,6 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </script>
 
 
-<style type="text/css">
-  p.abstract{
-    text-align: center;
-    font-weight: bold;
-  }
-  div.abstract{
-    margin: auto;
-    width: 90%;
-  }
-</style>
 
 <style type="text/css">
 h1 {
@@ -206,7 +206,7 @@ $(document).ready(function () {
       <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
     </li>
     <li>
-      <a href="ModelReview.html">Reviewing Data Models</a>
+      <a href="LiteratureReview.html">Reviewing the Literature</a>
     </li>
     <li>
       <a href="LiteratureReview.html">Reviewing the Literature</a>
@@ -270,43 +270,73 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Improving Portfolio Returns: An Annotated Bibliography</h1>
+<h1 class="title toc-ignore">Improving P2P Lending Returns: An Annotated Bibliography</h1>
 <h4 class="author"><em>Ryan Kuhn</em></h4>
 <address class="author_afil">
 Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@gmail.com">kuhnrl30@gmail.com</a></a>
 </address>
-<h4 class="date"><em>October 03, 2017</em></h4>
-<div class="abstract">
-<p class="abstract">Abstract</p>
-<p>Practitioner experimentation and models suggest that Peer-to-Peer lending returns can be improved with the application of machine learning models and high quality data analysis. The existing body of research and models generally focus on understanding profitability by minimizing the probability of default rather than optimizing for profitability. To encourage the consolidation of knowledge, I’ve prepared a resource bibliography of research and articles from around the web that could be used to understand the current state of analysis.</p>
-<p>Articles can be classified into one of three categories based on their rigor and depth of analysis. This bibliography puts forward the categorization of- simplistic, exploratory, and explanatory. Simplistic models are early entries into the topic but do not provide significant insight. Exploratory models methodically review loan attributes and hypothesize further testing approaches. Explanatory articles seek to explain a narrowly focused topic through review of specific variable relationships.</p>
-</div>
-
+<h4 class="date"><em>November 15, 2017</em></h4>
 </div>
 
 
-<div id="research-towards-modeling-profitability" class="section level2">
-<h2><span class="header-section-number">0.1</span> Research towards Modeling Profitability</h2>
-<p><span class="citation"><strong>Serrano-Cinca, Carlos, and Begona Gutierrez-Nieto</strong>, <strong>in press</strong>, <strong>The use of profit scoring as an alternative to credit scoring systems in peer-to-peer (p2p) lending, </strong><strong><em>Decision Support Systems</em></strong></span></p>
-<p>An article proposing a decision support system for choosing loans to optimize profitability. The previous literature was focused on modeling default probabilities without considering the increased interest rates to compensate the investor’s risk. The authors proposed using internal rate of return or IRR to measure of a loan’s profitability. IRR was chosen because it is able to handle uneven payments at non uniform intervals. They created several models predict a loans IRR as the dependent variable.</p>
+]<div id="introduction" class="section level2">
+<h2><span class="header-section-number">0.1</span> Introduction</h2>
+<p>Peer-to-peer lending connects borrowers with investors through an online marketplace. Loans offered through the marketplace are made possible by investors, who invest in exchange for solid returns.</p>
+<p>Current models suggest that investor profitability can be improved with the application of high quality data analysis. The existing body of research generally focuses on assigning a probability of default to minimize adverse selection rather than optimizing for investor profitability. To encourage the consolidation of knowledge, this bibliography is a source of research and articles from around the web that could be used to understand the current state of analysis.</p>
+<p>This bibliography classifies articles into one of three categories based on their source and intended audience: academic research, industry analysis, and models ‘in the wild’. Industry analysis are generally published by a thought leadership organization or service provider to explain a narrowly focused insight by reviewing relationships between specific variables. Models use by individual investors may methodically review loan attributes to propose further testing approaches or they may develop an investment strategy by applying an algorithm.</p>
 </div>
-<div id="modeling-the-probability-of-default" class="section level2">
-<h2><span class="header-section-number">0.2</span> Modeling the Probability of Default</h2>
-<div id="simplistic-models" class="section level3">
-<h3><span class="header-section-number">0.2.1</span> Simplistic Models</h3>
-<p><span class="citation"><strong>ORourke, Ted</strong>, <strong>2016</strong>, <strong>Lending club - predicting loan outcomes,</strong><strong>. Blog</strong> <strong><em>Rpubs</em></strong><strong> (<a href="https://rpubs.com/torourke97/190551" class="uri">https://rpubs.com/torourke97/190551</a>)</strong></span></p>
-<p>A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms. O’Rourke applies two algorithms to Lending Club’s historical loan data from 2007-2011: Decision Tree and Logistic Regression. The author has not developed hypothesis to test against nor contributed new insights to the body of knowledge. The article is a common form of demonstrating of the author’s ability to apply a model, a necessary step in the learning process.</p>
-<p><span class="citation"><strong>Davenport, Kevin</strong>, <strong>2013</strong>, <strong>Gradient boosting: Analysis of lendingclub’s data,</strong><strong>. Blog</strong><strong> (<a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//</a>)</strong></span></p>
-<p>An analysis to understand which attributes are driving LendingClub’s interest rates by creating a model from Lending Club’s published dataset. The blog post was written in 2013 so does not reflect any subsequent changes in LC’s scoring model. A brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests furthering the knowledge to find local optima of credit risk to interest rate give then LC using flat interest rates for loan sub grades.</p>
+<div id="academic-research" class="section level2">
+<h2><span class="header-section-number">0.2</span> Academic Research</h2>
+<p><span class="citation"><strong>Ala’raj, Maher, and Maysam F. Abbod</strong>, <strong>2016</strong>, <strong>A new hybrid ensemble credit scoring model based on classifiers consensus system approach., </strong><strong><em>Expert Systems with Applications</em></strong><strong> 64</strong><strong>, 36–55</strong></span></p>
+<p><span class="citation"><strong>Cimpoeru, Smaranda Stoenescu</strong>, <strong>2011</strong>, <strong>Neural networks and their application in credit risk assessment. evidence from the romanian market., </strong><strong><em>Technological &amp; Economic Development of Economy</em></strong><strong> 17</strong><strong>, 519–534</strong></span></p>
+<p><span class="citation"><strong>Emekter, Riza et al.</strong>, <strong>2015</strong>, <strong>Evaluating credit risk and loan performance in online peer-to-peer (p2p) lending., </strong><strong><em>Applied Economics</em></strong><strong> 47</strong><strong>, 54–70</strong></span></p>
+<p><span class="citation"><strong>Ge, Ruyi et al.</strong>, <strong>2017</strong>, <strong>Predicting and deterring default with social media information in peer-to-peer lending., </strong><strong><em>Journal of Management Information Systems</em></strong><strong> 34</strong><strong>, 401–424</strong></span></p>
+<p><span class="citation"><strong>Guo, Yanhong et al.</strong>, <strong>2016</strong>, <strong>Instance-based credit risk assessment for investment decisions in p2p lending., </strong><strong><em>European Journal of Operational Research</em></strong><strong> 249</strong><strong>, 417–426</strong></span></p>
+<p><span class="citation"><strong>Nandi, Jayanta Kishore, and Navin Kumar Choudhary</strong>, <strong>2011</strong>, <strong>Credit risk management of loan portfolios by indian banks: Some empirical evidence., </strong><strong><em>IUP Journal of Bank Management</em></strong><strong> 10</strong><strong>, 32–42</strong></span></p>
+<p><span class="citation"><strong>Reddy, Sriharsha, and Krishna Gopalaraman</strong>, <strong>2016</strong>, <strong>Peer to peer lending, default prediction evidence from lending club., </strong><strong><em>Journal of Internet Banking &amp; Commerce</em></strong><strong> 21</strong><strong>, 1–19</strong></span></p>
+<p><span class="citation"><strong>Serrano-Cinca, Carlos, and Begoña Gutièrrez-Nieto</strong>, <strong>2016</strong>, <strong>The use of profit scoring as an alternative to credit scoring systems in peer-to-peer (p2p) lending,</strong><strong>. Article</strong> <strong><em>Decision Support Systems</em></strong></span></p>
+<p>This article proposes a decision support system for choosing loans optimized for profitability. This is in contrast to previous literature which focused on modeling default probabilities without considering the increased interest rates to compensate the investor’s risk. The authors proposed using internal rate of return, or IRR, to measure of a loan’s profitability. IRR was chosen because it is able to handle uneven payments at non-uniform intervals. They created several models to predict a loan’s IRR.</p>
+
 </div>
-<div id="exploratory-models" class="section level3">
-<h3><span class="header-section-number">0.2.2</span> Exploratory Models</h3>
+<div id="industry-analysis" class="section level2">
+<h2><span class="header-section-number">0.3</span> Industry Analysis</h2>
+<p>Orchard Mon Ja Lending Times Lend Academy Lending Robot NSR/ Peer Cube Peer Lending Server</p>
+<p><span class="citation"><strong>Anon.</strong>, <strong>2015</strong>, <strong>Lending club - predicting loan outcomes,</strong><strong>. Blog</strong> <strong><em>Peer Lending Server</em></strong><strong> (<a href="Analyzing Lending Club Payment History" class="uri">Analyzing Lending Club Payment History</a>)</strong></span></p>
+<p><span class="citation"><strong>Renton, Peter</strong>, <strong>2011</strong>, <strong>How lending club and prosper set interest rates,</strong><strong>. Blog</strong> <strong><em>Lend Academy</em></strong><strong> (<a href="http://www.lendacademy.com/how-lending-club-and-prosper-set-interest-rates/" class="uri">http://www.lendacademy.com/how-lending-club-and-prosper-set-interest-rates/</a>)</strong></span></p>
+<p><span class="citation"><strong>Wu, James</strong>, <strong>2015</strong>, <strong>Changes in lending club underwriting,</strong><strong>. Blog</strong> <strong><em>MonJa</em></strong><strong> (<a href="http://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines/" class="uri">http://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines/</a>)</strong></span></p>
+</div>
+<div id="modeling-in-the-wild" class="section level2">
+<h2><span class="header-section-number">0.4</span> Modeling “In the Wild”</h2>
+<p><span class="citation"><strong>Cashorali, Tanya</strong>, <strong>2011</strong>, <strong>Mining lending club’s goldmine of loan data part i of ii visualizations by state,</strong><strong>. Blog</strong> <strong><em>R-bloggers</em></strong><strong> (<a href="https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/" class="uri">https://www.r-bloggers.com/mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state/</a>)</strong></span></p>
+<p>This geographical analysis of loans prior to Q3 2011 showed loans in California and Florida defaulted more often whereas Texas, Pennsylvania, and New Jersey had comparably low default rates.</p>
 <p><span class="citation"><strong>Darre, Jean-Francois</strong>, <strong>2015</strong>, <strong>Analysis of lending club’s data,</strong><strong>. Blog</strong> <strong><em>Data Science Central</em></strong><strong> (<a href="http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data" class="uri">http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data</a>)</strong></span></p>
-<p>An analysis exploring the relationship between many of the loan attributes and the historical default experience. The author puts forth the analysis as exploratory rather than seeking to answer a specific questions. Hence, their are only observations and not specific conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC’s rating algorithm improved.</p>
-</div>
-<div id="explanatory-models" class="section level3">
-<h3><span class="header-section-number">0.2.3</span> Explanatory Models</h3>
-</div>
+<p>An analysis exploring the relationship between many of the loan attributes and the historical default experience. The author puts forth the analysis as exploratory rather than seeking to answer specific questions. Hence, their are only observations and no conclusions. The observations include: Default rates decrease with credit history age; higher credit utilization leads to greater risk of default; loan grades are progressively less correlated with the FICO score, presumably, as LC’s rating algorithm improved.</p>
+<p><span class="citation"><strong>Davenport, Kevin</strong>, <strong>2015</strong>, <strong>Lending club data analysis revisited with python,</strong><strong>. Blog</strong> <strong><em>Machine Learning and Statistics Blog</em></strong><strong> (<a href="http://kldavenport.com/lending-club-data-analysis-revisted-with-python/" class="uri">http://kldavenport.com/lending-club-data-analysis-revisted-with-python/</a>)</strong></span></p>
+<p>An analysis to understand which attributes are driving Lending Club’s interest rates. It includes a brief summary of the components of the FICO score, such as length of credit history and payment history, and how that may be a starting point for identifying confounding variables. The discussion suggests finding local optima of credit risk to interest rate given that LC uses flat interest rates for loan sub grades. The article does not reflect the subsequent changes in LC’s scoring model since 2013.</p>
+<p><span class="citation"><strong>Davenport, Kevin</strong>, <strong>2013</strong>, <strong>Gradient boosting: Analysis of lendingclub’s data,</strong><strong>. Blog</strong><strong> (<a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/</a>)</strong></span></p>
+<p>An expansion on the author’s earlier analysis but with discussion around challenges in improving the model. One such challenge is overcoming the numerous unique employment titles to create meaningful groupings.</p>
+<p><span class="citation"><strong>Davis, Jason</strong>, <strong>2012</strong>, <strong>Lending club loan analysis: Making money with logistic regression,</strong><strong>. Blog</strong> <strong><em>Data Startups</em></strong><strong> (<a href="http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression" class="uri">http://drjasondavis.com/blog/2012/04/08/lending-club-loan-analysis-making-money-with-logistic-regression</a>)</strong></span></p>
+<p>This analysis is proposes a simple valuation method by weighting the interest rate by the probability of defaulting to arrive at the expected interest rate. The author used this valuation method along with a logistic regression model built to predict the default risk to show that returns can be significantly improved for portfolios with less than 400 loans.</p>
+<p><span class="citation"><strong>Anon.</strong>, <strong>Give me some credit,</strong><strong>. Blog</strong> <strong><em>Kaggle</em></strong><strong> (<a href="https://www.kaggle.com/c/GiveMeSomeCredit" class="uri">https://www.kaggle.com/c/GiveMeSomeCredit</a>)</strong></span></p>
+<p><span class="citation"><strong>Keough, David, Nicolaus Enko, and Brian Shake</strong>, <strong>Developing a data science approach to detecting income fraud for the peer to peer loan industry., </strong><strong><em>SSRN</em></strong><strong> (https://ssrn.com/abstract=2836134)</strong></span></p>
+<p>An article exploring the concept that fraudulently reported income increases default risk since the borrower was granted more credit than their ability to repay warranted. The authors hypothesize that borrowers with verified income will default less than non-verified borrowers but their limited testing leads to the opposite conclusion. The superficial analysis did not identify nor control for confounding variables leaving the conclusion unreliable.</p>
+<p><span class="citation"><strong>Mistry, Hitesh</strong>, <strong>2016</strong>, <strong>Application of survival analysis to p2p lending club loans data,</strong><strong>. Blog</strong> <strong><em>Systems Forecasting</em></strong><strong> (<a href="http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/" class="uri">http://systemsforecasting.com/2016/07/application-of-survival-analysis-to-p2p-lending-club-loans-data/</a>)</strong></span></p>
+<p>An insightful analysis using 3 unique methods: modeling profitability with survival analysis, measuring significance with concordance instead of p-values, and measuring profit as the ratio of cash in(out) flows. Survival analysis can measure the probability that the cash inflows, or payment received, will reach a given payback threshold. Concordance analysis is more robust to big data and prevents statistically significant variables that don’t improve the model.</p>
+<p><span class="citation"><strong>Moy, Philip</strong>, <strong>2015</strong>, <strong>Lending club default analysis, </strong><strong> (<a href="http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/" class="uri">http://www.creditreportservice.info/article/95227030/lending-club-default-analysis/</a>)</strong></span></p>
+<p>This blog post introduces a simple method for quantifying the expected investment return using the results of the loan classification algorithm. The model assumes you will only invest in loans predicted not to default. Of those loans, use the probability of the loan still defaulting (Type II) to weight the gain or loss for each state.<br />
+<span class="math inline">\([P(Pred= &quot;No Default&quot; | No Default) * Gain]- [P(Pred= &quot;No Default&quot; | Default ) * Loss] * P(Pred = &quot;No Default&quot;)\)</span></p>
+<p><span class="citation"><strong>ORourke, Ted</strong>, <strong>2016</strong>, <strong>Lending club - predicting loan outcomes,</strong><strong>. Blog</strong> <strong><em>Rpubs</em></strong><strong> (<a href="https://rpubs.com/torourke97/190551" class="uri">https://rpubs.com/torourke97/190551</a>)</strong></span></p>
+<p>A blog post which quickly moves through a cursory exploratory analysis and on to applying machine learning algorithms. O’Rourke applies two algorithms to Lending Club’s historical loan data from 2007-2011: Decision Tree and Logistic Regression. The author did not develop a hypothesis to test nor contributed new insights to the body of knowledge. The article is a common form of analysis meant to demonstrate the author’s ability to apply a model to a dataset (a necessary step in the learning process).</p>
+<p><span class="citation"><strong>Patierno, David</strong>, <strong>2011</strong>, <strong>Using genetic algorithms to maximize lending club performance,</strong><strong>. Blog</strong><strong> (<a href="http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm" class="uri">http://blog.dmpatierno.com/post/3161338411/lending-club-genetic-algorithm</a>)</strong></span></p>
+<p>Using a genetic algorithm, the author proposes a rules based approach for selecting a mix of loans which optimizes the cash inflows.</p>
+<p><span class="citation"><strong>Polena, Michal</strong>, <strong>2016</strong>, <strong>Investing at lending club with watson analytics,</strong><strong>. Blog</strong> <strong><em>IBM</em></strong><strong> (<a href="https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/" class="uri">https://www.ibm.com/blogs/business-analytics/lending-club-and-watson-analytics-1/</a>)</strong></span></p>
+<p>An article demonstrating how to use Watson Analytics on Lending Club data. The cursory analysis showed that employment length was negatively correlated with default probability. Meaning that over 6 or more years of employment defaulted more than less than 5 years.</p>
+<p><span class="citation"><strong>Summers, Cameron</strong>, <strong>2016</strong>, <strong>Lending club deep learning, </strong><strong> (<a href="https://scaubrey.github.io/" class="uri">https://scaubrey.github.io/</a>)</strong></span></p>
+<p>This article takes the first steps in building a model to optimize profitability but falls short by not including lost principle in returns calculation. The ‘loss’ of a defaulted loan is the opportunity cost of lost interest and understates the downside risk for a given loan.</p>
+<p><span class="citation"><strong>Toth, Michael</strong>, <strong>2015</strong>, <strong>Analyzing historical default rates of lending club notes,</strong><strong>. Blog</strong> <strong><em>R-bloggers</em></strong><strong> (<a href="http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html" class="uri">http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html</a>)</strong></span></p>
+<p>An exploratory analysis of loan attributes and their connection to the loan’s outcome. Toth provides a step-by-step write up of how he analyzed data from 2012-2013. The article does not include a summary nor a discussion of the results. An interesting method was to group the loan purposes into three categories: 1) debt, 2) major purposes such as home improvement, and 3) luxury purchase such as vacations and weddings.</p>
+<p><span class="citation"><strong>Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh</strong>, <strong>2014</strong>, <strong>Peer lending risk predictor, </strong><strong> (<a href="http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf" class="uri">http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf</a>)</strong></span></p>
+<p>This master’s thesis starts from the goal of not losing money and optimizes for precision, or identifying all defaulted loans at the expense of misidentifying performing loans. This is accomplished by introducing a penalty function which decreases overall accuracy but increases the precision. The authors apply their model to identify loans with interest rates set higher then the risk profile warrants.</p>
 </div>
 
 

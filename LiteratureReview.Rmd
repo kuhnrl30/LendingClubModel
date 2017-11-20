@@ -11,13 +11,22 @@ keywords: P2P Lending
 csl: journal-of-finance-annotated-bib.csl
 bibliography: bibliographies.bib
 ---
-## Summary
+
+Introduction
+=============
 
 *Placeholder for review of P2P lending research. *
+
+## Communities and Thought Leaders 
+NSR, PeerCube, LendingRobot, Mon Ja
 
 ## Review of Loan & Bond Pricing Models
 
 
 
-## Literature Resources
+
+\newpage
+References {#references .numbered}
+==========
+
 http://admin.nber.org/

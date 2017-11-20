@@ -2,6 +2,9 @@ name: Lending Club Model
 output:
   html_document:
     theme: journal
+    includes:
+      in_header: ganalytics.html
+  ieee_article: default
 bibliography: bibliographies.bib
 csl: journal-of-finance.csl
 output_dir: "docs"
