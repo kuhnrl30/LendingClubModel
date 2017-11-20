@@ -1,7 +1,7 @@
 # Build the site
 source("environment.R")
 source("LoadData.R")
-
+library(here)
 # rmarkdown::render_site(".", output_format = "html_document")
 
 
@@ -14,5 +14,7 @@ rm(LoanData)
 #system("sudo  find /tmp -type f -atime +0")
 
 
-rmarkdown::render("ModelReviewNotes.Rmd", output_format = "pdf_document")
+rmarkdown::render("ModelReview.Rmd", output_format = "pdf_document")
+rmarkdown::render("AnnotatedBibliography.Rmd", output_format = "pdf_document")
+getwd()
 rmarkdown::render("AnnotatedBibliography.Rmd", output_format = "html_document")

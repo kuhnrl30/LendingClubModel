@@ -21,7 +21,7 @@ author:
 
 ## Characteristics of Authors 
 
-The blog authors come from very diverse backgrounds
+The Lending Club data is easily downloaded so attacts blog authors rom very diverse backgrounds. 
 
 
 Education
