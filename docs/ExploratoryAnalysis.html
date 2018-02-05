@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Ryan Kuhn" />
 
+<meta name="date" content="2017-11-20" />
 
-<title>Loan Amounts</title>
+<title>Exploratory Analysis</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,8 +22,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
@@ -40,12 +42,10 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
 }
 </script>
 
@@ -270,43 +270,35 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Loan Amounts</h1>
+<h1 class="title toc-ignore">Exploratory Analysis</h1>
+<h4 class="author"><em>Ryan Kuhn</em></h4>
+<h4 class="date"><em>November 20, 2017</em></h4>
 
 </div>
 
 
-<p>To start off, this analysis makes a few assumptions about how to classify loans.</p>
-<ol style="list-style-type: decimal">
-<li><p>Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B). Some of those late loans will be made current it’s not a likely action. Contrarily, some of the loans in the grace period will go into default.</p></li>
-<li><p>No filters have been applied to the dataset. All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.</p></li>
-</ol>
-<div id="analyzing-the-loan-amount" class="section level2">
-<h2>Analyzing the Loan Amount</h2>
-<p><img src="LoanAmount_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<blockquote>
-<p><strong>QUESTION:</strong> Why is there a peak at $24,000 and not at $25,000? Is there a cutoff in the risk scoring model?</p>
-</blockquote>
-<blockquote>
-<p><strong>Answer:</strong> In the past, Lending Club had adjusted the loan grades for the loan amounts. Their model started with a base interest rate and was then adjusted up based on their FICO score. The rates were then further adjusted for the loan amount. Other factors influenced the score such as the number of inquiries and the number of accounts. <span class="citation">Renton (2011)</span> Posit: If this was widely known, then borrowers would apply for less than the breakpoint to avoid the extra interest charges. This is a plausible explanation for why there was more loans at 24,000 than 25,000 if that was one of the cutoffs.</p>
-</blockquote>
-<p><img src="LoanAmount_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>Looking at grades D through G, the distribution of the defaulted and is fairly consitent with the distribution of current loans. On it’s own, this suggests that loan amount won’t have a predictive value over default rates. The exception is there seems to be a slight bump at the $35,000 level which is the maximum Lending Club offers. Loans at the maximum amount default at a disproportionately low rate. There may be an advantage in investing in loans in these grades at the max loan amount.</p>
-<p>There isn’t the same hump at the $35,000 level when looking at grade A &amp; B loans. Those loans are more highly concentrated at the lower loan amount. Perhaps LC’s credit rating status punishes the borrower for a higher loan amount.</p>
-<blockquote>
-<p><strong>QUESTION:</strong> Why does the $35,000 loan amount have lower proportionate defaults in grades C though E? Is this related to the apparent cutoff noted above? Take a look at $35K loans and the relationship with other variables.</p>
-</blockquote>
-<p><img src="LoanAmount_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div id="package-version" class="section level3">
-<h3>Package Version</h3>
-<p>The analysis was based on LendingClubData version 0.1.4 dated 10/11/2017.</p>
+<div id="exploratory-analyis--loan-data" class="section level2 tabset tabset-pills">
+<h2>Exploratory Analyis- Loan Data</h2>
+<p>content here</p>
+<div id="AnchorAmount" class="section level3">
+<h3>Amount</h3>
+<p>content here</p>
+<p><a href="#AnchorAmount">Back to Top</a></p>
 </div>
-<div id="references" class="section level3 unnumbered">
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-indLendAcad1">
-<p>Renton, Peter, 2011, How lending club and prosper set interest rates,. Blog <em>Lend Academy</em> (<a href="http://www.lendacademy.com/how-lending-club-and-prosper-set-interest-rates/" class="uri">http://www.lendacademy.com/how-lending-club-and-prosper-set-interest-rates/</a>).</p>
+<div id="grades" class="section level3">
+<h3>Grades</h3>
+</div>
+<div id="purpose" class="section level3">
+<h3>Purpose</h3>
 </div>
 </div>
+<div id="exploratory-analsysis--borrower-data" class="section level2 tabset">
+<h2>Exploratory Analsysis- Borrower Data</h2>
+<div id="income" class="section level3">
+<h3>Income</h3>
+</div>
+<div id="debt-to-income" class="section level3">
+<h3>Debt to Income</h3>
 </div>
 </div>
 

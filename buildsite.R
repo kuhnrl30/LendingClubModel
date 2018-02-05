@@ -1,20 +1,27 @@
-# Build the site
+# Environment ----
 source("environment.R")
 source("LoadData.R")
 library(here)
-# rmarkdown::render_site(".", output_format = "html_document")
+
+# Build functions ----
+build_html<-function(x){
+    rmarkdown::render_site(x, output_format = "html_document")
+}
+build_pdf<- function(x){
+    rmarkdown::render(x, output_format = "pdf_document")
+}
 
 
-#Keep getting memory allocation errors so will loop through
+
+# system("sudo  find /tmp -type f -atime +0") # To clean temp files and recover memory
+
+# build files ----
 RMD_files<- grep("^(?!_).+Rmd", dir(), value=T, perl=T)
-lapply(RMD_files, function(x) rmarkdown::render_site(x, output_format="html_document"))
-rm(LoanData)
+lapply(RMD_files, build_html)
 
-# To clean temp files and recover memory
-#system("sudo  find /tmp -type f -atime +0")
-
-
-rmarkdown::render("ModelReview.Rmd", output_format = "pdf_document")
-rmarkdown::render("AnnotatedBibliography.Rmd", output_format = "pdf_document")
-getwd()
-rmarkdown::render("AnnotatedBibliography.Rmd", output_format = "html_document")
+build_html("Pricing.Rmd")
+build_html("ExploratoryAnalysis.Rmd")
+build_html("DebtToIncome.Rmd")
+build_html("Defaults.Rmd")
+build_pdf("DebtToIncome.Rmd")
+build_pdf("AnnotatedBibliography.Rmd")

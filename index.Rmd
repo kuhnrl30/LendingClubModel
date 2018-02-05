@@ -3,12 +3,20 @@ title: Lending Club Model
 ---
 
 
-> WARNING: This site is still under development and will be updated from day to day. Please use with caution until this warning has been removed. 
+> This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform.  It's continually under development (albeit slower than I wish). 
 
-This site is the workspace used to develop a model which increases P2P lending profitability. There are a few companion packages that enable this analysis:  
 
-**LendingClub** 
-Contains the bindings for Lending Club's api. It includes functions to obtain available loans and to view a user's account. The package also contains functions for working with the secondary market. 
+There are a few companion packages that enable this analysis:  
 
-**LendingClubData** 
-Contains the historical loan data so it doesn't need to be downloaded repeatedly from the Lending Club website. It also documents the process to obtain the  data.  
+- **LendingClub**  
+    Contains the bindings for Lending Club's api. It includes functions to obtain available loans and to view a user's account. The package also contains functions for working with the secondary market. 
+
+- **LendingClubData**  
+    Contains the historical loan data so it doesn't need to be downloaded repeatedly from the Lending Club website. It also documents the process to obtain the  data.  
+
+
+<br><br>
+
+I'm on ORCHID and plan to eventually publish the results of this project. 
+ <a href="https://orcid.org/0000-0001-6827-3492" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0001-6827-3492</a>
+

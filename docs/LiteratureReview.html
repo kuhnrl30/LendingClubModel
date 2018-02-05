@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2017-10-10" />
+<meta name="date" content="2018-04-08" />
 
 <title>Literature Review</title>
 
@@ -21,9 +21,18 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66230069-3');
+</script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -32,10 +41,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -203,13 +214,13 @@ $(document).ready(function () {
     <li class="divider"></li>
     <li class="dropdown-header">Prior Research Review</li>
     <li>
-      <a href="LiteratureReview.html">Reviewing the Literature</a>
+      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
     </li>
     <li>
       <a href="ModelReview.html">Reviewing Data Models</a>
     </li>
     <li>
-      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
+      <a href="LiteratureReview.html">Reviewing the Literature</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Exploratory Analysis</li>
@@ -275,7 +286,7 @@ $(document).ready(function () {
 <address class="author_afil">
 Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@gmail.com">kuhnrl30@gmail.com</a></a>
 </address>
-<h4 class="date"><em>October 10, 2017</em></h4>
+<h4 class="date"><em>April 08, 2018</em></h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>This is an abstract</p>
@@ -284,15 +295,20 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 </div>
 
 
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
 <p><em>Placeholder for review of P2P lending research. </em></p>
+<div id="communities-and-thought-leaders" class="section level2">
+<h2>Communities and Thought Leaders</h2>
+<p>NSR, PeerCube, LendingRobot, Mon Ja</p>
 </div>
 <div id="review-of-loan-bond-pricing-models" class="section level2">
 <h2>Review of Loan &amp; Bond Pricing Models</h2>
+
 </div>
-<div id="literature-resources" class="section level2">
-<h2>Literature Resources</h2>
+</div>
+<div id="references" class="section level1 numbered">
+<h1>References</h1>
 <p><a href="http://admin.nber.org/" class="uri">http://admin.nber.org/</a></p>
 </div>
 

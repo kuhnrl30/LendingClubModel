@@ -3,9 +3,10 @@
 *.Rhistory
 *.RData
 *.Ruserdata
-
+*.ods
 buildsite.R
 
 Superceded/*
 
 *.pdf
+.Rproj.user

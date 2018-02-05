@@ -23,9 +23,18 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66230069-3');
+</script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -34,10 +43,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -296,13 +307,13 @@ div.tocify {
     <li class="divider"></li>
     <li class="dropdown-header">Prior Research Review</li>
     <li>
-      <a href="LiteratureReview.html">Reviewing the Literature</a>
+      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
     </li>
     <li>
       <a href="ModelReview.html">Reviewing Data Models</a>
     </li>
     <li>
-      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
+      <a href="LiteratureReview.html">Reviewing the Literature</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Exploratory Analysis</li>
@@ -412,7 +423,7 @@ div.tocify {
 </div>
 <div id="changes-in-lending-club-underwriting" class="section level2">
 <h2>Changes in lending club underwriting</h2>
-<p><span class="citation">Wu (2015)</span></p>
+<p><span class="citation"><span class="citeproc-not-found" data-reference-id="mdlWu1"><strong>???</strong></span></span></p>
 <p>Data: June 2015 - May 2016</p>
 <p><strong>Notes</strong>:</p>
 <ul>
@@ -645,8 +656,8 @@ div.tocify {
 <p>Author proposes a hypotheses for differences in results by variables but there’s no testing for confirmation. (and how would you confirm?) Also, minimal documentation around decisions like bin cutoffs.</p>
 <hr>
 </div>
-<div id="gradient-boosting-analysis-of-lendingclubas-data" class="section level2">
-<h2>Gradient Boosting: Analysis of LendingClubâ€™s Data</h2>
+<div id="gradient-boosting-analysis-of-lendingclubs-data" class="section level2">
+<h2>Gradient Boosting: Analysis of LendingClub’s Data</h2>
 <p><span class="citation">Davenport (2013)</span></p>
 <p>Data: Not stated, but likely through Q1 2013.</p>
 <p>Author Notes:</p>
@@ -772,8 +783,8 @@ div.tocify {
 <p>Author lets the code do much of the talking which makes interpreting the model difficult since my Python is not as strong. Recommend using a more verbose commentary to let non-Python readers understand what is happening in the code.</p>
 <hr>
 </div>
-<div id="mining-lending-clubas-goldmine-of-loan-data-part-i-of-ii-a-visualizations-by-state" class="section level2">
-<h2>Mining Lending Clubâ€™s Goldmine of Loan Data Part I of II â€“ Visualizations by State</h2>
+<div id="mining-lending-clubs-goldmine-of-loan-data-part-i-of-ii-visualizations-by-state" class="section level2">
+<h2>Mining Lending Club’s Goldmine of Loan Data Part I of II – Visualizations by State</h2>
 <p><span class="citation">Cashorali (2011)</span></p>
 <p>Data: Before Q3 2011</p>
 <p>Author:</p>
@@ -1001,7 +1012,7 @@ Data: Jan 2009- Dec 2012</p>
 <p>Darre, Jean-Francois, 2015, Analysis of lending club’s data,. Blog <em>Data Science Central</em> (<a href="http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data" class="uri">http://www.datasciencecentral.com/profiles/blogs/analysis-of-lending-club-s-data</a>).</p>
 </div>
 <div id="ref-mdlDavenport2">
-<p>Davenport, Kevin, 2013, Gradient boosting: Analysis of lendingclub’s data,. Blog (<a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data//</a>).</p>
+<p>Davenport, Kevin, 2013, Gradient boosting: Analysis of lendingclub’s data,. Blog (<a href="http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/" class="uri">http://kldavenport.com/gradient-boosting-analysis-of-lendingclubs-data/</a>).</p>
 </div>
 <div id="ref-mdlDavenport">
 <p>Davenport, Kevin, 2015, Lending club data analysis revisited with python,. Blog <em>Machine Learning and Statistics Blog</em> (<a href="http://kldavenport.com/lending-club-data-analysis-revisted-with-python/" class="uri">http://kldavenport.com/lending-club-data-analysis-revisted-with-python/</a>).</p>
@@ -1037,10 +1048,7 @@ Data: Jan 2009- Dec 2012</p>
 <p>Toth, Michael, 2015, Analyzing historical default rates of lending club notes,. Blog <em>R-bloggers</em> (<a href="http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html" class="uri">http://michaeltoth.me/analyzing-historical-default-rates-of-lending-club-notes.html</a>).</p>
 </div>
 <div id="ref-mdlTsai">
-<p>Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh, 2014, Peer lending risk predictor, (<a href="http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf">http://cs229.stanford.edu/proj2014/Kevin%20Tsai,Sivagami%20Ramiah,Sudhanshu%20Singh,Peer%20Lending%20Risk%20Predictor.pdf</a>).</p>
-</div>
-<div id="ref-mdlWu1">
-<p>Wu, James, 2015, Changes in lending club underwriting,. Blog <em>MonJa</em> (<a href="https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//" class="uri">https://www.monjaco.com/blog/changes-in-lending-club-underwriting-looking-beneath-the-headlines//</a>).</p>
+<p>Tsai, Kevin, Sivagami Ramiah, and Sudhanshu Singh, 2014, Peer lending risk predictor, (<a href="http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf" class="uri">http://cs229.stanford.edu/proj2014/Kevin Tsai,Sivagami Ramiah,Sudhanshu Singh,Peer Lending Risk Predictor.pdf</a>).</p>
 </div>
 </div>
 </div>

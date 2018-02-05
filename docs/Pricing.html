@@ -20,9 +20,18 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66230069-3');
+</script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -31,10 +40,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -192,13 +203,13 @@ $(document).ready(function () {
     <li class="divider"></li>
     <li class="dropdown-header">Prior Research Review</li>
     <li>
-      <a href="LiteratureReview.html">Reviewing the Literature</a>
+      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
     </li>
     <li>
       <a href="ModelReview.html">Reviewing Data Models</a>
     </li>
     <li>
-      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
+      <a href="LiteratureReview.html">Reviewing the Literature</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Exploratory Analysis</li>
@@ -265,11 +276,30 @@ $(document).ready(function () {
 </div>
 
 
+<p>To start off, this analysis makes a few assumptions about how to classify loans.</p>
+<ol style="list-style-type: decimal">
+<li><p>Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B). Some of those late loans will be made current it’s not a likely action. Contrarily, some of the loans in the grace period will go into default.</p></li>
+<li><p>No filters have been applied to the dataset. All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.</p></li>
+</ol>
 <div id="calculate-number-of-payments-made" class="section level3">
 <h3>Calculate Number of Payments Made</h3>
 </div>
 <div id="present-value-of-expected-payments" class="section level3">
 <h3>Present Value of Expected Payments</h3>
+</div>
+<div id="risk-weighted-assets-approach-rwa" class="section level3">
+<h3>Risk Weighted Assets Approach (RWA)</h3>
+<p>Use Basel defined methods for measuring capital for risk management.</p>
+<div id="simple-approach" class="section level4">
+<h4>Simple Approach</h4>
+<p>Assets are weighted by risk ratios given by regulators. Multiply the principal amount by the given risk ratio. Since there are no regulators defining risk ratios at the loan level, we’ll need to translate this macro economic approach to our micro-economic note environment. Risk ratings can be determined simply by calculating default percentages by grade or other factor.</p>
+<p><img src="Pricing_files/figure-html/defaultrates-1.png" width="672" /></p>
+<p>The proportion of performing loans, or non-defaulting loans, increases quickly in Lending Club’s early years until it starts to stabilize with notes issued in 2009. From 2009-2011 the rate levels off but with lot of variance - it oscillates between 75% and 82%. Then, in 2011 the loan performance rate makes a marked improvement to 87% and generally stays above the previous maximum of 82%. As of writing, loans issued in 2015 or later have not yet fully matured. Additional defaults may occur during that time which would decrease the average default rate. This should be expected in loans issued less than 3 years ago as additional note will default with time.</p>
+<p>To apply the simple method, we would value the current note using the expected default rate. This works at the loan or portfolio basis because we’re assuming all loans have the same default risk rate.</p>
+</div>
+<div id="advanced-method" class="section level4">
+<h4>Advanced Method</h4>
+</div>
 </div>
 
 

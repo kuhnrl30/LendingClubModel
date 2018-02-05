@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2017-11-15" />
+<meta name="date" content="2018-04-08" />
 
 <title>Reviewing the Current State of Modeling Lending Club Data</title>
 
@@ -21,8 +21,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
@@ -41,10 +41,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -215,10 +217,10 @@ $(document).ready(function () {
       <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
     </li>
     <li>
-      <a href="LiteratureReview.html">Reviewing the Literature</a>
+      <a href="ModelReview.html">Reviewing Data Models</a>
     </li>
     <li>
-      <a href="ModelReview.html">Reviewing Data Models</a>
+      <a href="LiteratureReview.html">Reviewing the Literature</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Exploratory Analysis</li>
@@ -284,10 +286,10 @@ $(document).ready(function () {
 <address class="author_afil">
 Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@gmail.com">kuhnrl30@gmail.com</a></a>
 </address>
-<h4 class="date"><em>November 15, 2017</em></h4>
+<h4 class="date"><em>April 08, 2018</em></h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
-<p>Abstract describing the content of the model review noting that this is not a literature review but instead an analysis of available models in the wild.</p>
+<p>This article is still a work in progress. Thanks for your patience.</p>
 </div>
 
 </div>
@@ -295,19 +297,77 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
+<p>Research methods: - google searh using terms ‘LendingClub’, ‘Marketplace lending’, ‘P2P lending’</p>
+<p>Brief purpose of analysis</p>
 </div>
 <div id="characteristics-of-authors" class="section level2">
 <h2>Characteristics of Authors</h2>
-<p>The blog authors come from very diverse backgrounds</p>
-<p>Education Work experience other writing</p>
+<p>The Lending Club data is easily downloaded so attracts blog authors from very diverse backgrounds. Citizen Data Scientists through students in graduate level STEM programs have used the data in some form to produce and publish an analysis through blog posts and academic papers. Less experienced authors may use the data to demonstrate their ability to use analytical software such as R or Python whereas academic authors may use the data to demonstrate their grasp of machine learning algorithms. In between these two extremes is the analyst taking a course or series of courses in data science (i.e. a so called bootcamp). These researchers, whether professional or independint, tend to publish their analysis for demonstrative purposes rather than for profit seeking motives.</p>
+<p>other writing</p>
+<table>
+<colgroup>
+<col width="17%" />
+<col width="14%" />
+<col width="10%" />
+<col width="25%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Author</th>
+<th>Advanced Degree</th>
+<th>Subject</th>
+<th>Data Science Experience</th>
+<th>LinkedIn Profile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Davenport, Kevin</td>
+<td>Yes</td>
+<td>Data Science</td>
+<td>Yes</td>
+<td><a href="https://www.linkedin.com/in/davenportkevin/" class="uri">https://www.linkedin.com/in/davenportkevin/</a></td>
+</tr>
+<tr class="even">
+<td>Davis, Jason</td>
+<td>Yes</td>
+<td>Data Science</td>
+<td>Yes</td>
+<td><a href="https://www.linkedin.com/in/drjasondavis/" class="uri">https://www.linkedin.com/in/drjasondavis/</a></td>
+</tr>
+<tr class="odd">
+<td>Mistry, Hitesh</td>
+<td>Yes</td>
+<td>Pharmacy</td>
+<td>Yes</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>Moy, Philip</td>
+<td>Yes</td>
+<td>Operations Research</td>
+<td>Yes</td>
+<td><a href="https://www.linkedin.com/in/moyphilip/" class="uri">https://www.linkedin.com/in/moyphilip/</a></td>
+</tr>
+<tr class="odd">
+<td>O’Rourke, Ted</td>
+<td>No</td>
+<td>NA</td>
+<td>Yes</td>
+<td><a href="https://www.linkedin.com/in/ted-orourke/" class="uri">https://www.linkedin.com/in/ted-orourke/</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="varying-analysis-objectives" class="section level2">
 <h2>Varying Analysis Objectives</h2>
-<p>The analyses can be bifurcated into two general categories based on the author’s objective. The first category is an axploratory analysis of many or all of the variables in the Lending Club dataset and their influence on the default status.</p>
+<p>The analyses can be bifurcated into two general categories based on the author’s objective. The first category is an exploratory analysis of many or all of the variables in the Lending Club dataset and their influence on the default status.</p>
 <p>Exploratory Analysis Defined Objective - Predict default - Effective interest rate -</p>
 </div>
 <div id="observations" class="section level2">
 <h2>Observations</h2>
+<p>Analytical models developed to predict loan outcomes.</p>
 <table style="width:90%;">
 <colgroup>
 <col width="33%" />
@@ -338,7 +398,7 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 </tr>
 <tr class="odd">
 <td><span class="citation">ORourke (2016)</span></td>
-<td>Interest rate, Loan length, Annual income, Revolving credit utilization, Employement length</td>
+<td>Interest rate, Loan length, Annual income, Revolving credit utilization, Employment length</td>
 </tr>
 <tr class="even">
 <td><span class="citation">Tsai, Ramiah, and Singh (2014)</span></td>
@@ -346,9 +406,62 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Interst Rate</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Loan Length</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Amount Requested</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>FICO Score</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Annual Income</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Revolving Credit Utilization</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Application Date</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Earliest Credit Line</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Debt to Income</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Revoling Credit Balance</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
+<div id="section" class="section level6">
+<h6></h6>
+</div>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2>References</h2>

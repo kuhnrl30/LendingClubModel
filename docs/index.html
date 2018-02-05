@@ -20,9 +20,18 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66230069-3');
+</script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -31,10 +40,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -192,13 +203,13 @@ $(document).ready(function () {
     <li class="divider"></li>
     <li class="dropdown-header">Prior Research Review</li>
     <li>
-      <a href="LiteratureReview.html">Reviewing the Literature</a>
+      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
     </li>
     <li>
       <a href="ModelReview.html">Reviewing Data Models</a>
     </li>
     <li>
-      <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
+      <a href="LiteratureReview.html">Reviewing the Literature</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Exploratory Analysis</li>
@@ -216,6 +227,9 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="LoanPurpose.html">Loan Purpose</a>
+    </li>
+    <li>
+      <a href="Defaults.html">Defalts</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Modeling</li>
@@ -265,11 +279,17 @@ $(document).ready(function () {
 
 
 <blockquote>
-<p>WARNING: This site is still under development and will be updated from day to day. Please use with caution until this warning has been removed.</p>
+<p>This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform. It’s continually under development (albeit slower than I wish).</p>
 </blockquote>
-<p>This site is the workspace used to develop a model which increases P2P lending profitability. There are a few companion packages that enable this analysis:</p>
-<p><strong>LendingClub</strong> Contains the bindings for Lending Club’s api. It includes functions to obtain available loans and to view a user’s account. The package also contains functions for working with the secondary market.</p>
-<p><strong>LendingClubData</strong> Contains the historical loan data so it doesn’t need to be downloaded repeatedly from the Lending Club website. It also documents the process to obtain the data.</p>
+<p>There are a few companion packages that enable this analysis:</p>
+<ul>
+<li><p><strong>LendingClub</strong><br />
+Contains the bindings for Lending Club’s api. It includes functions to obtain available loans and to view a user’s account. The package also contains functions for working with the secondary market.</p></li>
+<li><p><strong>LendingClubData</strong><br />
+Contains the historical loan data so it doesn’t need to be downloaded repeatedly from the Lending Club website. It also documents the process to obtain the data.</p></li>
+</ul>
+<p><br><br></p>
+<p>I’m on ORCHID and plan to eventually publish the results of this project. <a href="https://orcid.org/0000-0001-6827-3492" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0001-6827-3492</a></p>
 
 
 

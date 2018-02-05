@@ -10,8 +10,7 @@
 
 
 
-<meta name="date" content="2017-11-15" />
-
+<meta name="date" content="2018-08-19" />
 
 <title>Improving P2P Lending Returns: An Annotated Bibliography</title>
 
@@ -22,8 +21,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66230069-3"></script>
@@ -42,10 +41,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -206,7 +207,7 @@ $(document).ready(function () {
       <a href="AnnotatedBibliography.html">Annotated Bibliography</a>
     </li>
     <li>
-      <a href="LiteratureReview.html">Reviewing the Literature</a>
+      <a href="ModelReview.html">Reviewing Data Models</a>
     </li>
     <li>
       <a href="LiteratureReview.html">Reviewing the Literature</a>
@@ -227,6 +228,9 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="LoanPurpose.html">Loan Purpose</a>
+    </li>
+    <li>
+      <a href="Defaults.html">Defalts</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Modeling</li>
@@ -275,11 +279,12 @@ $(document).ready(function () {
 <address class="author_afil">
 Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@gmail.com">kuhnrl30@gmail.com</a></a>
 </address>
-<h4 class="date"><em>November 15, 2017</em></h4>
+<h4 class="date"><em>August 19, 2018</em></h4>
+
 </div>
 
 
-]<div id="introduction" class="section level2">
+<div id="introduction" class="section level2">
 <h2><span class="header-section-number">0.1</span> Introduction</h2>
 <p>Peer-to-peer lending connects borrowers with investors through an online marketplace. Loans offered through the marketplace are made possible by investors, who invest in exchange for solid returns.</p>
 <p>Current models suggest that investor profitability can be improved with the application of high quality data analysis. The existing body of research generally focuses on assigning a probability of default to minimize adverse selection rather than optimizing for investor profitability. To encourage the consolidation of knowledge, this bibliography is a source of research and articles from around the web that could be used to understand the current state of analysis.</p>
@@ -296,7 +301,8 @@ Independent<br><a class="author_email" href="mailto:#"><a href="mailto:kuhnrl30@
 <p><span class="citation"><strong>Reddy, Sriharsha, and Krishna Gopalaraman</strong>, <strong>2016</strong>, <strong>Peer to peer lending, default prediction evidence from lending club., </strong><strong><em>Journal of Internet Banking &amp; Commerce</em></strong><strong> 21</strong><strong>, 1–19</strong></span></p>
 <p><span class="citation"><strong>Serrano-Cinca, Carlos, and Begoña Gutièrrez-Nieto</strong>, <strong>2016</strong>, <strong>The use of profit scoring as an alternative to credit scoring systems in peer-to-peer (p2p) lending,</strong><strong>. Article</strong> <strong><em>Decision Support Systems</em></strong></span></p>
 <p>This article proposes a decision support system for choosing loans optimized for profitability. This is in contrast to previous literature which focused on modeling default probabilities without considering the increased interest rates to compensate the investor’s risk. The authors proposed using internal rate of return, or IRR, to measure of a loan’s profitability. IRR was chosen because it is able to handle uneven payments at non-uniform intervals. They created several models to predict a loan’s IRR.</p>
-
+<p><span class="citation"><strong>Zhou, Guangyou, Yijia Zhang, and Sumei Luo</strong>, <strong>2018</strong>, <strong>P2P network lending, loss given default and credit risks, </strong><strong><em>Sustainability</em></strong><strong> 10</strong></span></p>
+<p>The article explores the distribution of Loss Given Default (LGD) and uses multi-linear regression to understand the drivers. The paper stops short of suggesting an application of the knowledge to pricing and valuation decisions.</p>
 </div>
 <div id="industry-analysis" class="section level2">
 <h2><span class="header-section-number">0.3</span> Industry Analysis</h2>

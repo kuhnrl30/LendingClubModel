@@ -73,7 +73,7 @@ LoanData %>%
                  align= c("l","r","r","r","r","r","r","r","r","r","r"))
 ```
 
-Grade A loans reached its peak share of the loan distribution. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. 
+Grade A loans reached its peak share of the loan distribution in 2011. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. 
 
 > QUESTION: Is this grade mix due to a change in the scoring model or the applicant pool? 
 

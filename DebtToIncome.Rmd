@@ -31,6 +31,7 @@ ggplot(LoanData) +
     theme_LC()
 ```
 
+
 ```{r}
 a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
 a<- a + aes(x=Year, y=dti)
@@ -40,6 +41,11 @@ a<- a + theme_LC()
 a
 rm(a)
 ```
+
+The chart above shows that the average DTI ratio has increased since 2011. That average had been fairly consistent from 2008 through 2011. It appears that that LC tightened their credit standards in lite of the global recession and then started to relax standards in 2012
+
+>Question: Does the trend in DTI indicate the borrower mix has changed with time? Is this driven by a change in applicants or a change in credit approval models?
+
 
 ```{r, fig.height=8}
 a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))

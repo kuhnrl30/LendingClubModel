@@ -29,7 +29,7 @@ ggplot(LoanData) +
 >Why is there a peak at $24,000 and not at $25,000? Is there a cutoff in the risk scoring model?
 
 > **Answer:**
->In the past, Lending Club had adjusted the loan grades for the loan amounts.  Their model started with a base interest rate and was then adjusted up based on their FICO score.  The rates were then further adjusted for the loan amount. Other factors influenced the score such as the number of inquiries and the number of accounts. [@LendAcad1] If this was widely known, then borrowers would take less than the breakpoint to avoid the extra interest charges. This could explain why there was more loans at 24,000 than 25,000 if that was one of the cutoffs.
+>In the past, Lending Club had adjusted the loan grades for the loan amounts.  Their model started with a base interest rate and was then adjusted up based on their FICO score.  The rates were then further adjusted for the loan amount. Other factors influenced the score such as the number of inquiries and the number of accounts. [@indLendAcad1] Posit: If this was widely known, then borrowers would apply for less than the breakpoint to avoid the extra interest charges. This is a plausible explanation for why there was more loans at 24,000 than 25,000 if that was one of the cutoffs.
 
 ```{r, fig.height=6}
 g<- ggplot(LoanData)
@@ -62,7 +62,7 @@ g<- g + labs(title= "Distribution of loan amount by vintage")
 g
 ```
 
-### Package Version
-The analysis was based on LendingClubData version `r packageVersion("LendingClubData")`.
+```{r, child="_DataVersion.Rmd"}
+```
 
 ### References

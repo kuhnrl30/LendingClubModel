@@ -1,22 +1,26 @@
 ---
 title: 'Improving P2P Lending Returns: An Annotated Bibliography'
 author:
-  - name: Ryan Kuhn
-    affiliation: Independent
-    email: kuhnrl30@gmail.com
-    location: Basking Ridge, NJ 07920
-date: '`r format(Sys.Date(),"%B %d, %Y")`'
+- affiliation: Independent
+  email: kuhnrl30@gmail.com
+  location: 'Basking Ridge, NJ 07920'
+  name: Ryan Kuhn
+date: "`r format(Sys.Date(),'%B %d, %Y')`"
 output:
+  pdf_document: default
+  pdf_docuement:
+    includes:
+      in_header: latexOps.tex
+    number_sections: yes
   html_document:
     number_sections: yes
-  pdf_docuement:
-    number_sections: yes
-    includes: 
-      in_header: latexOps.tex
-bibliography: bibliographies.bib
-spacing: double
-keywords: [P2P Lending, Marketplace lending, Lending Club]
+keywords:
+- P2P Lending
+- Marketplace lending
+- Lending Club
 csl: journal-of-finance-annotated-bib.csl
+spacing: double
+bibliography: bibliographies.bib
 ---
 
 ## Introduction
@@ -46,7 +50,11 @@ This bibliography classifies articles into one of three categories based on thei
 
 [@litSerrano]
 
-This article proposes a decision support system for choosing loans optimized for profitability.  This is in contrast to previous literature which focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return, or IRR, to measure of a loan's profitability.  IRR was chosen because it is able to handle uneven payments at non-uniform intervals.  They created several models to predict a loan's IRR. 
+This article proposes a decision support system for choosing loans optimized for profitability. This is in contrast to previous literature which focused on modeling default probabilities without considering the increased interest rates to compensate the investor's risk.  The authors proposed using internal rate of return, or IRR, to measure of a loan's profitability.  IRR was chosen because it is able to handle uneven payments at non-uniform intervals.  They created several models to predict a loan's IRR. 
+
+[@litZhou]
+
+The article explores the distribution of Loss Given Default (LGD) and uses multi-linear regression to understand the drivers. The paper stops short of suggesting an application of the knowledge to pricing and valuation decisions. 
 
 ## Industry Analysis  
 
