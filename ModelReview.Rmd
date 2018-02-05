@@ -9,11 +9,12 @@ keywords:
   - lending
   - Literature Review
 abstract: |
-  Abstract describing the content of the model review noting that this is not a literature review but instead an analysis of available models in the wild.
+  This article is still a work in progress.  Thanks for your patience.
 author:
   - name: Ryan Kuhn
     email: kuhnrl30@gmail.com
     affiliation: Independent
+    ORCiD: https://orcid.org/0000-0001-6827-3492
 ---
 
 ## Introduction  
@@ -21,7 +22,11 @@ author:
 
 ## Characteristics of Authors 
 
-The Lending Club data is easily downloaded so attacts blog authors rom very diverse backgrounds. 
+The Lending Club data is easily downloaded so attracts blog authors from very diverse backgrounds. Citizen Data Scientists through students in graduate level STEM programs have used the data in some form to produce and publish an analysis. Less experienced authors may use the data to demonstrate their ability to use analytical software such as R or Python whereas academic authors may use the data to demonstrate their grasp of machine learning algorithms. Both groups of authors tend to publish their analysis for demonstrative purposes rather than for profit seeking motives. 
+
+
+
+In between these two extremes is the analyst taking a course or series of courses in data science (i.e. a so called bootcamp)  
 
 
 Education
@@ -30,14 +35,14 @@ other writing
 
 ## Varying Analysis Objectives
 
-The analyses can be bifurcated into two general categories based on the author's objective.  The first category is an axploratory analysis of many or all of the variables in the Lending Club dataset and their influence on the default status. 
+The analyses can be bifurcated into two general categories based on the author's objective.  The first category is an exploratory analysis of many or all of the variables in the Lending Club dataset and their influence on the default status. 
 
 Exploratory Analysis
 Defined Objective
   - Predict default
   - Effective interest rate
   - 
-
+  
 ## Observations  
 
 
@@ -47,7 +52,7 @@ Defined Objective
 | [@mdlDavis] | Amount Requested, \newline FICO Score, \newline Application Date, \newline Earliest Credit Line, \newline Interest Rate |
 | [@mdlMistry] | FICO Score, \newline Loan length |
 | [@mdlMoy] | Interest Rate, \newline Debt to Income, \newline Annual Income, \newline Revolving credit balance, \newline Revolving credit utilization | 
-| [@mdlOrourke] | Interest rate, \newline Loan length, \newline Annual income, \newline Revolving credit utilization, \newline Employement length  |
+| [@mdlOrourke] | Interest rate, \newline Loan length, \newline Annual income, \newline Revolving credit utilization, \newline Employment length  |
 | [@mdlTsai] | Loan Amount, \newline Loan length, \newline Interest rate, \newline Installment, \newline Annual income |
  
  
