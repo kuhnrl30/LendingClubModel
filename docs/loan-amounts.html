@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lending Club Model</title>
+  <meta name="description" content="This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform. It’s continually under development.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Lending Club Model" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform. It’s continually under development." />
+  <meta name="github-repo" content="kuhnrl30/LendingClubModel" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lending Club Model" />
+  
+  <meta name="twitter:description" content="This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform. It’s continually under development." />
+  
+
+<meta name="author" content="Ryan Kuhn, CPA">
+
+
+<meta name="date" content="2018-11-05">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="loan-grades.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lending Club Model</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#research-questions"><i class="fa fa-check"></i><b>1.1</b> Research Questions</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#starting-assumptions"><i class="fa fa-check"></i><b>1.2</b> Starting Assumptions</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#package-version"><i class="fa fa-check"></i><b>1.3</b> Package Version</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="loan-amounts.html"><a href="loan-amounts.html"><i class="fa fa-check"></i><b>2</b> Loan Amounts</a><ul>
+<li class="chapter" data-level="2.1" data-path="loan-amounts.html"><a href="loan-amounts.html#analyzing-the-loan-amount"><i class="fa fa-check"></i><b>2.1</b> Analyzing the Loan Amount</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="loan-grades.html"><a href="loan-grades.html"><i class="fa fa-check"></i><b>3</b> Loan Grades</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="loan-grades.html"><a href="loan-grades.html#loan-distribution-by-grade"><i class="fa fa-check"></i><b>3.0.1</b> Loan Distribution by Grade</a></li>
+<li class="chapter" data-level="3.0.2" data-path="loan-grades.html"><a href="loan-grades.html#distribution-by-year"><i class="fa fa-check"></i><b>3.0.2</b> Distribution by Year</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="debt-to-income-ratio.html"><a href="debt-to-income-ratio.html"><i class="fa fa-check"></i><b>5</b> Debt to Income Ratio</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="debt-to-income-ratio.html"><a href="debt-to-income-ratio.html#debt-to-income-ratio-1"><i class="fa fa-check"></i><b>5.0.1</b> Debt-to-Income Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="annual-income.html"><a href="annual-income.html"><i class="fa fa-check"></i><b>6</b> Annual Income</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="annual-income.html"><a href="annual-income.html#annual-income-1"><i class="fa fa-check"></i><b>6.0.1</b> Annual Income</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="loan-purpose.html"><a href="loan-purpose.html"><i class="fa fa-check"></i><b>7</b> Loan Purpose</a></li>
+<li class="chapter" data-level="8" data-path="visualizing-defaulted-loans.html"><a href="visualizing-defaulted-loans.html"><i class="fa fa-check"></i><b>8</b> Visualizing Defaulted Loans</a><ul>
+<li class="chapter" data-level="8.1" data-path="visualizing-defaulted-loans.html"><a href="visualizing-defaulted-loans.html#plotting-defaults-by-time-to-the-last-payment"><i class="fa fa-check"></i><b>8.1</b> Plotting Defaults by Time to the Last Payment</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="pricing-loans.html"><a href="pricing-loans.html"><i class="fa fa-check"></i><b>9</b> Pricing Loans</a><ul>
+<li class="chapter" data-level="9.1" data-path="pricing-loans.html"><a href="pricing-loans.html#naive-model"><i class="fa fa-check"></i><b>9.1</b> Naive Model</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="pricing-loans.html"><a href="pricing-loans.html#using-the-present-value-of-expected-cash-flow"><i class="fa fa-check"></i><b>9.1.1</b> Using the Present Value of Expected Cash Flow</a></li>
+<li class="chapter" data-level="9.1.2" data-path="pricing-loans.html"><a href="pricing-loans.html#calculate-number-of-payments-made"><i class="fa fa-check"></i><b>9.1.2</b> Calculate Number of Payments Made</a></li>
+<li class="chapter" data-level="9.1.3" data-path="pricing-loans.html"><a href="pricing-loans.html#present-value-of-expected-payments"><i class="fa fa-check"></i><b>9.1.3</b> Present Value of Expected Payments</a></li>
+<li class="chapter" data-level="9.1.4" data-path="pricing-loans.html"><a href="pricing-loans.html#risk-weighted-assets-approach-rwa"><i class="fa fa-check"></i><b>9.1.4</b> Risk Weighted Assets Approach (RWA)</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/kuhnrl30/LendingClubModel" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lending Club Model</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loan-amounts" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Loan Amounts</h1>
+<div id="analyzing-the-loan-amount" class="section level2">
+<h2><span class="header-section-number">2.1</span> Analyzing the Loan Amount</h2>
+<p><img src="Consolidated-book_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<blockquote>
+<p><strong>QUESTION:</strong> Why is there a peak at $24,000 and not at $25,000? Is there a cutoff in the risk scoring model?</p>
+</blockquote>
+<blockquote>
+<p><strong>Answer:</strong> In the past, Lending Club had adjusted the loan grades for the loan amounts. Their model started with a base interest rate and was then adjusted up based on their FICO score. The rates were then further adjusted for the loan amount. Other factors influenced the score such as the number of inquiries and the number of accounts. <span class="citation">(Renton <a href="#ref-indLendAcad1">2011</a>)</span> Posit: If this was widely known, then borrowers would apply for less than the breakpoint to avoid the extra interest charges. This is a plausible explanation for why there was more loans at 24,000 than 25,000 if that was one of the cutoffs.</p>
+</blockquote>
+<p><img src="Consolidated-book_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Looking at grades D through G, the distribution of the defaulted and is fairly consitent with the distribution of current loans. On it’s own, this suggests that loan amount won’t have a predictive value over default rates. The exception is there seems to be a slight bump at the $35,000 level which is the maximum Lending Club offers. Loans at the maximum amount default at a disproportionately low rate. There may be an advantage in investing in loans in these grades at the max loan amount.</p>
+<p>There isn’t the same hump at the $35,000 level when looking at grade A &amp; B loans. Those loans are more highly concentrated at the lower loan amount. Perhaps LC’s credit rating status punishes the borrower for a higher loan amount.</p>
+<blockquote>
+<p><strong>QUESTION:</strong> Why does the $35,000 loan amount have lower proportionate defaults in grades C though E? Is this related to the apparent cutoff noted above? Take a look at $35K loans and the relationship with other variables.</p>
+</blockquote>
+<p><img src="Consolidated-book_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-indLendAcad1">
+<p>Renton, Peter. 2011. “How Lending Club and Prosper Set Interest Rates.” Blog. <em>Lend Academy</em>. <a href="http://www.lendacademy.com/how-lending-club-and-prosper-set-interest-rates/" class="uri">http://www.lendacademy.com/how-lending-club-and-prosper-set-interest-rates/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="loan-grades.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/kuhnrl30/LendingClubModel02-LoanAmount.Rmd",
+"text": "Edit"
+},
+"download": ["Consolidated-book.pdf", "Consolidated-book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

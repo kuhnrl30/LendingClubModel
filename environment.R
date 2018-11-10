@@ -1,7 +1,0 @@
-library(dplyr)
-library(LendingClubData)
-library(ggplot2)
-library(scales)
-library(tidyr)
-library(ggridges)
-library(gridExtra)

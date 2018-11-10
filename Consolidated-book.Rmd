@@ -1,0 +1,423 @@
+--- 
+title: "Lending Club Model"
+author: "Ryan Kuhn, CPA"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [bibliographies.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: kuhnrl30/LendingClubModel
+description: "This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform.  It's continually under development."
+---
+
+
+<!--chapter:end:index.Rmd-->
+
+# Introduction {#intro}
+
+```{r environment}
+library(dplyr)
+library(LendingClubData)
+library(ggplot2)
+library(scales)
+library(tidyr)
+library(ggridges)
+library(gridExtra)
+library(here)
+```
+
+## Research Questions
+The objective of this research is to determine the strategy which optimizes the ratio of investor income to risk.  An investment can be viewed as a fair exchange transaction:  An investor purchases debt in exchange for the expected cash flow to include interest payments. The expected cash flow assumes a level of risk that the borrower will default. As the risk of default increases, the investor will expect greater interest income to compensate for the risk.
+
+The price of these P2P loans is generally fixed in $25 increments but the interest rates are variable.  The initial interest rate (price) is set by LC's determination of the borrower's default risk.  On the secondary market, the yield on the loan includes the interest payments from LC's credit scoring model plus the seller's markup adjustment for their perceived risk score.  In order to optimize the ratio of income to risk, I will have to find areas in these two pricing models which overprice borrower's risk.  In other words: The interest rate is set higher than the default risk warrants. 
+
+On the journey towards the over arching objective, I have these interim questions to answer:
+
+
+1. Can we identify over priced default risk by using more than just the intuitive features such as FICO score and debt-to-income and thereby increase profitability?
+
+2. Can we determine the market price of a loan after issuance (secondary market)?  Use the listings on the secondary market to develop a pricing guide or tool? 
+    - Can market price be determined from the secondary market listings?  Take regular downloads of the market and look for time until sale.  
+    - Can the typical consumer price their loans to market value? Is there a random walk around the true price point for given attributes/risk factors? Is there an opportunity for arbitration?
+
+2. Can we estimate the value a loan on the secondary market and build a pricing model such that: Value = PV of cash flow discounted for default risk and market data asymmetry.  Influences are expected cash flow driven by default rates/ survival analysis; present value driven by investor requirements or IRR; general discount as the buyer doesn't know why you are selling so feels lack of trust (constant?).
+
+3. Can we leverage the latest fraud research to identify over stated income and replace with an estimated true amount to feed the model?
+
+4. How does Basel II Probability of default definitions apply?  Can any prior research and precedents be applied?
+
+
+## Starting Assumptions
+
+To start off, this analysis makes a few assumptions about how to classify loans. 
+
+1. Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B).  Some of those late loans will be made current it's not a likely action. Contrarily, some of the loans in the grace period will go into default. 
+
+2. No filters have been applied to the dataset.  All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.  
+
+## Random Sampling
+
+The historical loan data has well over 1 million lonas in the
+```{r}
+LoanData<- LendingClubData::IssuedLoans(2007:2017) %>%
+  mutate(Class = SetClass(loan_status)) %>%
+  sample_n(200000)
+```
+
+
+## Package Version
+
+The analysis was based on LendingClubData version `r packageVersion("LendingClubData")` dated `r packageDescription("LendingClubData", fields = "Date")`.
+
+<!--chapter:end:01-intro.Rmd-->
+
+# Loan Amounts
+
+```{r, echo=F}
+options(scipen = 6)
+knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80, message= FALSE, echo= FALSE, warning = FALSE)
+```
+
+```{r}
+ggplot(LoanData) + 
+    aes(x=loan_amnt, y=grade, fill=grade) + 
+    geom_density_ridges() + 
+    labs(title= "Distribution of loan amount by grades",
+             x= "Loan Amount") + 
+    theme_LC()
+```
+
+>**QUESTION:**
+>Why is there a peak at $24,000 and not at $25,000? Is there a cutoff in the risk scoring model?
+
+> **Answer:**
+>In the past, Lending Club had adjusted the loan grades for the loan amounts.  Their model started with a base interest rate and was then adjusted up based on their FICO score.  The rates were then further adjusted for the loan amount. Other factors influenced the score such as the number of inquiries and the number of accounts. [@indLendAcad1] Posit: If this was widely known, then borrowers would apply for less than the breakpoint to avoid the extra interest charges. This is a plausible explanation for why there was more loans at 24,000 than 25,000 if that was one of the cutoffs.
+
+```{r, fig.height=6}
+g<- ggplot(LoanData)
+g<- g + aes(loan_amnt, group=Class, colour=Class)
+g<- g + geom_density(size=.75)
+g<- g + labs(x= "Loan Amount")
+g<- g + facet_grid(grade~.)
+g<- g + theme_LC()
+g<- g + labs(title= "Distribution of loan amount by default status")
+g
+rm(g)
+```
+
+Looking at grades D through G, the distribution of the defaulted and is fairly consitent with the distribution of current loans. On it's own, this suggests that loan amount won't have a predictive value over default rates.  The exception is there seems to be a slight bump at the $35,000 level which is the maximum Lending Club offers. Loans at the maximum amount default at a disproportionately low rate.  There may be an advantage in investing in loans in these grades at the max loan amount.
+
+There isn't the same hump at the $35,000 level when looking at grade A & B loans.  Those loans are more highly concentrated at the lower loan amount. Perhaps LC's credit rating status punishes the borrower for a higher loan amount. 
+
+
+>**QUESTION:**
+>Why does the $35,000 loan amount have lower proportionate defaults in grades C though E? Is this related to the apparent cutoff noted above? Take a look at $35K loans and the relationship with other variables.
+
+
+```{r, fig.height=6}
+g<- ggplot(LoanData)
+g<- g + aes(loan_amnt, group=Class, colour=Class)
+g<- g + geom_density(size=.75)
+g<- g + labs(x= "Loan Amount")
+g<- g + facet_grid(format(LoanData[,"issue_d"],'%Y')~.)
+g<- g + theme_LC()
+g<- g + labs(title= "Distribution of loan amount by vintage")
+g
+rm(g)
+```
+
+<!--chapter:end:02-LoanAmount.Rmd-->
+
+# Loan Grades
+
+
+### Loan Distribution by Grade
+
+```{r}
+LoanData %>%
+    group_by(grade) %>%
+    summarize(Total= n()) %>%
+    mutate(Proportion= Total/sum(Total)) %>%
+    knitr::kable(align=c('l','r','r'),
+                 digits=c(0,0,2),
+                 caption= "Distribution by Loan Grade",
+                 format.args = list(big.mark=','),
+                 col.names = c("Grade","Total","Proportion"))
+```
+
+```{r, fig.align='right', fig.show='hold', fig.align='center', class.output='aligns'}
+ggplot(LoanData) +
+    aes(x= factor(grade)) +
+    geom_histogram(stat="count") +
+    labs(x= "Loan Grade") +
+    theme_LC()
+```
+
+There are `r format(nrow(LoanData),big.mark=",")` loans in the dataset and the median loan grade level is `r LETTERS[median(as.numeric(factor(LoanData$grade)))]`. We can further describe this distribution using skewness and kurtosis.  From the chart we can say that the data is skewed towards the lower loan grades and that the lower grade tail is fatter than the higher grade tail.  This is inherently true beacause the max grade is A and you cannot have a tail with values greater than A.  
+
+Kurtosis is a description of the shape or peaked-ness of the curve. The kurtosis score for this distribution is `r e1071::kurtosis(as.numeric(factor(LoanData$grade)))`. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution.  Again, this makes sense intuitively because there are only 7 possible grades.  This poses an upper and lower constraint on the loans effectively eliminating extreme outliers. 
+
+### Distribution by Year  
+
+```{r}
+LoanData %>%
+    mutate(Year= format(issue_d,"%Y")) %>%
+    group_by(Year) %>%
+    summarise(N=n()) %>%
+    knitr::kable(format.args = list(big.mark=","),
+                 align=c("l","r"),
+                 col.names=c("Year","Count"))
+```
+
+
+The number of loans issued has grown significantly since 2007.  In fact the growth rate from 2007 to 2016 was `r round(CAGR(42535,434407,10),2)*100`% however growth has leveled off since 2015 to only `r round(434407/421095,2)*100-100`%. 
+
+> QUESTION: Why has growth slowed in the past year? Does this signal a change in the borrower mix and would that affect default rates?
+
+> QUESTION: 2017 Q1 run rate is less than 2016 full year loan count. Is there a seasonal trend to loan issuance?
+
+```{r}
+LoanData %>%
+    mutate(Year= format(issue_d,"%Y")) %>%
+    group_by(Year, grade) %>%
+    summarize(N=n()) %>%
+    mutate(share= round(N/sum(N),2)) %>%
+    select(-N) %>%
+    spread(key=Year, value=share) %>%
+    knitr::kable(forate.args= list(big.mark=","),
+                 caption= "Distribution by Loan Grade and Year",
+                 align= c("l","r","r","r","r","r","r","r","r","r","r"))
+```
+
+Grade A loans reached its peak share of the loan distribution in 2011. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. 
+
+> QUESTION: Is this grade mix due to a change in the scoring model or the applicant pool? 
+
+
+<!--chapter:end:03-LoanGrades.Rmd-->
+
+# Debt to Income Ratio
+
+
+### Debt-to-Income Ratio  
+
+Lending Club sets a upper limit of 0.5 debt to income ratio.  There are a few points in the dataset above that limit but they are very clearly outliers.  For this analysis, I've set those values at the limit of 50.
+
+
+```{r}
+LoanData[which(LoanData$dti>50),"dti"]<- 50
+
+ggplot(LoanData) + 
+    aes(Class, dti, fill= Class) + 
+    geom_boxplot() + 
+    coord_flip() +
+    labs(title="Distribution of DTI by default status") + 
+    theme_LC()
+```
+
+
+```{r}
+a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
+a<- a + aes(x=Year, y=dti)
+a<- a + geom_violin(fill = "grey80", draw_quantiles = c(0.5))
+a<- a + labs(title="Distribution of DTI by Year")
+a<- a + theme_LC()
+a
+rm(a)
+```
+
+The chart above shows that the average DTI ratio has increased since 2011. That average had been fairly consistent from 2008 through 2011. It appears that that LC tightened their credit standards in lite of the global recession and then started to relax standards in 2012
+
+>Question: Does the trend in DTI indicate the borrower mix has changed with time? Is this driven by a change in applicants or a change in credit approval models?
+
+
+```{r, fig.height=8}
+a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
+a<- a + aes(x=Year, y=dti, fill=grade)
+a<- a + geom_violin(draw_quantiles = c(0.5))
+a<- a + facet_wrap(~grade, ncol=2)
+a<- a + labs(title="Distribution of DTI by year and grade")
+a<- a + theme_LC()
+a
+rm(a)
+```
+
+```{r, fig.height=6}
+# b<- LoanData %>%
+#     group_by(grade, Class) %>%
+#     summarize(write_mean= mean(dti))
+# 
+a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
+a<- a + aes(x=Class, y=dti, fill=Class)
+a<- a + facet_wrap(~Year)
+a<- a + geom_violin(draw_quantiles = c(0.5))
+a<- a + labs(title="Distribution of DTI by default status and year")
+a<- a + theme_LC()
+a
+rm(a)
+```     
+  
+
+<!--chapter:end:04-DebtToIncome.Rmd-->
+
+# Annual Income
+
+
+### Annual Income 
+```{r}
+b<- ggplot(LoanData)
+b<- b + aes(y=annual_inc, x=Class, colour=Class)
+b<- b + geom_boxplot(outlier.colour = "red")
+b<- b + labs(title="Distribution of Annual Income by default status")
+b<- b + theme_LC()
+b
+rm(b)
+```
+
+Clearly we get a better picture if we narrow the range of values.  I'll set a maximum income level of 250,000 so that we see less of the outlines and more of the more dense areas.  There are only 12K loans with incomes greater than $250K which is approximately 1% of the total number of loans. 
+
+```{r}
+# knitr::kable(table(LoanData$annual_inc>250000))
+LoanData$annual_inc<- ifelse(LoanData$annual_inc>250000,250000,LoanData$annual_inc)
+```
+```{r, fig.height=6}
+b<- ggplot(LoanData)
+b<- b + aes(annual_inc, group=Class, colour=Class)
+b<- b + geom_density()
+b<- b + facet_grid(grade~.)
+b<- b + labs(title="Distribution of Annual Income by default status")
+b<- b + theme_LC()
+b
+rm(b)
+```
+
+<!--chapter:end:05-Income.Rmd-->
+
+# Loan Purpose
+
+
+<!--chapter:end:06-LoanPurpose.Rmd-->
+
+# Visualizing Defaulted Loans
+
+
+## Plotting Defaults by Time to the Last Payment   
+
+To start understanding the defaults, I plotted the relationship between the time to default and the amount of principal repaid.  The x axis is the number of days between the last payment and the day the loan was issued. The y axis the percent of loans that have defaulted.
+
+The relationship should be linear.  You'd expect the lender to consistenly payback principle as they make payments until they eventually default. The interesting part of the chart, then, is how far up the curve the lender was before making its last payment. 
+
+```{r}
+# plot1<- LoanData %>%
+#     filter(loan_status == "Charged Off") %>%
+#     mutate(PR = total_rec_prncp/funded_amnt,
+#            DaysToDefault = as.Date(last_pymnt_d)-as.Date(issue_d)) %>%
+#     select(PR, DaysToDefault, term) %>%
+#     ggplot +
+#     aes(x=DaysToDefault, y=PR, group=term, color= term) +
+#     geom_point(size=.5, alpha=.05) +
+#     facet_grid(term~., scales="free")+
+#     geom_smooth() +
+#     theme_LC() +
+#     labs(x="Days To Last Payment",
+#          y="Payback Ratio")
+
+LoanData %>%
+    filter(loan_status == "Charged Off") %>%
+    mutate(DaysToDefault = as.Date(last_pymnt_d)-as.Date(issue_d)) %>%
+	group_by(term, DaysToDefault) %>%
+	summarise(N=n()) %>%
+	mutate(cum=cumsum(N),
+		   Pct= cum/sum(N)) %>%
+    ggplot +
+    aes(x=DaysToDefault, y=Pct, group=term, color= term) +
+    geom_line() +
+    theme_LC() +
+    labs(x="Days Until Last Payment",
+         y="Cumulative loans defaulted")
+
+```
+
+Taking a closer look at the 3 year loans, I've broken out the cumulative defaults by grade.  As expected, the lower grade loans (G) are defaulting faster than the higher grade (A). One interesting observatin is that the grades move in pairs. The paths A and B grade loans take are very similar.  The paths of C and D grade loans are very similar and the same again for E & F grade loans.  If these pairs have similar default paths but different interest rates, then investing in the lower grade note could be a form of arbitration.  
+
+```{r}
+LoanData %>%
+    filter(loan_status == "Charged Off",
+    	   term ==36) %>%
+    mutate(DaysToDefault = as.Date(last_pymnt_d)-as.Date(issue_d)) %>%
+	group_by(term, grade, DaysToDefault) %>%
+	summarise(N=n()) %>%
+	mutate(cum=cumsum(N),
+		   Pct= cum/sum(N)) %>%
+    ggplot +
+    aes(x=DaysToDefault, y=Pct, group=grade, color= grade) +
+    geom_line() +
+	# facet_wrap(~term) +
+    theme_LC() +
+    labs(x="Days Until Last Payment",
+         y="Cumulative loans defaulted")
+
+
+```
+
+
+<!--chapter:end:07-Defaults.Rmd-->
+
+# Pricing Loans
+## Naive Model
+### Using the Present Value of Expected Cash Flow
+
+
+### Calculate Number of Payments Made
+```{r}
+head(LoanData$out_prncp)
+head(LoanData$loan_status)
+
+```
+
+
+### Present Value of Expected Payments   
+
+
+### Risk Weighted Assets Approach (RWA)
+
+Use Basel defined methods for measuring capital for risk management.
+
+#### Simple Approach 
+
+Assets are weighted by risk ratios given by regulators. Multiply the principal amount by the given risk ratio.  Since there are no regulators defining risk ratios at the loan level, we'll need to translate this macro economic approach to our micro-economic note environment.  Risk ratings can be determined simply by calculating default percentages by grade or other factor.  
+
+```{r, defaultrates}
+
+LoanData$issue_month<- sapply(strsplit(as.character(LoanData$issue_d),"-"), function(x) x[[2]])
+
+LoanData %>%
+    group_by(issue_d, Class) %>%
+    summarize(N=n()) %>%
+    mutate(Share= N/sum(N)) %>%
+    select(-N) %>%
+    filter(Class == "A") %>%
+    ggplot +
+    aes(x=issue_d, y=Share) +
+    geom_line() +
+    geom_hline(aes(yintercept=.82), colour="red") +
+    geom_hline(aes(yintercept=.75), colour="red") +
+    labs(x="Issue Date",
+         y= "Loans Performinge") +
+    theme_LC()
+
+```
+
+The proportion of performing loans, or non-defaulting loans, increases quickly in Lending Club's early years until it starts to stabilize with notes issued in 2009. From 2009-2011 the rate levels off but with a lot of variance - it oscillates between 75% and 82%. Then, in 2011 the loan performance rate makes a marked improvement to 87% and generally stays above the previous maximum of 82%.  As of writing, loans issued in 2015 or later have not yet fully matured.  Additional defaults may occur during that time which would decrease the average default rate.  This should be expected in loans issued less than 3 years ago as additional notes will default with time.
+
+
+To apply the simple method, we would value the current note using the expected default rate.  This works at the loan or portfolio basis because we're assuming all loans have the same default risk rate.
+
+In application in valuing note currently in your portfolio, we'd multiply the principle by 87% and use that at the loan value.  In a purchasing decision, we'd multiply the expected returns from the loan by 87% and evaluate whether we want the invest the purchase price in the offer- either $25 intial offering or the folio market price.  
+
+#### Advanced Method
+
+<!--chapter:end:08-Pricing.Rmd-->
+

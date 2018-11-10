@@ -1,2 +1,0 @@
-### Package Version
-The analysis was based on LendingClubData version `r packageVersion("LendingClubData")` dated `r packageDescription("LendingClubData", fields = "Date")`.

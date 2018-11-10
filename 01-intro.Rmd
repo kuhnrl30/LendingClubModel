@@ -1,0 +1,55 @@
+# Introduction {#intro}
+
+```{r environment}
+library(dplyr)
+library(LendingClubData)
+library(ggplot2)
+library(scales)
+library(tidyr)
+library(ggridges)
+library(gridExtra)
+library(here)
+```
+
+## Research Questions
+The objective of this research is to determine the strategy which optimizes the ratio of investor income to risk.  An investment can be viewed as a fair exchange transaction:  An investor purchases debt in exchange for the expected cash flow to include interest payments. The expected cash flow assumes a level of risk that the borrower will default. As the risk of default increases, the investor will expect greater interest income to compensate for the risk.
+
+The price of these P2P loans is generally fixed in $25 increments but the interest rates are variable.  The initial interest rate (price) is set by LC's determination of the borrower's default risk.  On the secondary market, the yield on the loan includes the interest payments from LC's credit scoring model plus the seller's markup adjustment for their perceived risk score.  In order to optimize the ratio of income to risk, I will have to find areas in these two pricing models which overprice borrower's risk.  In other words: The interest rate is set higher than the default risk warrants. 
+
+On the journey towards the over arching objective, I have these interim questions to answer:
+
+
+1. Can we identify over priced default risk by using more than just the intuitive features such as FICO score and debt-to-income and thereby increase profitability?
+
+2. Can we determine the market price of a loan after issuance (secondary market)?  Use the listings on the secondary market to develop a pricing guide or tool? 
+    - Can market price be determined from the secondary market listings?  Take regular downloads of the market and look for time until sale.  
+    - Can the typical consumer price their loans to market value? Is there a random walk around the true price point for given attributes/risk factors? Is there an opportunity for arbitration?
+
+2. Can we estimate the value a loan on the secondary market and build a pricing model such that: Value = PV of cash flow discounted for default risk and market data asymmetry.  Influences are expected cash flow driven by default rates/ survival analysis; present value driven by investor requirements or IRR; general discount as the buyer doesn't know why you are selling so feels lack of trust (constant?).
+
+3. Can we leverage the latest fraud research to identify over stated income and replace with an estimated true amount to feed the model?
+
+4. How does Basel II Probability of default definitions apply?  Can any prior research and precedents be applied?
+
+
+## Starting Assumptions
+
+To start off, this analysis makes a few assumptions about how to classify loans. 
+
+1. Current and loans in the grace period are classified as current (A) and all other loans have been classified as defaulted (B).  Some of those late loans will be made current it's not a likely action. Contrarily, some of the loans in the grace period will go into default. 
+
+2. No filters have been applied to the dataset.  All loans, including those which not yet matured, are included in the data. While this may be useful for data about originations, it will require consideration when interpreting default rates.  
+
+## Random Sampling
+
+The historical loan data has well over 1 million lonas in the
+```{r}
+LoanData<- LendingClubData::IssuedLoans(2007:2017) %>%
+  mutate(Class = SetClass(loan_status)) %>%
+  sample_n(200000)
+```
+
+
+## Package Version
+
+The analysis was based on LendingClubData version `r packageVersion("LendingClubData")` dated `r packageDescription("LendingClubData", fields = "Date")`.

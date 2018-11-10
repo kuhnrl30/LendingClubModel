@@ -1,0 +1,30 @@
+# Annual Income
+
+
+### Annual Income 
+```{r}
+b<- ggplot(LoanData)
+b<- b + aes(y=annual_inc, x=Class, colour=Class)
+b<- b + geom_boxplot(outlier.colour = "red")
+b<- b + labs(title="Distribution of Annual Income by default status")
+b<- b + theme_LC()
+b
+rm(b)
+```
+
+Clearly we get a better picture if we narrow the range of values.  I'll set a maximum income level of 250,000 so that we see less of the outlines and more of the more dense areas.  There are only 12K loans with incomes greater than $250K which is approximately 1% of the total number of loans. 
+
+```{r}
+# knitr::kable(table(LoanData$annual_inc>250000))
+LoanData$annual_inc<- ifelse(LoanData$annual_inc>250000,250000,LoanData$annual_inc)
+```
+```{r, fig.height=6}
+b<- ggplot(LoanData)
+b<- b + aes(annual_inc, group=Class, colour=Class)
+b<- b + geom_density()
+b<- b + facet_grid(grade~.)
+b<- b + labs(title="Distribution of Annual Income by default status")
+b<- b + theme_LC()
+b
+rm(b)
+```

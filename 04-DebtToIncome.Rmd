@@ -1,0 +1,61 @@
+# Debt to Income Ratio
+
+
+### Debt-to-Income Ratio  
+
+Lending Club sets a upper limit of 0.5 debt to income ratio.  There are a few points in the dataset above that limit but they are very clearly outliers.  For this analysis, I've set those values at the limit of 50.
+
+
+```{r}
+LoanData[which(LoanData$dti>50),"dti"]<- 50
+
+ggplot(LoanData) + 
+    aes(Class, dti, fill= Class) + 
+    geom_boxplot() + 
+    coord_flip() +
+    labs(title="Distribution of DTI by default status") + 
+    theme_LC()
+```
+
+
+```{r}
+a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
+a<- a + aes(x=Year, y=dti)
+a<- a + geom_violin(fill = "grey80", draw_quantiles = c(0.5))
+a<- a + labs(title="Distribution of DTI by Year")
+a<- a + theme_LC()
+a
+rm(a)
+```
+
+The chart above shows that the average DTI ratio has increased since 2011. That average had been fairly consistent from 2008 through 2011. It appears that that LC tightened their credit standards in lite of the global recession and then started to relax standards in 2012
+
+>Question: Does the trend in DTI indicate the borrower mix has changed with time? Is this driven by a change in applicants or a change in credit approval models?
+
+
+```{r, fig.height=8}
+a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
+a<- a + aes(x=Year, y=dti, fill=grade)
+a<- a + geom_violin(draw_quantiles = c(0.5))
+a<- a + facet_wrap(~grade, ncol=2)
+a<- a + labs(title="Distribution of DTI by year and grade")
+a<- a + theme_LC()
+a
+rm(a)
+```
+
+```{r, fig.height=6}
+# b<- LoanData %>%
+#     group_by(grade, Class) %>%
+#     summarize(write_mean= mean(dti))
+# 
+a<- ggplot(LoanData %>% mutate(Year= format(issue_d,"%Y")))
+a<- a + aes(x=Class, y=dti, fill=Class)
+a<- a + facet_wrap(~Year)
+a<- a + geom_violin(draw_quantiles = c(0.5))
+a<- a + labs(title="Distribution of DTI by default status and year")
+a<- a + theme_LC()
+a
+rm(a)
+```     
+  

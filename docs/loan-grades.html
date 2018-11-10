@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lending Club Model</title>
+  <meta name="description" content="This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform. It’s continually under development.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Lending Club Model" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform. It’s continually under development." />
+  <meta name="github-repo" content="kuhnrl30/LendingClubModel" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lending Club Model" />
+  
+  <meta name="twitter:description" content="This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform. It’s continually under development." />
+  
+
+<meta name="author" content="Ryan Kuhn, CPA">
+
+
+<meta name="date" content="2018-11-05">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="loan-amounts.html">
+<link rel="next" href="methods.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lending Club Model</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#research-questions"><i class="fa fa-check"></i><b>1.1</b> Research Questions</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#starting-assumptions"><i class="fa fa-check"></i><b>1.2</b> Starting Assumptions</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#package-version"><i class="fa fa-check"></i><b>1.3</b> Package Version</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="loan-amounts.html"><a href="loan-amounts.html"><i class="fa fa-check"></i><b>2</b> Loan Amounts</a><ul>
+<li class="chapter" data-level="2.1" data-path="loan-amounts.html"><a href="loan-amounts.html#analyzing-the-loan-amount"><i class="fa fa-check"></i><b>2.1</b> Analyzing the Loan Amount</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="loan-grades.html"><a href="loan-grades.html"><i class="fa fa-check"></i><b>3</b> Loan Grades</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="loan-grades.html"><a href="loan-grades.html#loan-distribution-by-grade"><i class="fa fa-check"></i><b>3.0.1</b> Loan Distribution by Grade</a></li>
+<li class="chapter" data-level="3.0.2" data-path="loan-grades.html"><a href="loan-grades.html#distribution-by-year"><i class="fa fa-check"></i><b>3.0.2</b> Distribution by Year</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="debt-to-income-ratio.html"><a href="debt-to-income-ratio.html"><i class="fa fa-check"></i><b>5</b> Debt to Income Ratio</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="debt-to-income-ratio.html"><a href="debt-to-income-ratio.html#debt-to-income-ratio-1"><i class="fa fa-check"></i><b>5.0.1</b> Debt-to-Income Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="annual-income.html"><a href="annual-income.html"><i class="fa fa-check"></i><b>6</b> Annual Income</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="annual-income.html"><a href="annual-income.html#annual-income-1"><i class="fa fa-check"></i><b>6.0.1</b> Annual Income</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="loan-purpose.html"><a href="loan-purpose.html"><i class="fa fa-check"></i><b>7</b> Loan Purpose</a></li>
+<li class="chapter" data-level="8" data-path="visualizing-defaulted-loans.html"><a href="visualizing-defaulted-loans.html"><i class="fa fa-check"></i><b>8</b> Visualizing Defaulted Loans</a><ul>
+<li class="chapter" data-level="8.1" data-path="visualizing-defaulted-loans.html"><a href="visualizing-defaulted-loans.html#plotting-defaults-by-time-to-the-last-payment"><i class="fa fa-check"></i><b>8.1</b> Plotting Defaults by Time to the Last Payment</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="pricing-loans.html"><a href="pricing-loans.html"><i class="fa fa-check"></i><b>9</b> Pricing Loans</a><ul>
+<li class="chapter" data-level="9.1" data-path="pricing-loans.html"><a href="pricing-loans.html#naive-model"><i class="fa fa-check"></i><b>9.1</b> Naive Model</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="pricing-loans.html"><a href="pricing-loans.html#using-the-present-value-of-expected-cash-flow"><i class="fa fa-check"></i><b>9.1.1</b> Using the Present Value of Expected Cash Flow</a></li>
+<li class="chapter" data-level="9.1.2" data-path="pricing-loans.html"><a href="pricing-loans.html#calculate-number-of-payments-made"><i class="fa fa-check"></i><b>9.1.2</b> Calculate Number of Payments Made</a></li>
+<li class="chapter" data-level="9.1.3" data-path="pricing-loans.html"><a href="pricing-loans.html#present-value-of-expected-payments"><i class="fa fa-check"></i><b>9.1.3</b> Present Value of Expected Payments</a></li>
+<li class="chapter" data-level="9.1.4" data-path="pricing-loans.html"><a href="pricing-loans.html#risk-weighted-assets-approach-rwa"><i class="fa fa-check"></i><b>9.1.4</b> Risk Weighted Assets Approach (RWA)</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/kuhnrl30/LendingClubModel" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lending Club Model</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loan-grades" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Loan Grades</h1>
+<div id="loan-distribution-by-grade" class="section level3">
+<h3><span class="header-section-number">3.0.1</span> Loan Distribution by Grade</h3>
+<table>
+<caption><span id="tab:unnamed-chunk-6">Table 3.1: </span>Distribution by Loan Grade</caption>
+<thead>
+<tr class="header">
+<th align="left">Grade</th>
+<th align="right">Total</th>
+<th align="right">Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">272,724</td>
+<td align="right">0.17</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">485,360</td>
+<td align="right">0.29</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">490,784</td>
+<td align="right">0.30</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">237,512</td>
+<td align="right">0.14</td>
+</tr>
+<tr class="odd">
+<td align="left">E</td>
+<td align="right">111,961</td>
+<td align="right">0.07</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">37,411</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="odd">
+<td align="left">G</td>
+<td align="right">11,026</td>
+<td align="right">0.01</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Consolidated-book_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>There are 1,646,778 loans in the dataset and the median loan grade level is C. We can further describe this distribution using skewness and kurtosis. From the chart we can say that the data is skewed towards the lower loan grades and that the lower grade tail is fatter than the higher grade tail. This is inherently true beacause the max grade is A and you cannot have a tail with values greater than A.</p>
+<p>Kurtosis is a description of the shape or peaked-ness of the curve. The kurtosis score for this distribution is 0.2176329. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution. Again, this makes sense intuitively because there are only 7 possible grades. This poses an upper and lower constraint on the loans effectively eliminating extreme outliers.</p>
+</div>
+<div id="distribution-by-year" class="section level3">
+<h3><span class="header-section-number">3.0.2</span> Distribution by Year</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Year</th>
+<th align="right">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2007</td>
+<td align="right">603</td>
+</tr>
+<tr class="even">
+<td align="left">2008</td>
+<td align="right">2,393</td>
+</tr>
+<tr class="odd">
+<td align="left">2009</td>
+<td align="right">5,281</td>
+</tr>
+<tr class="even">
+<td align="left">2010</td>
+<td align="right">12,537</td>
+</tr>
+<tr class="odd">
+<td align="left">2011</td>
+<td align="right">21,721</td>
+</tr>
+<tr class="even">
+<td align="left">2012</td>
+<td align="right">53,367</td>
+</tr>
+<tr class="odd">
+<td align="left">2013</td>
+<td align="right">134,814</td>
+</tr>
+<tr class="even">
+<td align="left">2014</td>
+<td align="right">235,629</td>
+</tr>
+<tr class="odd">
+<td align="left">2015</td>
+<td align="right">421,095</td>
+</tr>
+<tr class="even">
+<td align="left">2016</td>
+<td align="right">434,407</td>
+</tr>
+<tr class="odd">
+<td align="left">2017</td>
+<td align="right">324,931</td>
+</tr>
+</tbody>
+</table>
+<p>The number of loans issued has grown significantly since 2007. In fact the growth rate from 2007 to 2016 was 26% however growth has leveled off since 2015 to only 3%.</p>
+<blockquote>
+<p>QUESTION: Why has growth slowed in the past year? Does this signal a change in the borrower mix and would that affect default rates?</p>
+</blockquote>
+<blockquote>
+<p>QUESTION: 2017 Q1 run rate is less than 2016 full year loan count. Is there a seasonal trend to loan issuance?</p>
+</blockquote>
+<table>
+<caption><span id="tab:unnamed-chunk-9">Table 3.2: </span>Distribution by Loan Grade and Year</caption>
+<thead>
+<tr class="header">
+<th align="left">grade</th>
+<th align="right">2007</th>
+<th align="right">2008</th>
+<th align="right">2009</th>
+<th align="right">2010</th>
+<th align="right">2011</th>
+<th align="right">2012</th>
+<th align="right">2013</th>
+<th align="right">2014</th>
+<th align="right">2015</th>
+<th align="right">2016</th>
+<th align="left">2017</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">0.13</td>
+<td align="right">0.13</td>
+<td align="right">0.23</td>
+<td align="right">0.23</td>
+<td align="right">0.26</td>
+<td align="right">0.20</td>
+<td align="right">0.13</td>
+<td align="right">0.15</td>
+<td align="right">0.17</td>
+<td align="right">0.16</td>
+<td align="left">0.17</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">0.16</td>
+<td align="right">0.25</td>
+<td align="right">0.27</td>
+<td align="right">0.29</td>
+<td align="right">0.30</td>
+<td align="right">0.35</td>
+<td align="right">0.33</td>
+<td align="right">0.26</td>
+<td align="right">0.28</td>
+<td align="right">0.31</td>
+<td align="left">0.30</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">0.23</td>
+<td align="right">0.24</td>
+<td align="right">0.26</td>
+<td align="right">0.22</td>
+<td align="right">0.18</td>
+<td align="right">0.22</td>
+<td align="right">0.28</td>
+<td align="right">0.28</td>
+<td align="right">0.29</td>
+<td align="right">0.30</td>
+<td align="left">0.35</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">0.16</td>
+<td align="right">0.18</td>
+<td align="right">0.15</td>
+<td align="right">0.15</td>
+<td align="right">0.13</td>
+<td align="right">0.14</td>
+<td align="right">0.15</td>
+<td align="right">0.18</td>
+<td align="right">0.15</td>
+<td align="right">0.14</td>
+<td align="left">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">E</td>
+<td align="right">0.17</td>
+<td align="right">0.12</td>
+<td align="right">0.06</td>
+<td align="right">0.08</td>
+<td align="right">0.08</td>
+<td align="right">0.06</td>
+<td align="right">0.07</td>
+<td align="right">0.09</td>
+<td align="right">0.08</td>
+<td align="right">0.06</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">0.09</td>
+<td align="right">0.05</td>
+<td align="right">0.02</td>
+<td align="right">0.02</td>
+<td align="right">0.03</td>
+<td align="right">0.02</td>
+<td align="right">0.03</td>
+<td align="right">0.03</td>
+<td align="right">0.02</td>
+<td align="right">0.02</td>
+<td align="left">0.02</td>
+</tr>
+<tr class="odd">
+<td align="left">G</td>
+<td align="right">0.06</td>
+<td align="right">0.04</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="left">0.01</td>
+</tr>
+</tbody>
+</table>
+<p>Grade A loans reached its peak share of the loan distribution in 2011. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades.</p>
+<blockquote>
+<p>QUESTION: Is this grade mix due to a change in the scoring model or the applicant pool?</p>
+</blockquote>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="loan-amounts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/kuhnrl30/LendingClubModel03-LoanGrades.Rmd",
+"text": "Edit"
+},
+"download": ["Consolidated-book.pdf", "Consolidated-book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
