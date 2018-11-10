@@ -1,0 +1,66 @@
+# Analysis  
+## Loan Grades
+
+
+### Loan Distribution by Grade
+
+```{r}
+LoanData %>%
+    group_by(grade) %>%
+    summarize(Total= n()) %>%
+    mutate(Proportion= Total/sum(Total)) %>%
+    knitr::kable(align=c('l','r','r'),
+                 digits=c(0,0,2),
+                 caption= "Distribution by Loan Grade",
+                 format.args = list(big.mark=','),
+                 col.names = c("Grade","Total","Proportion"))
+```
+
+```{r, fig.align='right', fig.show='hold', fig.align='center', class.output='aligns'}
+ggplot(LoanData) +
+    aes(x= factor(grade)) +
+    geom_histogram(stat="count") +
+    labs(x= "Loan Grade") +
+    theme_LC()
+```
+
+There are `r format(nrow(LoanData),big.mark=",")` loans in the dataset and the median loan grade level is `r LETTERS[median(as.numeric(factor(LoanData$grade)))]`. We can further describe this distribution using skewness and kurtosis.  From the chart we can say that the data is skewed towards the lower loan grades and that the lower grade tail is fatter than the higher grade tail.  This is inherently true beacause the max grade is A and you cannot have a tail with values greater than A.  
+
+Kurtosis is a description of the shape or peaked-ness of the curve. The kurtosis score for this distribution is `r e1071::kurtosis(as.numeric(factor(LoanData$grade)))`. For comparison, the normal distribution has a score of 3.0. We can interpret the comparison to say our issued loan distribution produces fewer and less extreme outliers than the normal distribution.  Again, this makes sense intuitively because there are only 7 possible grades.  This poses an upper and lower constraint on the loans effectively eliminating extreme outliers. 
+
+### Distribution by Year  
+
+```{r}
+LoanData %>%
+    mutate(Year= format(issue_d,"%Y")) %>%
+    group_by(Year) %>%
+    summarise(N=n()) %>%
+    knitr::kable(format.args = list(big.mark=","),
+                 align=c("l","r"),
+                 col.names=c("Year","Count"))
+```
+
+
+The number of loans issued has grown significantly since 2007.  In fact the growth rate from 2007 to 2016 was `r round(CAGR(42535,434407,10),2)*100`% however growth has leveled off since 2015 to only `r round(434407/421095,2)*100-100`%. 
+
+> QUESTION: Why has growth slowed in the past year? Does this signal a change in the borrower mix and would that affect default rates?
+
+> QUESTION: 2017 Q1 run rate is less than 2016 full year loan count. Is there a seasonal trend to loan issuance?
+
+```{r}
+LoanData %>%
+    mutate(Year= format(issue_d,"%Y")) %>%
+    group_by(Year, grade) %>%
+    summarize(N=n()) %>%
+    mutate(share= round(N/sum(N),2)) %>%
+    select(-N) %>%
+    spread(key=Year, value=share) %>%
+    knitr::kable(format.args= list(big.mark=","),
+                 caption= "Distribution by Loan Grade and Year",
+                 align= c("l","r","r","r","r","r","r","r","r","r","r"))
+```
+
+Grade A loans reached its peak share of the loan distribution in 2011. We can see from the change between 2011 and 2013 that the share had shifted towards the B and C grades. 
+
+> QUESTION: Is this grade mix due to a change in the scoring model or the applicant pool? 
+

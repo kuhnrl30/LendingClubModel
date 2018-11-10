@@ -9,6 +9,23 @@ bibliography: [bibliographies.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: kuhnrl30/LendingClubModel
-description: "This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform.  It's continually under development."
+description: "This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform."
 ---
 
+```{r environmeny, echo=F}
+options(scipen = 6)
+knitr::opts_chunk$set(cache=FALSE, fig.height=3, fig.width = 7, comment=NULL, eval=T, tidy=F, width=80, message= FALSE, echo= FALSE, warning = FALSE)
+
+library(dplyr)
+library(LendingClubData)
+library(ggplot2)
+library(scales)
+library(tidyr)
+library(ggridges)
+library(gridExtra)
+library(here)
+``````
+
+# Introduction {#intro}
+
+This site is my workbench for developing a model to evaluate and choose which loans to invest on the Lending Club platform.  It's continually under development.
